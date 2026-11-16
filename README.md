@@ -1,163 +1,108 @@
 
 <div align="center">
 
-# Olá, eu sou a Ana Laura Agostinho!
+# Ana Laura Agostinho
 
-### Estudante de Sistemas de Informação | Tecnologia e Inovação
+### Personal Portfolio | GitHub Pages
 
-📍 Porto Alegre, RS
+Portfólio pessoal desenvolvido para apresentar minha trajetória acadêmica e profissional, habilidades técnicas, experiências e projetos na área de Tecnologia da Informação.
 
-<a href="https://linkedin.com/in/analauraagostinho">
-  <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
-</a>
+<br>
+
+![Portfolio](https://img.shields.io/badge/Portfolio-Online-3FA110?style=flat-square)
+![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-181717?style=flat-square&logo=github&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
 
 </div>
 
 ---
 
-## Sobre Mim
+## Sobre o Portfólio
 
-Sou estudante de **Sistemas de Informação na PUCRS** e atualmente atuo como estagiária em **Digital Workplace no Sicredi**.
+Este projeto reúne informações sobre minha trajetória em Tecnologia da Informação, desde a formação acadêmica até minhas experiências profissionais.
 
-Tenho interesse em desenvolvimento de software, inteligência artificial, análise de dados e automação de processos. Busco constantemente ampliar meus conhecimentos e explorar como a tecnologia pode contribuir para a criação de soluções inovadoras, eficientes e que gerem impacto positivo.
+O portfólio foi pensado para proporcionar uma navegação simples, moderna e responsiva, com uma identidade visual minimalista.
 
----
+## Seções do Site
 
-## Experiência Profissional
+**Sobre Mim**  
+Apresentação pessoal, interesses e objetivos profissionais.
 
-<div align="left">
+**Experiência Profissional**  
+Trajetória no Centro Administrativo Sicredi e na Dell Technologies, com destaque para atividades relacionadas à tecnologia, análise de dados, automação e processos operacionais.
 
-### <img src="https://img.shields.io/badge/SICREDI-3FA110?style=flat-square&logoColor=white" alt="Sicredi" />
+**Formação Acadêmica**  
+Formação em Sistemas de Informação na PUCRS, Técnico em Informática pelo IFSP e estudos em Ciência de Dados e Inteligência Artificial na UNISO.
 
-**Estágio em Digital Workplace**  
-<sub>Julho de 2026 — Atualmente</sub>
+**Habilidades Técnicas**  
+Tecnologias, linguagens de programação e conhecimentos desenvolvidos durante minha trajetória.
 
-Atuação em soluções tecnológicas para o ambiente corporativo, com foco na melhoria da experiência digital dos colaboradores e na otimização de processos. Atuo na análise de dados e indicadores da equipe, automação de chamados e otimização de fluxos de trabalho e no apoio à melhoria contínua dos serviços de TI.
+**Cursos e Certificações**  
+Formações complementares no Instituto Caldeira e na Apple Developer Academy — Instituto Eldorado.
 
-`Análise de Dados` `Automação` `Melhoria Contínua`
+**Projetos**  
+Espaço dedicado à apresentação de projetos acadêmicos e pessoais.
 
-<br>
-
-### <img src="https://img.shields.io/badge/DELL_TECHNOLOGIES-007DB8?style=flat-square&logo=dell&logoColor=white" alt="Dell Technologies" />
-
-**Estágio em Vendas de Serviços**  
-<sub>Fevereiro de 2026 — Julho de 2026</sub>
-
-Atuação no suporte a processos operacionais de vendas, com foco na conformidade das operações com as normas e exigências da Receita Federal, além do suporte às rotinas e aos processos internos.
-
-`Processos Operacionais` `Compliance`
-
-</div>
+**Contato**  
+Links para minhas redes profissionais.
 
 ---
 
-## Formação Acadêmica
-
-<div align="left">
-
-### <img src="https://img.shields.io/badge/PUCRS-00529B?style=flat-square&logoColor=white" alt="PUCRS" />
-
-**Bacharelado em Sistemas de Informação**  
-<sub>Agosto de 2025 — Dezembro de 2028 | Em andamento</sub>
-
-Formação voltada ao desenvolvimento de software, análise de sistemas, bancos de dados e gestão da tecnologia da informação, integrando conhecimentos técnicos e de negócios para o desenvolvimento de soluções digitais.
-
-`Desenvolvimento de Software` `Sistemas de Informação` `Banco de Dados`
-
-<br>
-
-### <img src="https://img.shields.io/badge/IFSP-2E7D32?style=flat-square&logoColor=white" alt="IFSP" />
-
-**Técnico em Informática**  
-<sub>Janeiro de 2022 — Dezembro de 2023 | Concluído</sub>
-
-Formação técnica com foco em programação, desenvolvimento de sistemas, bancos de dados e fundamentos de infraestrutura computacional, proporcionando uma base teórica e prática em tecnologia da informação.
-
-`Programação` `Desenvolvimento de Sistemas` `Infraestrutura`
-
-<br>
-
-### <img src="https://img.shields.io/badge/UNISO-17468F?style=flat-square&logoColor=white" alt="UNISO" />
-
-**Bacharelado em Ciência de Dados e Inteligência Artificial**  
-<sub>Agosto de 2024 — Julho de 2025 | Não concluído</sub>
-
-Estudos voltados aos fundamentos da ciência de dados, programação, análise de informações e inteligência artificial, contribuindo para a ampliação dos conhecimentos em tecnologias orientadas a dados.
-
-`Ciência de Dados` `Inteligência Artificial` `Análise de Dados`
-
-</div>
-
----
-
-## Habilidades Técnicas
+## Tecnologias
 
 <div align="center">
 
-**Linguagens de Programação**
-
-<br>
-
-<img src="https://skillicons.dev/icons?i=python,java,php,dart&theme=light" alt="Python, Java, PHP e Dart" />
-
-<br><br>
-
-**Desenvolvimento Web e Banco de Dados**
-
-<br>
-
-<img src="https://skillicons.dev/icons?i=html,css,mysql&theme=light" alt="HTML, CSS e MySQL" />
-
-<br><br>
-
-**Outros Conhecimentos**
-
-`Integração de APIs` `Automação de Processos` `Análise de Dados`
+<img src="https://skillicons.dev/icons?i=html,css,js&theme=light" alt="HTML, CSS e JavaScript" />
 
 </div>
 
 ---
 
-## Cursos e Certificações
+## Estrutura do Projeto
 
-<div align="left">
+```text
+portfolio/
+│
+├── index.html
+├── style.css
+├── script.js
+├── assets/
+│   └── images/
+│
+└── README.md
+```
 
-### <img src="https://img.shields.io/badge/INSTITUTO_CALDEIRA-F28C28?style=flat-square&logoColor=white" alt="Instituto Caldeira" />
+---
 
-**Geração Caldeira 2025 — IA e Dados**  
-<sub>Maio de 2025 — Dezembro de 2025</sub>
+## Como Executar
 
-Formação voltada à inteligência artificial, automação e análise de dados, com foco na aplicação de tecnologias para a resolução de problemas. Desenvolvimento de conhecimentos em tratamento e interpretação de dados, ferramentas de IA e otimização de processos por meio de soluções tecnológicas.
+1. Clone este repositório.
+2. Abra a pasta do projeto.
+3. Execute o arquivo `index.html` em um navegador.
 
-`Inteligência Artificial` `Análise de Dados` `Automação`
+## Publicação
 
-<br>
+O projeto foi estruturado para hospedagem gratuita utilizando o GitHub Pages.
 
-### <img src="https://img.shields.io/badge/APPLE_DEVELOPER_ACADEMY-333333?style=flat-square&logo=apple&logoColor=white" alt="Apple Developer Academy" />
+Para publicar:
 
-**Apple Developer Academy — Instituto Eldorado**  
-<sub>Janeiro de 2026</sub>
+1. Acesse as configurações do repositório.
+2. Navegue até **Settings > Pages**.
+3. Em **Build and deployment**, selecione **Deploy from a branch**.
+4. Selecione a branch `main` e a pasta `/ (root)`.
+5. Salve as configurações.
 
-Formação com foco no desenvolvimento de software e na exploração do ecossistema Apple, abrangendo conceitos de programação, criação de aplicações e desenvolvimento de soluções digitais.
+---
 
-`Desenvolvimento de Software` `Programação` `Apple Ecosystem`
+## Contato
 
-</div>
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/analauraagostinho)
 
 ---
 
 <div align="center">
 
-### Vamos nos conectar?
-
-Estou sempre aberta a compartilhar conhecimentos, conhecer novas tecnologias e trocar experiências com pessoas da área de TI.
-
-<a href="https://linkedin.com/in/analauraagostinho">
-  <img src="https://img.shields.io/badge/LinkedIn-Ana_Laura_Agostinho-0077B5?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn">
-</a>
-
-<br><br>
-
-<sub>Em constante aprendizado e evolução na área de tecnologia.</sub>
+<sub>Desenvolvido por Ana Laura Agostinho.</sub>
 
 </div>
