@@ -398,188 +398,7 @@
       color: var(--muted);
       margin-top: 32px;
     }
-
-    /* ==========================================
-       IDENTIDADE VISUAL ANIMADA
-    ========================================== */
-
-    .identity {
-      position: relative;
-      min-width: 0;
-    }
-
-    .identity::before {
-      content: "";
-      position: absolute;
-      inset: 12%;
-      background: #ac89ff22;
-      filter: blur(70px);
-      border-radius: 50%;
-    }
-
-    .identity-card {
-      position: relative;
-      overflow: hidden;
-
-      border: 1px solid var(--line);
-      border-radius: 24px;
-
-      background:
-        linear-gradient(
-          145deg,
-          var(--soft),
-          var(--surface)
-        );
-
-      padding: 25px;
-      transform: rotate(3deg);
-      transition: transform .5s;
-    }
-
-    .identity:hover .identity-card {
-      transform: rotate(0deg);
-    }
-
-    .identity-top,
-    .identity-bottom {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-
-      font-size: 9px;
-      letter-spacing: .12em;
-      color: var(--muted);
-    }
-
-    .identity-top b {
-      color: var(--accent);
-      font-weight: 500;
-    }
-
-    .orb {
-      position: relative;
-      width: 260px;
-      max-width: 100%;
-      aspect-ratio: 1;
-      margin: 28px auto;
-
-      display: grid;
-      place-items: center;
-    }
-
-    .orb::before {
-      content: "";
-      position: absolute;
-      inset: 12%;
-      border-radius: 50%;
-
-      background:
-        radial-gradient(
-          circle at 30% 25%,
-          #e8dfff,
-          #ad8bdb 38%,
-          #665386 70%,
-          #332640
-        );
-
-      box-shadow:
-        inset -10px -15px 28px #18102055,
-        0 0 70px #ab85ed20;
-
-      animation: float 7s ease-in-out infinite;
-    }
-
-    .monogram {
-      position: relative;
-      font-size: 86px;
-      font-weight: 750;
-      letter-spacing: -.09em;
-      color: #20182f;
-      transform: rotate(-9deg);
-    }
-
-    .orbit {
-      position: absolute;
-      inset: 0;
-      border: 1px solid var(--line);
-      border-radius: 50%;
-      animation: orbit 28s linear infinite;
-    }
-
-    .orbit::before {
-      content: "";
-      position: absolute;
-      top: 21px;
-      left: 34px;
-
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-
-      background: var(--mint);
-      box-shadow: 0 0 18px #b5edce55;
-    }
-
-    .orbit.second {
-      inset: -8%;
-      transform: rotateX(60deg) rotate(-20deg);
-      animation: none;
-      border-style: dashed;
-      opacity: .6;
-    }
-
-    .orbit.second::before {
-      display: none;
-    }
-
-    .floating-note {
-      position: absolute;
-      bottom: -28px;
-      left: 20px;
-
-      padding: 12px 18px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 10px;
-
-      box-shadow: 0 10px 30px #0002;
-      transform: rotate(-5deg);
-
-      font-size: 11px;
-      color: var(--mint);
-    }
-
-    @keyframes float {
-      50% {
-        transform: translateY(-8px);
-      }
-    }
-
-    @keyframes orbit {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    .ribbon {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 15px;
-
-      padding: 22px 0;
-      border-block: 1px solid var(--line);
-
-      font-size: 10px;
-      letter-spacing: .13em;
-      color: var(--muted);
-    }
-
-    .ribbon b {
-      color: var(--accent);
-      font-weight: 500;
-    }
-
+    
     /* ==========================================
        CONTEÚDO E CARDS
     ========================================== */
@@ -1202,8 +1021,6 @@
       }
     }
 
-    /* Respeita a preferência por movimento reduzido. */
-
     @media (prefers-reduced-motion: reduce) {
       html {
         scroll-behavior: auto;
@@ -1320,30 +1137,17 @@
       <div class="hero">
 
         <div>
-          <div class="eyebrow intro-label">
-            <span class="dot" aria-hidden="true"></span>
-            Tecnologia com propósito
-          </div>
 
           <h1>
             Ana Laura<br>
             <span>Agostinho.</span>
           </h1>
 
-          <p class="hero-lead">
-            Entre dados, ideias e soluções que fazem a diferença.
-          </p>
-
           <p class="hero-copy">
-            Estudante de Sistemas de Informação na PUCRS e
-            estagiária em Digital Workplace no Sicredi.
+            Estudante de Sistemas de Informação.
           </p>
 
           <div class="actions">
-            <a class="button primary" href="#diversos">
-              Explorar projetos
-              <span aria-hidden="true">↗</span>
-            </a>
 
             <a
               class="button"
@@ -1355,39 +1159,7 @@
               <span aria-hidden="true">↗</span>
             </a>
           </div>
-
-          <div class="hero-meta mono">
-            <span>PORTO ALEGRE, RS</span>
-            <span>APRENDER. CRIAR. EVOLUIR.</span>
-          </div>
         </div>
-
-        <div class="identity" aria-hidden="true">
-          <div class="identity-card">
-
-            <div class="identity-top mono">
-              <span>IDENTIDADE DIGITAL</span>
-              <b>AL / 01</b>
-            </div>
-
-            <div class="orb">
-              <div class="orbit"></div>
-              <div class="orbit second"></div>
-              <span class="monogram">al.</span>
-            </div>
-
-            <div class="identity-bottom mono">
-              <span>DADOS + CRIATIVIDADE</span>
-              <span>EM EVOLUÇÃO</span>
-            </div>
-
-          </div>
-
-          <div class="floating-note mono">
-            ideias → soluções reais
-          </div>
-        </div>
-
       </div>
 
       <div class="ribbon mono" aria-label="Áreas de interesse">
