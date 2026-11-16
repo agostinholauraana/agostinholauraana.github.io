@@ -1,579 +1,2373 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfólio de Ana Laura Agostinho">
+
+  <meta
+    name="description"
+    content="Ana Laura Agostinho: Sistemas de Informação, Digital Workplace, dados, automação e projetos."
+  >
+
+  <meta name="theme-color" content="#111016">
+
   <title>Ana Laura Agostinho | Portfólio</title>
 
   <style>
+    /* ==========================================
+       CORES E CONFIGURAÇÕES
+    ========================================== */
+
     :root {
-      --bg: #0d1117;
-      --surface: #161b22;
-      --border: #30363d;
-      --text: #e6edf3;
-      --muted: #8b949e;
-      --accent: #58a6ff;
+      color-scheme: dark;
+
+      --bg: #111016;
+      --surface: #19181f;
+      --soft: #201e29;
+
+      --text: #f4f1eb;
+      --muted: #b1aeba;
+      --line: #34313f;
+
+      --accent: #c0a8f5;
+      --mint: #b5edce;
+      --gold: #f1cf87;
+
+      --header: #111016e8;
+      --glow: #a78bfa10;
+      --ink: #201b2d;
+
+      --mono: ui-monospace, SFMono-Regular, Consolas, monospace;
     }
 
-    * { box-sizing: border-box; }
+    [data-theme="light"] {
+      color-scheme: light;
 
-    html { scroll-behavior: smooth; }
+      --bg: #f6f4f0;
+      --surface: #ffffff;
+      --soft: #eeebf3;
+
+      --text: #25212e;
+      --muted: #635d70;
+      --line: #d9d4e2;
+
+      --accent: #7250a5;
+      --mint: #276b4c;
+      --gold: #805b17;
+
+      --header: #f6f4f0ed;
+      --glow: #8b5cf610;
+      --ink: #ffffff;
+    }
+
+    /* ==========================================
+       BASE
+    ========================================== */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 125px;
+    }
 
     body {
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      font-family: system-ui, -apple-system, sans-serif;
-      line-height: 1.7;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      line-height: 1.65;
+      overflow-wrap: break-word;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+
+      background:
+        radial-gradient(
+          ellipse at 85% 10%,
+          var(--glow),
+          transparent 55%
+        );
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: var(--ink);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    a,
+    button {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 5px;
+    }
+
+    [hidden] {
+      display: none !important;
     }
 
     .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 0 24px;
+      width: min(1160px, 90%);
+      margin-inline: auto;
     }
 
-    header {
-      border-bottom: 1px solid var(--border);
-      background: var(--bg);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      padding-top: 18px !important;
-      padding-bottom: 18px !important;
-    }
-
-    .logo {
-      color: var(--accent);
-      font-size: 20px;
-      font-weight: 700;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-    }
-
-    .nav-links button {
-      background: transparent;
-      border: none;
+    p {
       color: var(--muted);
-      cursor: pointer;
-      font: inherit;
-      font-size: 14px;
-      padding: 6px 0;
+      margin: 0 0 18px;
     }
 
-    .nav-links button:hover,
-    .nav-links button.active {
-      color: var(--accent);
-    }
-
-    .nav-links button.active {
-      border-bottom: 2px solid var(--accent);
-    }
-
-    .tab-content { display: none; }
-
-    .tab-content.active {
-      display: block;
-      animation: fadeIn .3s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero { padding: 90px 0 75px; }
-
-    .eyebrow {
-      color: var(--accent);
-      font-weight: 600;
-      letter-spacing: 2px;
-      font-size: 13px;
-    }
-
-    h1 {
-      font-size: clamp(36px, 6vw, 64px);
+    h1,
+    h2,
+    h3,
+    h4 {
       line-height: 1.15;
-      margin: 16px 0;
+      margin: 0;
     }
 
     h2 {
-      font-size: 28px;
+      font-size: clamp(30px, 4vw, 44px);
+      letter-spacing: -.045em;
+    }
+
+    h3 {
+      font-size: 24px;
+      letter-spacing: -.025em;
+    }
+
+    .mono,
+    .eyebrow,
+    .section-no,
+    .date {
+      font-family: var(--mono);
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .skip {
+      position: fixed;
+      top: -100px;
+      left: 16px;
+      z-index: 100;
+      padding: 12px;
+      background: var(--surface);
+    }
+
+    .skip:focus {
+      top: 16px;
+    }
+
+    .progress {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 60;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+
+    /* ==========================================
+       MENU E ABAS
+    ========================================== */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+
+      background: var(--header);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      min-height: 88px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .brand-mark {
+      font-size: 29px;
+      font-weight: 800;
+      letter-spacing: -.09em;
+    }
+
+    .brand-mark span {
+      color: var(--accent);
+    }
+
+    .brand-name {
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 4px;
+      padding: 5px;
+      border: 1px solid var(--line);
+      border-radius: 100px;
+    }
+
+    .tab {
+      padding: 9px 18px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      white-space: nowrap;
+      transition: background .2s, color .2s;
+    }
+
+    .tab:hover {
+      color: var(--text);
+      background: var(--soft);
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--text);
+      color: var(--bg);
+    }
+
+    .theme-toggle {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    .theme-toggle svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    .page {
+      animation: enter .4s ease both;
+    }
+
+    @keyframes enter {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* ==========================================
+       APRESENTAÇÃO
+    ========================================== */
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      align-items: center;
+      gap: 60px;
+      padding: 90px 0 78px;
+    }
+
+    .intro-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       margin-bottom: 25px;
     }
 
-    h3 { margin: 0 0 6px; }
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--mint);
+      box-shadow: 0 0 0 5px #a9e9c910;
+      flex-shrink: 0;
+    }
 
-    p { color: var(--muted); }
+    .hero h1 {
+      font-size: clamp(54px, 7.2vw, 92px);
+      font-weight: 650;
+      letter-spacing: -.075em;
+      line-height: .99;
+      margin-bottom: 26px;
+    }
 
-    .hero p {
-      max-width: 650px;
-      font-size: 18px;
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero-lead {
+      font-size: 20px;
+      color: var(--text);
+      letter-spacing: -.02em;
+      max-width: 440px;
+    }
+
+    .hero-copy {
+      max-width: 460px;
+      font-size: 14px;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
     }
 
     .button {
-      display: inline-block;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+
+      padding: 13px 20px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+
+      font-size: 13px;
+      font-weight: 650;
+      background: transparent;
+
+      transition: transform .2s, background .2s;
+    }
+
+    .button.primary {
       background: var(--accent);
-      color: var(--bg);
-      padding: 11px 22px;
-      border-radius: 7px;
-      font-weight: 600;
-      text-decoration: none;
-      margin-top: 20px;
+      border-color: var(--accent);
+      color: var(--ink);
     }
 
-    .button:hover { opacity: .85; }
-
-    section {
-      padding: 60px 0;
-      border-top: 1px solid var(--border);
+    .button:hover {
+      transform: translateY(-3px);
+      background: var(--soft);
     }
 
-    .page-header {
-      padding: 65px 0 35px;
+    .button.primary:hover {
+      background: var(--accent);
+      box-shadow: 0 7px 26px var(--glow);
     }
 
-    .page-header h1 {
-      font-size: clamp(30px, 5vw, 46px);
+    .hero-meta {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 32px;
     }
 
-    .page-header p { max-width: 650px; }
+    /* ==========================================
+       IDENTIDADE VISUAL ANIMADA
+    ========================================== */
+
+    .identity {
+      position: relative;
+      min-width: 0;
+    }
+
+    .identity::before {
+      content: "";
+      position: absolute;
+      inset: 12%;
+      background: #ac89ff22;
+      filter: blur(70px);
+      border-radius: 50%;
+    }
+
+    .identity-card {
+      position: relative;
+      overflow: hidden;
+
+      border: 1px solid var(--line);
+      border-radius: 24px;
+
+      background:
+        linear-gradient(
+          145deg,
+          var(--soft),
+          var(--surface)
+        );
+
+      padding: 25px;
+      transform: rotate(3deg);
+      transition: transform .5s;
+    }
+
+    .identity:hover .identity-card {
+      transform: rotate(0deg);
+    }
+
+    .identity-top,
+    .identity-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+
+      font-size: 9px;
+      letter-spacing: .12em;
+      color: var(--muted);
+    }
+
+    .identity-top b {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .orb {
+      position: relative;
+      width: 260px;
+      max-width: 100%;
+      aspect-ratio: 1;
+      margin: 28px auto;
+
+      display: grid;
+      place-items: center;
+    }
+
+    .orb::before {
+      content: "";
+      position: absolute;
+      inset: 12%;
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle at 30% 25%,
+          #e8dfff,
+          #ad8bdb 38%,
+          #665386 70%,
+          #332640
+        );
+
+      box-shadow:
+        inset -10px -15px 28px #18102055,
+        0 0 70px #ab85ed20;
+
+      animation: float 7s ease-in-out infinite;
+    }
+
+    .monogram {
+      position: relative;
+      font-size: 86px;
+      font-weight: 750;
+      letter-spacing: -.09em;
+      color: #20182f;
+      transform: rotate(-9deg);
+    }
+
+    .orbit {
+      position: absolute;
+      inset: 0;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      animation: orbit 28s linear infinite;
+    }
+
+    .orbit::before {
+      content: "";
+      position: absolute;
+      top: 21px;
+      left: 34px;
+
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+
+      background: var(--mint);
+      box-shadow: 0 0 18px #b5edce55;
+    }
+
+    .orbit.second {
+      inset: -8%;
+      transform: rotateX(60deg) rotate(-20deg);
+      animation: none;
+      border-style: dashed;
+      opacity: .6;
+    }
+
+    .orbit.second::before {
+      display: none;
+    }
+
+    .floating-note {
+      position: absolute;
+      bottom: -28px;
+      left: 20px;
+
+      padding: 12px 18px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+
+      box-shadow: 0 10px 30px #0002;
+      transform: rotate(-5deg);
+
+      font-size: 11px;
+      color: var(--mint);
+    }
+
+    @keyframes float {
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    @keyframes orbit {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .ribbon {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+
+      padding: 22px 0;
+      border-block: 1px solid var(--line);
+
+      font-size: 10px;
+      letter-spacing: .13em;
+      color: var(--muted);
+    }
+
+    .ribbon b {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* ==========================================
+       CONTEÚDO E CARDS
+    ========================================== */
+
+    .content-section {
+      padding: 75px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 30px;
+    }
+
+    .section-no {
+      display: block;
+      color: var(--accent);
+      font-size: 10px;
+      letter-spacing: .12em;
+      margin-bottom: 12px;
+    }
+
+    .section-note {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .about-copy {
+      font-size: 17px;
+    }
+
+    .about-copy strong {
+      color: var(--text);
+      font-weight: 550;
+    }
+
+    .focus-list {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .focus-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+
+      padding: 13px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+    }
+
+    .focus-item span {
+      color: var(--accent);
+      font: 10px var(--mono);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 
     .card {
+      min-width: 0;
+      padding: 29px;
+
+      border: 1px solid var(--line);
+      border-radius: 16px;
       background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 25px;
-      margin-bottom: 18px;
-      transition: border-color .2s, transform .2s;
+
+      transition:
+        transform .25s,
+        border-color .25s,
+        box-shadow .25s;
     }
 
     .card:hover {
+      transform: translateY(-4px);
       border-color: var(--accent);
-      transform: translateY(-2px);
+      box-shadow: 0 14px 38px #00000010;
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+
+    .company {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .company::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .sicredi::before {
+      background: #72ba56;
+    }
+
+    .dell::before {
+      background: #58a6ff;
+    }
+
+    .status {
+      font: 9px var(--mono);
+      color: var(--mint);
+      background: var(--soft);
+
+      border: 1px solid var(--line);
+      border-radius: 50px;
+      padding: 5px 9px;
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
     }
 
     .date {
       color: var(--muted);
+      font-size: 11px;
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    .card p {
       font-size: 14px;
+      line-height: 1.85;
     }
 
     .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 16px;
+      gap: 7px;
+      margin-top: 20px;
     }
 
     .tag {
-      background: #1c2b40;
-      color: #9ac7ff;
-      padding: 5px 11px;
+      padding: 5px 9px;
+      border: 1px solid var(--line);
       border-radius: 5px;
-      font-size: 12px;
+
+      font: 10px/1.5 var(--mono);
+      color: var(--muted);
+      background: var(--soft);
     }
 
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
+    .education h3 {
+      font-size: 20px;
     }
 
-    .skills img {
-      width: 44px;
-      height: 44px;
+    .education h4 {
+      font-size: 14px;
+      line-height: 1.5;
+      font-weight: 550;
+      margin: 12px 0;
+    }
+
+    .education .date {
+      margin-bottom: 14px;
+    }
+
+    .education p {
+      font-size: 13px;
+    }
+
+    /* ==========================================
+       TECNOLOGIAS
+    ========================================== */
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .skill {
+      display: grid;
+      place-items: center;
+      gap: 10px;
+
+      padding: 22px 8px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+
+      transition: transform .2s, border-color .2s;
+    }
+
+    .skill:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+    }
+
+    .skill b {
+      color: var(--accent);
+      font: 23px var(--mono);
+      letter-spacing: -.06em;
+    }
+
+    .skill span {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* ==========================================
+       ABAS DE PROJETOS
+    ========================================== */
+
+    .page-header {
+      padding: 75px 0 36px;
+    }
+
+    .page-header h1 {
+      font-size: clamp(40px, 6vw, 66px);
+      letter-spacing: -.06em;
+      margin: 18px 0;
+    }
+
+    .page-header h1 span {
+      color: var(--accent);
+    }
+
+    .page-header p {
+      max-width: 620px;
+      font-size: 15px;
     }
 
     .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
-      margin-bottom: 60px;
+      padding: 12px 0 80px;
     }
 
-    .project-grid .card { margin: 0; }
+    .project {
+      padding: 0;
+      overflow: hidden;
 
-    .project-label {
-      color: var(--accent);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-visual {
+      min-height: 220px;
+      position: relative;
+      overflow: hidden;
+      padding: 26px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .happys-art {
+      background: #eac26f;
+      color: #483615;
+    }
+
+    .alphy-art {
+      background: #c9b6ee;
+      color: #362849;
+    }
+
+    .project-visual::after {
+      content: "";
+      position: absolute;
+
+      width: 230px;
+      height: 230px;
+      right: -25px;
+      top: 35px;
+
+      border: 1px solid #ffffff60;
+      border-radius: 50%;
+
+      box-shadow:
+        0 0 0 35px #ffffff10,
+        0 0 0 70px #ffffff10;
+    }
+
+    .visual-label {
+      position: relative;
+      z-index: 1;
+
+      font: 10px var(--mono);
+      letter-spacing: .08em;
+    }
+
+    .visual-name {
+      position: relative;
+      z-index: 1;
+
+      font-size: 58px;
+      letter-spacing: -.07em;
+      font-weight: 750;
+      line-height: 1;
+    }
+
+    .visual-caption {
+      position: relative;
+      z-index: 1;
+      font: 10px var(--mono);
+    }
+
+    .project-body {
+      padding: 28px;
+      flex: 1;
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-body h2 {
+      font-size: 25px;
+      letter-spacing: -.03em;
+      margin: 14px 0;
+    }
+
+    .project-body .tags {
+      margin-top: auto;
+      padding-top: 10px;
+    }
+
+    .award {
+      color: var(--gold);
+      font: 10px/1.6 var(--mono);
     }
 
     .project-link {
-      display: inline-block;
-      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding-top: 20px;
+      margin-top: 24px;
+      border-top: 1px solid var(--line);
+
       color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
+      font-size: 12px;
+      font-weight: 650;
     }
 
-    .project-link:hover { text-decoration: underline; }
+    .project-link span {
+      transition: transform .2s;
+    }
+
+    .project-link:hover span {
+      transform: translate(3px, -3px);
+    }
+
+    .empty {
+      padding: 45px;
+      border: 1px dashed var(--line);
+      border-radius: 16px;
+      background: var(--surface);
+      margin: 12px 0 80px;
+    }
+
+    .empty-number {
+      font: 45px var(--mono);
+      color: var(--accent);
+      opacity: .55;
+      margin-bottom: 25px;
+    }
+
+    .empty h2 {
+      font-size: 27px;
+      margin-bottom: 18px;
+    }
+
+    .empty p {
+      max-width: 650px;
+      font-size: 14px;
+    }
+
+    /* ==========================================
+       CONTATO E RODAPÉ
+    ========================================== */
+
+    .contact {
+      margin-top: 65px;
+      padding: 40px;
+
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .contact h2 {
+      font-size: 32px;
+      margin: 10px 0;
+    }
+
+    .contact p {
+      font-size: 13px;
+      margin: 0;
+      max-width: 530px;
+    }
+
+    .contact .button {
+      flex-shrink: 0;
+    }
 
     footer {
-      padding: 35px 0;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+
+      padding: 32px 0;
+      margin-top: 35px;
+
       color: var(--muted);
-      text-align: center;
-      border-top: 1px solid var(--border);
+      font-size: 10px;
     }
 
-    @media (max-width: 600px) {
-      .hero { padding: 65px 0; }
-      .nav-links { gap: 12px; }
-      section { padding: 45px 0; }
-      .page-header { padding-top: 45px; }
+    footer a:hover {
+      color: var(--accent);
     }
+
+    /* ==========================================
+       RESPONSIVIDADE
+    ========================================== */
+
+    @media (max-width: 1000px) {
+      .hero {
+        gap: 35px;
+      }
+
+      .orb {
+        width: 215px;
+      }
+
+      .monogram {
+        font-size: 75px;
+      }
+
+      .grid.three {
+        grid-template-columns: 1fr;
+      }
+
+      .brand-name {
+        display: none;
+      }
+
+      .about-grid {
+        gap: 35px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        width: 90%;
+      }
+
+      .nav {
+        gap: 12px;
+        min-height: 70px;
+        flex-wrap: wrap;
+        padding: 12px 0;
+      }
+
+      .brand {
+        margin-right: auto;
+      }
+
+      .theme-toggle {
+        order: 1;
+        width: 34px;
+        height: 34px;
+      }
+
+      .tabs {
+        order: 2;
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .tab {
+        flex: 1;
+        padding: 8px 5px;
+        text-align: center;
+        font-size: 11px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 55px 0 45px;
+        gap: 50px;
+      }
+
+      .hero h1 {
+        font-size: clamp(52px, 12.5vw, 76px);
+      }
+
+      .hero-lead {
+        font-size: 19px;
+      }
+
+      .identity {
+        width: min(340px, 90%);
+        margin: auto;
+      }
+
+      .orb {
+        width: 200px;
+        margin: 22px auto;
+      }
+
+      .floating-note {
+        left: 12px;
+        bottom: -28px;
+      }
+
+      .ribbon {
+        justify-content: center;
+        font-size: 9px;
+        gap: 12px;
+      }
+
+      .content-section {
+        padding: 48px 0;
+      }
+
+      .about-grid,
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .card {
+        padding: 24px;
+      }
+
+      .project {
+        padding: 0;
+      }
+
+      .skill-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .skill {
+        padding: 17px 5px;
+      }
+
+      .skill b {
+        font-size: 20px;
+      }
+
+      .page-header {
+        padding: 45px 0 25px;
+      }
+
+      .page-header h1 {
+        font-size: 42px;
+      }
+
+      .project-visual {
+        min-height: 200px;
+      }
+
+      .project-body {
+        padding: 24px;
+      }
+
+      .empty {
+        padding: 28px;
+      }
+
+      .contact {
+        padding: 26px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .contact h2 {
+        font-size: 28px;
+      }
+
+      .contact .button {
+        margin-top: 5px;
+      }
+
+      footer {
+        font-size: 9px;
+      }
+    }
+
+    /* Respeita a preferência por movimento reduzido. */
 
     @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .tab-content.active { animation: none; }
-      .card { transition: none; }
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
     }
   </style>
 </head>
 
 <body>
 
+  <a href="#conteudo" class="skip">
+    Pular para o conteúdo
+  </a>
+
+  <div class="progress" aria-hidden="true"></div>
+
+  <!-- ==========================================
+       MENU
+  ========================================== -->
+
   <header>
-    <nav class="container">
-      <div class="logo">Ana Laura.</div>
+    <nav class="nav container" aria-label="Navegação principal">
 
-      <div class="nav-links" role="group" aria-label="Navegação">
-        <button class="active" data-tab="inicio">Início</button>
-        <button data-tab="faculdade">Faculdade</button>
-        <button data-tab="trabalho">Projetos do Trabalho</button>
-        <button data-tab="pessoais">Projetos Pessoais</button>
-      </div>
-    </nav>
-  </header>
+      <a
+        class="brand"
+        href="#inicio"
+        aria-label="Ana Laura Agostinho, início"
+      >
+        <span class="brand-mark">al<span>.</span></span>
 
-  <main class="container">
+        <span class="brand-name">
+          ANA LAURA<br>
+          AGOSTINHO
+        </span>
+      </a>
 
-    <!-- ABA INÍCIO -->
-    <div id="inicio" class="tab-content active">
+      <div class="tabs" aria-label="Abas do portfólio">
+        <a
+          class="tab"
+          id="tab-inicio"
+          href="#inicio"
+          data-tab="inicio"
+        >
+          Início
+        </a>
 
-      <div class="hero">
-        <div class="eyebrow">OLÁ, EU SOU A ANA LAURA</div>
+        <a
+          class="tab"
+          id="tab-faculdade"
+          href="#faculdade"
+          data-tab="faculdade"
+        >
+          Faculdade
+        </a>
 
-        <h1>Tecnologia, inovação<br>e desenvolvimento.</h1>
+        <a
+          class="tab"
+          id="tab-trabalho"
+          href="#trabalho"
+          data-tab="trabalho"
+        >
+          Trabalho
+        </a>
 
-        <p>
-          Estudante de Sistemas de Informação na PUCRS
-          e estagiária em Digital Workplace no Sicredi.
-          Porto Alegre, RS.
-        </p>
-
-        <a class="button"
-           href="https://linkedin.com/in/analauraagostinho"
-           target="_blank"
-           rel="noopener noreferrer">
-          Conectar no LinkedIn
+        <a
+          class="tab"
+          id="tab-diversos"
+          href="#diversos"
+          data-tab="diversos"
+        >
+          Diversos
         </a>
       </div>
 
-      <section>
-        <h2>Sobre mim</h2>
-        <p>
-          Tenho interesse em desenvolvimento de software,
-          inteligência artificial, análise de dados e
-          automação de processos. Busco ampliar meus
-          conhecimentos e aplicar a tecnologia na criação
-          de soluções eficientes e inovadoras.
-        </p>
-      </section>
+      <button
+        class="theme-toggle"
+        type="button"
+        aria-label="Ativar tema claro"
+        title="Alternar tema"
+        hidden
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="12" r="4"></circle>
+          <path
+            d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"
+          ></path>
+        </svg>
+      </button>
 
-      <section>
-        <h2>Experiência Profissional</h2>
+    </nav>
+  </header>
 
-        <div class="card">
-          <h3>Sicredi</h3>
-          <strong>Estágio em Digital Workplace</strong>
-          <div class="date">Julho/2026 — Atualmente</div>
+  <main class="container" id="conteudo" tabindex="-1">
 
-          <p>
-            Atuação em soluções tecnológicas para o ambiente
-            corporativo, com foco na melhoria da experiência
-            digital dos colaboradores e na otimização de
-            processos. Atuo na análise de dados e indicadores
-            da equipe, automação de chamados, otimização de
-            fluxos de trabalho e apoio à melhoria contínua
-            dos serviços de TI.
+    <!-- ==========================================
+         ABA 1: INÍCIO
+    ========================================== -->
+
+    <div class="page" id="inicio">
+
+      <div class="hero">
+
+        <div>
+          <div class="eyebrow intro-label">
+            <span class="dot" aria-hidden="true"></span>
+            Tecnologia com propósito
+          </div>
+
+          <h1>
+            Ana Laura<br>
+            <span>Agostinho.</span>
+          </h1>
+
+          <p class="hero-lead">
+            Entre dados, ideias e soluções que fazem a diferença.
           </p>
 
-          <div class="tags">
-            <span class="tag">Análise de Dados</span>
-            <span class="tag">Automação</span>
-            <span class="tag">Melhoria Contínua</span>
+          <p class="hero-copy">
+            Estudante de Sistemas de Informação na PUCRS e
+            estagiária em Digital Workplace no Sicredi.
+          </p>
+
+          <div class="actions">
+            <a class="button primary" href="#diversos">
+              Explorar projetos
+              <span aria-hidden="true">↗</span>
+            </a>
+
+            <a
+              class="button"
+              href="https://linkedin.com/in/analauraagostinho"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <div class="hero-meta mono">
+            <span>PORTO ALEGRE, RS</span>
+            <span>APRENDER. CRIAR. EVOLUIR.</span>
           </div>
         </div>
 
-        <div class="card">
-          <h3>Dell Technologies</h3>
-          <strong>Estágio em Vendas de Serviços</strong>
-          <div class="date">Fevereiro/2026 — Julho/2026</div>
+        <div class="identity" aria-hidden="true">
+          <div class="identity-card">
 
-          <p>
-            Atuação no suporte a processos operacionais
-            de vendas, com foco na conformidade das operações
-            com as normas e exigências da Receita Federal,
-            além do suporte às rotinas e aos processos internos.
-          </p>
+            <div class="identity-top mono">
+              <span>IDENTIDADE DIGITAL</span>
+              <b>AL / 01</b>
+            </div>
 
-          <div class="tags">
-            <span class="tag">Processos Operacionais</span>
-            <span class="tag">Compliance</span>
+            <div class="orb">
+              <div class="orbit"></div>
+              <div class="orbit second"></div>
+              <span class="monogram">al.</span>
+            </div>
+
+            <div class="identity-bottom mono">
+              <span>DADOS + CRIATIVIDADE</span>
+              <span>EM EVOLUÇÃO</span>
+            </div>
+
+          </div>
+
+          <div class="floating-note mono">
+            ideias → soluções reais
           </div>
         </div>
+
+      </div>
+
+      <div class="ribbon mono" aria-label="Áreas de interesse">
+        <span>DESENVOLVIMENTO</span>
+        <b aria-hidden="true">+</b>
+
+        <span>ANÁLISE DE DADOS</span>
+        <b aria-hidden="true">+</b>
+
+        <span>AUTOMAÇÃO</span>
+        <b aria-hidden="true">+</b>
+
+        <span>INTELIGÊNCIA ARTIFICIAL</span>
+      </div>
+
+      <!-- SOBRE MIM -->
+
+      <section class="content-section" id="sobre">
+
+        <div class="section-heading">
+          <div>
+            <span class="section-no">01 / SOBRE MIM</span>
+            <h2>Curiosidade que vira criação.</h2>
+          </div>
+        </div>
+
+        <div class="about-grid">
+
+          <div class="about-copy">
+            <p>
+              Sou estudante de
+              <strong>Sistemas de Informação na PUCRS</strong>
+              e atualmente atuo como estagiária em
+              <strong>Digital Workplace no Sicredi</strong>.
+            </p>
+
+            <p>
+              Tenho interesse em desenvolvimento de software,
+              inteligência artificial, análise de dados e automação
+              de processos. Busco ampliar meus conhecimentos e
+              aplicar a tecnologia na criação de soluções
+              eficientes e inovadoras.
+            </p>
+          </div>
+
+          <div class="focus-list">
+            <div class="focus-item">
+              Desenvolvimento de software
+              <span>01</span>
+            </div>
+
+            <div class="focus-item">
+              Dados e inteligência artificial
+              <span>02</span>
+            </div>
+
+            <div class="focus-item">
+              Automação de processos
+              <span>03</span>
+            </div>
+
+            <div class="focus-item">
+              Experiência digital
+              <span>04</span>
+            </div>
+          </div>
+
+        </div>
       </section>
 
-      <section>
-        <h2>Formação Acadêmica</h2>
+      <!-- EXPERIÊNCIA PROFISSIONAL -->
 
-        <div class="card">
-          <h3>PUCRS</h3>
-          <strong>Bacharelado em Sistemas de Informação</strong>
-          <div class="date">2025 — 2028 | Em andamento</div>
-          <p>
-            Formação em desenvolvimento de software,
-            análise de sistemas, bancos de dados e
-            gestão da tecnologia da informação.
-          </p>
+      <section class="content-section" id="experiencia">
+
+        <div class="section-heading">
+          <div>
+            <span class="section-no">
+              02 / EXPERIÊNCIA PROFISSIONAL
+            </span>
+            <h2>Aprendizado na prática.</h2>
+          </div>
+
+          <span class="section-note">
+            Pessoas, processos e tecnologia.
+          </span>
         </div>
 
-        <div class="card">
-          <h3>IFSP</h3>
-          <strong>Técnico em Informática</strong>
-          <div class="date">2022 — 2023 | Concluído</div>
-          <p>
-            Formação técnica em programação, desenvolvimento
-            de sistemas, bancos de dados e infraestrutura
-            computacional.
-          </p>
-        </div>
+        <div class="grid">
 
-        <div class="card">
-          <h3>UNISO</h3>
-          <strong>Ciência de Dados e Inteligência Artificial</strong>
-          <div class="date">2024 — 2025 | Não concluído</div>
-          <p>
-            Estudos em ciência de dados, programação,
-            análise de informações e inteligência artificial.
-          </p>
+          <article class="card">
+            <div class="card-top">
+              <span class="company sicredi">
+                CENTRO ADMINISTRATIVO SICREDI
+              </span>
+
+              <span class="status">ATUAL</span>
+            </div>
+
+            <h3>Estágio em Digital Workplace</h3>
+
+            <div class="date">
+              Julho de 2026 — Atualmente
+            </div>
+
+            <p>
+              Atuação em soluções tecnológicas para o ambiente
+              corporativo, com foco na melhoria da experiência
+              digital dos colaboradores e na otimização de
+              processos. Atuo na análise de dados e indicadores
+              da equipe, na automação de chamados e na
+              otimização de fluxos de trabalho, além do apoio
+              à melhoria contínua dos serviços de TI.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Análise de Dados</span>
+              <span class="tag">Automação</span>
+              <span class="tag">Melhoria Contínua</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <span class="company dell">
+                DELL TECHNOLOGIES
+              </span>
+
+              <span class="status">2026</span>
+            </div>
+
+            <h3>Estágio em Vendas de Serviços</h3>
+
+            <div class="date">
+              Fevereiro de 2026 — Julho de 2026
+            </div>
+
+            <p>
+              Atuação no suporte a processos operacionais de
+              vendas, com foco na conformidade das operações
+              com as normas e exigências da Receita Federal,
+              além do suporte às rotinas e aos processos internos.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Processos Operacionais</span>
+              <span class="tag">Compliance</span>
+            </div>
+          </article>
+
         </div>
       </section>
 
-      <section>
-        <h2>Tecnologias e Conhecimentos</h2>
+      <!-- FORMAÇÃO ACADÊMICA -->
 
-        <div class="skills">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" alt="Dart">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+      <section class="content-section" id="formacao">
+
+        <div class="section-heading">
+          <div>
+            <span class="section-no">
+              03 / FORMAÇÃO ACADÊMICA
+            </span>
+
+            <h2>Uma base para ir além.</h2>
+          </div>
+        </div>
+
+        <div class="grid three">
+
+          <article class="card education">
+            <span class="section-no">EM ANDAMENTO</span>
+
+            <h3>PUCRS</h3>
+
+            <h4>Bacharelado em Sistemas de Informação</h4>
+
+            <div class="date">
+              Agosto/2025 — Dezembro/2028
+            </div>
+
+            <p>
+              Formação voltada ao desenvolvimento de software,
+              análise de sistemas, bancos de dados e gestão da
+              tecnologia da informação, integrando conhecimentos
+              técnicos e de negócios.
+            </p>
+          </article>
+
+          <article class="card education">
+            <span class="section-no">CONCLUÍDO</span>
+
+            <h3>IFSP</h3>
+
+            <h4>Técnico em Informática</h4>
+
+            <div class="date">
+              Janeiro/2022 — Dezembro/2023
+            </div>
+
+            <p>
+              Formação técnica com foco em programação,
+              desenvolvimento de sistemas, bancos de dados
+              e fundamentos de infraestrutura computacional.
+            </p>
+          </article>
+
+          <article class="card education">
+            <span class="section-no">NÃO CONCLUÍDO</span>
+
+            <h3>UNISO</h3>
+
+            <h4>
+              Bacharelado em Ciência de Dados e
+              Inteligência Artificial
+            </h4>
+
+            <div class="date">
+              Agosto/2024 — Julho/2025
+            </div>
+
+            <p>
+              Estudos voltados aos fundamentos da ciência
+              de dados, programação, análise de informações
+              e inteligência artificial.
+            </p>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- HABILIDADES TÉCNICAS -->
+
+      <section class="content-section" id="tecnologias">
+
+        <div class="section-heading">
+          <div>
+            <span class="section-no">
+              04 / HABILIDADES TÉCNICAS
+            </span>
+
+            <h2>Ferramentas para construir.</h2>
+          </div>
+        </div>
+
+        <div class="skill-grid">
+
+          <div class="skill">
+            <b aria-hidden="true">Py</b>
+            <span>Python</span>
+          </div>
+
+          <div class="skill">
+            <b aria-hidden="true">{ }</b>
+            <span>Java</span>
+          </div>
+
+          <div class="skill">
+            <b aria-hidden="true">php</b>
+            <span>PHP</span>
+          </div>
+
+          <div class="skill">
+            <b aria-hidden="true">D</b>
+            <span>Dart</span>
+          </div>
+
+          <div class="skill">
+            <b aria-hidden="true">h5</b>
+            <span>HTML5</span>
+          </div>
+
+          <div class="skill">
+            <b aria-hidden="true">#</b>
+            <span>CSS3</span>
+          </div>
+
+          <div class="skill">
+            <b aria-hidden="true">SQL</b>
+            <span>MySQL</span>
+          </div>
+
         </div>
 
         <div class="tags">
           <span class="tag">Integração de APIs</span>
           <span class="tag">Automação de Processos</span>
           <span class="tag">Análise de Dados</span>
+          <span class="tag">Inteligência Artificial</span>
+        </div>
+
+      </section>
+
+      <!-- CURSOS E CERTIFICAÇÕES -->
+
+      <section class="content-section" id="cursos">
+
+        <div class="section-heading">
+          <div>
+            <span class="section-no">
+              05 / CURSOS E CERTIFICAÇÕES
+            </span>
+
+            <h2>Continuar aprendendo.</h2>
+          </div>
+        </div>
+
+        <div class="grid">
+
+          <article class="card">
+
+            <div class="card-top">
+              <span class="company">
+                INSTITUTO CALDEIRA
+              </span>
+            </div>
+
+            <h3>Geração Caldeira 2025 — IA e Dados</h3>
+
+            <div class="date">
+              Maio de 2025 — Dezembro de 2025
+            </div>
+
+            <p>
+              Formação voltada à inteligência artificial,
+              automação e análise de dados, com foco na
+              aplicação de tecnologias para a resolução de
+              problemas. Desenvolvimento de conhecimentos
+              em tratamento e interpretação de dados,
+              ferramentas de IA e otimização de processos.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Inteligência Artificial</span>
+              <span class="tag">Análise de Dados</span>
+              <span class="tag">Automação</span>
+            </div>
+
+          </article>
+
+          <article class="card">
+
+            <div class="card-top">
+              <span class="company">
+                INSTITUTO ELDORADO
+              </span>
+            </div>
+
+            <h3>Apple Developer Academy</h3>
+
+            <div class="date">
+              Janeiro de 2026
+            </div>
+
+            <p>
+              Formação com foco no desenvolvimento de software
+              e na exploração do ecossistema Apple, abrangendo
+              conceitos de programação, criação de aplicações
+              e desenvolvimento de soluções digitais.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Desenvolvimento de Software</span>
+              <span class="tag">Programação</span>
+              <span class="tag">Apple Ecosystem</span>
+            </div>
+
+          </article>
+
         </div>
       </section>
 
-      <section>
-        <h2>Cursos e Certificações</h2>
-
-        <div class="card">
-          <h3>Geração Caldeira 2025 — IA e Dados</h3>
-          <strong>Instituto Caldeira</strong>
-          <div class="date">Maio/2025 — Dezembro/2025</div>
-          <p>
-            Formação voltada à inteligência artificial,
-            automação e análise de dados, com foco na
-            aplicação de tecnologias para a resolução
-            de problemas.
-          </p>
-          <div class="tags">
-            <span class="tag">Inteligência Artificial</span>
-            <span class="tag">Análise de Dados</span>
-            <span class="tag">Automação</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Apple Developer Academy</h3>
-          <strong>Instituto Eldorado</strong>
-          <div class="date">Janeiro/2026</div>
-          <p>
-            Formação com foco no desenvolvimento de software,
-            programação e exploração do ecossistema Apple.
-          </p>
-          <div class="tags">
-            <span class="tag">Desenvolvimento de Software</span>
-            <span class="tag">Programação</span>
-            <span class="tag">Apple Ecosystem</span>
-          </div>
-        </div>
-      </section>
     </div>
 
-    <!-- ABA TRABALHOS DA FACULDADE -->
-    <div id="faculdade" class="tab-content">
+    <!-- ==========================================
+         ABA 2: FACULDADE
+    ========================================== -->
+
+    <div class="page" id="faculdade">
 
       <div class="page-header">
-        <div class="eyebrow">ACADEMIC PROJECTS</div>
-        <h1>Trabalhos da Faculdade</h1>
+        <span class="eyebrow">
+          APRENDER → APLICAR
+        </span>
+
+        <h1>
+          Trabalhos da <span>faculdade.</span>
+        </h1>
+
         <p>
-          Projetos e atividades desenvolvidos durante
-          minha formação acadêmica em tecnologia.
+          Projetos acadêmicos, desafios de programação e
+          aprendizados que saem da teoria para a prática.
         </p>
       </div>
 
-      <div class="project-grid">
-        <div class="card">
-          <span class="project-label">Projeto Acadêmico</span>
-          <h3>Em breve</h3>
-          <p>
-            Aqui serão apresentados projetos desenvolvidos
-            durante a graduação, incluindo suas propostas,
-            tecnologias utilizadas e resultados.
-          </p>
-          <div class="tags">
-            <span class="tag">Desenvolvimento</span>
-            <span class="tag">Aprendizado</span>
-          </div>
+      <div class="empty">
+
+        <div class="empty-number" aria-hidden="true">
+          { 01 }
         </div>
+
+        <h2>Próximas ideias em construção.</h2>
+
+        <p>
+          Este espaço reunirá trabalhos e projetos da minha
+          formação em Sistemas de Informação, com seus
+          desafios, soluções e tecnologias.
+        </p>
+
+        <div class="tags">
+          <span class="tag">Projetos Acadêmicos</span>
+          <span class="tag">Programação</span>
+          <span class="tag">Em atualização</span>
+        </div>
+
       </div>
+
     </div>
 
-    <!-- ABA PROJETOS DO TRABALHO -->
-    <div id="trabalho" class="tab-content">
+    <!-- ==========================================
+         ABA 3: TRABALHO
+    ========================================== -->
+
+    <div class="page" id="trabalho">
 
       <div class="page-header">
-        <div class="eyebrow">PROFESSIONAL PROJECTS</div>
-        <h1>Projetos do Trabalho</h1>
+        <span class="eyebrow">
+          EXPERIÊNCIA → EVOLUÇÃO
+        </span>
+
+        <h1>
+          Projetos do <span>trabalho.</span>
+        </h1>
+
         <p>
-          Iniciativas e experiências relacionadas à
-          tecnologia, automação, dados e melhoria
-          de processos no ambiente corporativo.
+          Tecnologia aplicada a processos, dados e
+          experiências no ambiente profissional.
         </p>
       </div>
 
-      <div class="project-grid">
-        <div class="card">
-          <span class="project-label">Projeto Profissional</span>
-          <h3>Em breve</h3>
-          <p>
-            Espaço destinado à apresentação de projetos
-            e contribuições profissionais que possam
-            ser compartilhados publicamente, respeitando
-            a confidencialidade das organizações.
-          </p>
-          <div class="tags">
-            <span class="tag">Tecnologia</span>
-            <span class="tag">Automação</span>
-            <span class="tag">Processos</span>
-          </div>
+      <div class="empty">
+
+        <div class="empty-number" aria-hidden="true">
+          { 02 }
         </div>
+
+        <h2>Soluções com contexto real.</h2>
+
+        <p>
+          Espaço dedicado à apresentação de iniciativas
+          profissionais que possam ser compartilhadas
+          publicamente, respeitando a confidencialidade
+          de informações e processos internos.
+        </p>
+
+        <div class="tags">
+          <span class="tag">Automação</span>
+          <span class="tag">Análise de Dados</span>
+          <span class="tag">Melhoria Contínua</span>
+        </div>
+
       </div>
+
     </div>
 
-    <!-- ABA PROJETOS PESSOAIS -->
-    <div id="pessoais" class="tab-content">
+    <!-- ==========================================
+         ABA 4: PROJETOS PESSOAIS E DIVERSOS
+    ========================================== -->
+
+    <div class="page" id="diversos">
 
       <div class="page-header">
-        <div class="eyebrow">PERSONAL PROJECTS</div>
-        <h1>Projetos Pessoais e Diversos</h1>
+        <span class="eyebrow">
+          IDEIAS → POSSIBILIDADES
+        </span>
+
+        <h1>
+          Um pouco de <span>invenção.</span>
+        </h1>
+
         <p>
-          Um espaço para explorar ideias, experimentar
-          tecnologias e compartilhar projetos independentes.
+          Projetos pessoais e diversos: experimentos,
+          competições e soluções para explorar novas
+          possibilidades com tecnologia.
         </p>
       </div>
 
-      <div class="project-grid">
-        <div class="card">
-          <span class="project-label">Projeto Pessoal</span>
-          <h3>Em breve</h3>
-          <p>
-            Aqui serão reunidos aplicativos, experimentos,
-            automações e outros projetos desenvolvidos
-            por interesse pessoal.
-          </p>
-          <div class="tags">
-            <span class="tag">Criatividade</span>
-            <span class="tag">Programação</span>
-            <span class="tag">Inovação</span>
+      <div class="grid project-grid">
+
+        <!-- HAPPY'S -->
+
+        <article class="card project">
+
+          <div
+            class="project-visual happys-art"
+            aria-hidden="true"
+          >
+            <span class="visual-label">
+              CULTURA. CONEXÃO. CIDADE.
+            </span>
+
+            <span class="visual-name">
+              Happy's.
+            </span>
+
+            <span class="visual-caption">
+              ROTAS QUE RECONECTAM O CENTRO ↗
+            </span>
           </div>
-        </div>
+
+          <div class="project-body">
+
+            <span class="award">
+              2º LUGAR / IDEATHON UNISENAC
+            </span>
+
+            <h2>
+              Happy's — Rotas que Reconectam o Centro
+            </h2>
+
+            <p>
+              Projeto desenvolvido em equipe durante o
+              Ideathon do UniSENAC, a partir de um desafio
+              relacionado ao Centro Histórico de Porto Alegre.
+            </p>
+
+            <p>
+              Criamos uma plataforma digital de rotas
+              inteligentes que busca promover cultura,
+              socialização, segurança e fortalecimento do
+              comércio local. A proposta conquistou o
+              segundo lugar na competição.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Inovação Social</span>
+              <span class="tag">Mobilidade Urbana</span>
+              <span class="tag">Projeto em Equipe</span>
+            </div>
+
+            <a
+              class="project-link"
+              href="https://happys-b3774411.base44.app/Home"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Acessar Happy's em uma nova aba"
+            >
+              Explorar Happy's
+              <span aria-hidden="true">↗</span>
+            </a>
+
+          </div>
+        </article>
+
+        <!-- ALPHY -->
+
+        <article class="card project">
+
+          <div
+            class="project-visual alphy-art"
+            aria-hidden="true"
+          >
+            <span class="visual-label">
+              MENOS PLANILHAS. MAIS RESPOSTAS.
+            </span>
+
+            <span class="visual-name">
+              alphy_
+            </span>
+
+            <span class="visual-caption">
+              DADOS → CONVERSAS → INSIGHTS
+            </span>
+          </div>
+
+          <div class="project-body">
+
+            <span class="eyebrow">
+              CHATBOT / ANÁLISE DE DADOS
+            </span>
+
+            <h2>
+              Alphy — Chatbot de Análise de Vendas
+            </h2>
+
+            <p>
+              Chatbot que analisa planilhas e fornece insights
+              sobre dados de vendas, facilitando a compreensão
+              de informações comerciais.
+            </p>
+
+            <p>
+              A proposta é tornar a exploração dos dados
+              mais acessível por meio de uma interface
+              conversacional, apoiando a análise e a
+              tomada de decisões.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Chatbot</span>
+              <span class="tag">Análise de Dados</span>
+              <span class="tag">Planilhas</span>
+            </div>
+
+            <a
+              class="project-link"
+              href="https://alphy-chatbot.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Acessar Alphy em uma nova aba"
+            >
+              Conversar com o Alphy
+              <span aria-hidden="true">↗</span>
+            </a>
+
+          </div>
+        </article>
+
       </div>
     </div>
 
   </main>
 
-  <footer>
-    Ana Laura Agostinho · 2026
-  </footer>
+  <!-- ==========================================
+       CONTATO E RODAPÉ
+  ========================================== -->
+
+  <div class="container">
+
+    <aside class="contact" aria-labelledby="contato-titulo">
+
+      <div>
+        <span class="eyebrow">
+          CONEXÕES TAMBÉM CONSTROEM.
+        </span>
+
+        <h2 id="contato-titulo">
+          Vamos trocar uma ideia?
+        </h2>
+
+        <p>
+          Sobre tecnologia, novos projetos ou o que
+          ainda podemos aprender.
+        </p>
+      </div>
+
+      <a
+        class="button primary"
+        href="https://linkedin.com/in/analauraagostinho"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Conectar no LinkedIn
+        <span aria-hidden="true">↗</span>
+      </a>
+
+    </aside>
+
+    <footer>
+      <span>
+        Ana Laura Agostinho · <span id="year">2026</span>
+      </span>
+
+      <span class="mono">
+        EM CONSTANTE CONSTRUÇÃO.
+      </span>
+
+      <a href="#inicio">
+        Voltar ao início ↑
+      </a>
+    </footer>
+
+  </div>
+
+  <!-- ==========================================
+       INTERAÇÕES
+  ========================================== -->
 
   <script>
-    const buttons = document.querySelectorAll("[data-tab]");
-    const tabs = document.querySelectorAll(".tab-content");
+    (() => {
+      "use strict";
 
-    function openTab(tabId) {
-      const target = document.getElementById(tabId);
-      if (!target || !target.classList.contains("tab-content")) {
-        return;
-      }
+      const pages = [
+        ...document.querySelectorAll(".page")
+      ];
 
-      tabs.forEach(tab => {
-        tab.classList.toggle("active", tab.id === tabId);
-      });
+      const tabs = [
+        ...document.querySelectorAll("[data-tab]")
+      ];
 
-      buttons.forEach(button => {
-        const active = button.dataset.tab === tabId;
-        button.classList.toggle("active", active);
-        button.setAttribute("aria-pressed", String(active));
-      });
-
-      window.scrollTo({ top: 0, behavior: "instant" });
-    }
-
-    buttons.forEach(button => {
-      button.setAttribute(
-        "aria-pressed",
-        String(button.classList.contains("active"))
+      const themeButton = document.querySelector(
+        ".theme-toggle"
       );
 
-      button.addEventListener("click", () => {
-        const tabId = button.dataset.tab;
-        openTab(tabId);
-        history.replaceState(null, "", "#" + tabId);
+      const progress = document.querySelector(
+        ".progress"
+      );
+
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      );
+
+      // Mantém funcionando os links da versão anterior.
+      const aliases = {
+        "projetos-trabalho": "trabalho",
+        "projetos-pessoais": "diversos"
+      };
+
+      const titles = {
+        inicio: "Portfólio",
+        faculdade: "Faculdade",
+        trabalho: "Trabalho",
+        diversos: "Projetos Diversos"
+      };
+
+      /* ======================================
+         ABAS E ACESSIBILIDADE
+      ====================================== */
+
+      document.querySelector(".tabs")
+        .setAttribute("role", "tablist");
+
+      tabs.forEach(tab => {
+        tab.setAttribute("role", "tab");
+
+        tab.setAttribute(
+          "aria-controls",
+          tab.dataset.tab
+        );
       });
-    });
 
-    const initialTab = window.location.hash.slice(1);
-    if (initialTab) {
-      openTab(initialTab);
-    }
+      pages.forEach(page => {
+        page.setAttribute("role", "tabpanel");
 
-    window.addEventListener("hashchange", () => {
-      openTab(window.location.hash.slice(1) || "inicio");
-    });
+        page.setAttribute(
+          "aria-labelledby",
+          "tab-" + page.id
+        );
+
+        page.tabIndex = 0;
+      });
+
+      function renderPage(scroll = false) {
+        let hash;
+
+        try {
+          hash = decodeURIComponent(
+            location.hash.slice(1)
+          );
+        } catch {
+          hash = "";
+        }
+
+        const target = document.getElementById(
+          aliases[hash] || hash
+        );
+
+        const selected =
+          target?.closest(".page")?.id || "inicio";
+
+        pages.forEach(page => {
+          page.hidden = page.id !== selected;
+        });
+
+        tabs.forEach(tab => {
+          const active = tab.dataset.tab === selected;
+
+          tab.setAttribute(
+            "aria-selected",
+            String(active)
+          );
+
+          tab.tabIndex = active ? 0 : -1;
+        });
+
+        document.title =
+          "Ana Laura Agostinho | " + titles[selected];
+
+        if (scroll) {
+          const behavior = reduceMotion.matches
+            ? "instant"
+            : "smooth";
+
+          if (
+            target &&
+            !target.classList.contains("page")
+          ) {
+            target.scrollIntoView({
+              behavior,
+              block: "start"
+            });
+          } else {
+            window.scrollTo({
+              top: 0,
+              behavior
+            });
+          }
+        }
+
+        updateProgress();
+      }
+
+      // Navegação por teclado nas abas.
+      tabs.forEach((tab, index) => {
+        tab.addEventListener("keydown", event => {
+          let next;
+
+          if (event.key === "ArrowRight") {
+            next = (index + 1) % tabs.length;
+          }
+
+          if (event.key === "ArrowLeft") {
+            next = (index - 1 + tabs.length) % tabs.length;
+          }
+
+          if (event.key === "Home") {
+            next = 0;
+          }
+
+          if (event.key === "End") {
+            next = tabs.length - 1;
+          }
+
+          if (next === undefined) return;
+
+          event.preventDefault();
+
+          tabs[next].focus();
+          tabs[next].click();
+        });
+      });
+
+      // Links internos sem recarregar a página.
+      document.querySelectorAll('a[href^="#"]')
+        .forEach(link => {
+          link.addEventListener("click", event => {
+            if (
+              event.ctrlKey ||
+              event.metaKey ||
+              event.shiftKey ||
+              event.altKey
+            ) {
+              return;
+            }
+
+            event.preventDefault();
+
+            if (link.hash !== location.hash) {
+              history.pushState(
+                null,
+                "",
+                link.hash
+              );
+            }
+
+            renderPage(true);
+
+            if (!link.dataset.tab) {
+              document.getElementById(
+                link.hash.slice(1)
+              )?.focus({
+                preventScroll: true
+              });
+            }
+          });
+        });
+
+      window.addEventListener(
+        "hashchange",
+        () => renderPage(true)
+      );
+
+      /* ======================================
+         TEMA CLARO E ESCURO
+      ====================================== */
+
+      function setTheme(theme) {
+        document.documentElement.dataset.theme = theme;
+
+        const light = theme === "light";
+
+        const label = light
+          ? "Ativar tema escuro"
+          : "Ativar tema claro";
+
+        themeButton.setAttribute(
+          "aria-label",
+          label
+        );
+
+        themeButton.setAttribute(
+          "title",
+          label
+        );
+
+        document.querySelector(
+          'meta[name="theme-color"]'
+        ).content = light
+          ? "#f6f4f0"
+          : "#111016";
+      }
+
+      let savedTheme = "dark";
+
+      try {
+        if (
+          localStorage.getItem("ana-theme") === "light"
+        ) {
+          savedTheme = "light";
+        }
+      } catch {
+        // O site continua funcionando sem armazenamento local.
+      }
+
+      setTheme(savedTheme);
+      themeButton.hidden = false;
+
+      themeButton.addEventListener("click", () => {
+        const theme =
+          document.documentElement.dataset.theme === "light"
+            ? "dark"
+            : "light";
+
+        setTheme(theme);
+
+        try {
+          localStorage.setItem(
+            "ana-theme",
+            theme
+          );
+        } catch {
+          // A troca de tema funciona mesmo sem persistência.
+        }
+      });
+
+      /* ======================================
+         BARRA DE PROGRESSO
+      ====================================== */
+
+      let framePending = false;
+
+      function updateProgress() {
+        const max =
+          document.documentElement.scrollHeight -
+          window.innerHeight;
+
+        const value = max > 0
+          ? Math.min(
+              1,
+              Math.max(0, window.scrollY / max)
+            )
+          : 0;
+
+        progress.style.transform =
+          "scaleX(" + value + ")";
+      }
+
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (!framePending) {
+            framePending = true;
+
+            requestAnimationFrame(() => {
+              updateProgress();
+              framePending = false;
+            });
+          }
+        },
+        { passive: true }
+      );
+
+      window.addEventListener(
+        "resize",
+        updateProgress
+      );
+
+      document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+      renderPage(Boolean(location.hash));
+    })();
   </script>
 
 </body>
