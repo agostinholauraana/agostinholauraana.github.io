@@ -31,6 +31,16 @@
     .date { color:var(--muted); font-size:14px; }
     .tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
     .tag { background:#1c2b40; color:#9ac7ff; padding:5px 11px; border-radius:5px; font-size:12px; }
+    .project-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; }
+    .project-grid .card { margin-bottom:0; display:flex; flex-direction:column; }
+    .project-grid .card p { flex:1; }
+    .project-card { border-top:3px solid var(--accent); }
+    .project-card.work { border-top-color:#3fa110; }
+    .project-card.personal { border-top-color:#b794f4; }
+    .section-lead { max-width:720px; margin:-10px 0 25px; }
+    .project-label { color:var(--accent); font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+    .project-card.work .project-label { color:#80c977; }
+    .project-card.personal .project-label { color:#c7a9fa; }
     .skills { display:flex; flex-wrap:wrap; gap:15px; }
     .skills img { width:44px; height:44px; }
     footer { padding:35px 0; color:var(--muted); text-align:center; border-top:1px solid var(--border); }
@@ -47,6 +57,9 @@
         <a href="#formacao">Formação</a>
         <a href="#tecnologias">Tecnologias</a>
         <a href="#cursos">Cursos</a>
+        <a href="#faculdade">Faculdade</a>
+        <a href="#projetos-trabalho">Trabalho</a>
+        <a href="#projetos-pessoais">Projetos pessoais</a>
       </div>
     </nav>
   </header>
@@ -108,6 +121,42 @@
         <h3>Apple Developer Academy</h3><strong>Instituto Eldorado</strong><div class="date">Janeiro/2026</div>
         <p>Formação com foco no desenvolvimento de software, programação e exploração do ecossistema Apple.</p>
         <div class="tags"><span class="tag">Desenvolvimento de Software</span><span class="tag">Programação</span><span class="tag">Apple Ecosystem</span></div>
+      </div>
+    </section>
+    <section id="faculdade">
+      <h2>Trabalhos da Faculdade</h2>
+      <p class="section-lead">Um espaço para reunir atividades e projetos acadêmicos, mostrando os desafios, as tecnologias utilizadas e os aprendizados de cada trabalho.</p>
+      <div class="project-grid">
+        <article class="card project-card">
+          <span class="project-label">Projeto acadêmico</span>
+          <h3>Meu próximo trabalho</h3>
+          <p>Em breve, um projeto desenvolvido durante a graduação, com uma descrição do problema, da solução e das tecnologias utilizadas.</p>
+          <div class="tags"><span class="tag">Em atualização</span></div>
+        </article>
+      </div>
+    </section>
+    <section id="projetos-trabalho">
+      <h2>Projetos do Trabalho</h2>
+      <p class="section-lead">Iniciativas e aprendizados da minha experiência profissional, com atenção à confidencialidade de informações e processos internos.</p>
+      <div class="project-grid">
+        <article class="card project-card work">
+          <span class="project-label">Experiência profissional</span>
+          <h3>Projetos e iniciativas</h3>
+          <p>Espaço reservado para apresentar iniciativas profissionais que possam ser compartilhadas publicamente, destacando objetivos, contribuições e resultados autorizados.</p>
+          <div class="tags"><span class="tag">Em atualização</span></div>
+        </article>
+      </div>
+    </section>
+    <section id="projetos-pessoais">
+      <h2>Projetos Pessoais e Diversos</h2>
+      <p class="section-lead">Experimentos, ideias e soluções criadas para praticar novas tecnologias, explorar interesses e continuar aprendendo.</p>
+      <div class="project-grid">
+        <article class="card project-card personal">
+          <span class="project-label">Projeto independente</span>
+          <h3>Novos projetos em breve</h3>
+          <p>Aqui serão adicionados projetos pessoais, com uma apresentação do que foi desenvolvido e links para demonstrações ou repositórios quando disponíveis.</p>
+          <div class="tags"><span class="tag">Em atualização</span></div>
+        </article>
       </div>
     </section>
   </main>
