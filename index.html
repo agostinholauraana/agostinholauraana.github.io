@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfólio pessoal de Ana Laura Agostinho — tecnologia, inovação e desenvolvimento.">
+  <title>Ana Laura Agostinho | Portfólio</title>
+  <style>
+    :root { --bg:#0d1117; --surface:#161b22; --border:#30363d; --text:#e6edf3; --muted:#9ca3af; --accent:#58a6ff; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.7; }
+    .container { max-width:1000px; margin:auto; padding:0 24px; }
+    header { border-bottom:1px solid var(--border); padding:20px 0; }
+    nav { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+    .logo { color:var(--accent); font-size:20px; font-weight:700; }
+    .links { display:flex; flex-wrap:wrap; gap:16px; }
+    nav a { color:var(--muted); text-decoration:none; }
+    nav a:hover,nav a:focus-visible { color:var(--accent); }
+    .hero { padding:100px 0 80px; }
+    .eyebrow { color:var(--accent); font-weight:600; letter-spacing:2px; font-size:13px; }
+    h1 { font-size:clamp(36px,6vw,64px); line-height:1.15; margin:16px 0; }
+    h2 { font-size:28px; margin:0 0 25px; }
+    p { color:var(--muted); }
+    .hero p { max-width:650px; font-size:18px; }
+    .button { display:inline-block; background:var(--accent); color:var(--bg); padding:11px 22px; border-radius:7px; font-weight:600; text-decoration:none; margin-top:20px; }
+    .button:hover { background:#80bbff; }
+    section { padding:65px 0; border-top:1px solid var(--border); }
+    .card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:25px; margin-bottom:18px; }
+    .card h3 { margin:0 0 5px; }
+    .date { color:var(--muted); font-size:14px; }
+    .tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+    .tag { background:#1c2b40; color:#9ac7ff; padding:5px 11px; border-radius:5px; font-size:12px; }
+    .skills { display:flex; flex-wrap:wrap; gap:15px; }
+    .skills img { width:44px; height:44px; }
+    footer { padding:35px 0; color:var(--muted); text-align:center; border-top:1px solid var(--border); }
+    @media(max-width:600px) { .hero { padding:65px 0; } section { padding:45px 0; } }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container" aria-label="Navegação principal">
+      <div class="logo">Ana Laura.</div>
+      <div class="links">
+        <a href="#sobre">Sobre</a>
+        <a href="#experiencia">Experiência</a>
+        <a href="#formacao">Formação</a>
+        <a href="#tecnologias">Tecnologias</a>
+        <a href="#cursos">Cursos</a>
+      </div>
+    </nav>
+  </header>
+  <main class="container">
+    <div class="hero">
+      <div class="eyebrow">OLÁ, EU SOU A ANA LAURA</div>
+      <h1>Tecnologia, inovação<br>e desenvolvimento.</h1>
+      <p>Estudante de Sistemas de Informação na PUCRS e estagiária em Digital Workplace no Sicredi. Porto Alegre, RS.</p>
+      <a class="button" href="https://linkedin.com/in/analauraagostinho" target="_blank" rel="noopener noreferrer">Conectar no LinkedIn</a>
+    </div>
+    <section id="sobre">
+      <h2>Sobre mim</h2>
+      <p>Tenho interesse em desenvolvimento de software, inteligência artificial, análise de dados e automação de processos. Busco ampliar meus conhecimentos e aplicar a tecnologia na criação de soluções eficientes e inovadoras.</p>
+    </section>
+    <section id="experiencia">
+      <h2>Experiência Profissional</h2>
+      <div class="card">
+        <h3>Sicredi</h3>
+        <strong>Estágio em Digital Workplace</strong>
+        <div class="date">Julho/2026 — Atualmente</div>
+        <p>Atuação em soluções tecnológicas para o ambiente corporativo, com foco na experiência digital dos colaboradores. Análise de dados e indicadores da equipe, automação de chamados, otimização de fluxos de trabalho e melhoria contínua dos serviços de TI.</p>
+        <div class="tags"><span class="tag">Análise de Dados</span><span class="tag">Automação</span><span class="tag">Melhoria Contínua</span></div>
+      </div>
+      <div class="card">
+        <h3>Dell Technologies</h3>
+        <strong>Estágio em Vendas de Serviços</strong>
+        <div class="date">Fevereiro/2026 — Julho/2026</div>
+        <p>Atuação no suporte a processos operacionais de vendas, com foco na conformidade das operações com as normas e exigências da Receita Federal, além do suporte às rotinas e processos internos.</p>
+        <div class="tags"><span class="tag">Processos Operacionais</span><span class="tag">Compliance</span></div>
+      </div>
+    </section>
+    <section id="formacao">
+      <h2>Formação Acadêmica</h2>
+      <div class="card"><h3>PUCRS</h3><strong>Bacharelado em Sistemas de Informação</strong><div class="date">2025 — 2028 | Em andamento</div></div>
+      <div class="card"><h3>IFSP</h3><strong>Técnico em Informática</strong><div class="date">2022 — 2023 | Concluído</div></div>
+      <div class="card"><h3>UNISO</h3><strong>Ciência de Dados e Inteligência Artificial</strong><div class="date">2024 — 2025 | Não concluído</div></div>
+    </section>
+    <section id="tecnologias">
+      <h2>Tecnologias e Conhecimentos</h2>
+      <div class="skills">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" alt="Dart">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+      </div>
+      <div class="tags"><span class="tag">Integração de APIs</span><span class="tag">Automação de Processos</span><span class="tag">Análise de Dados</span></div>
+    </section>
+    <section id="cursos">
+      <h2>Cursos e Certificações</h2>
+      <div class="card">
+        <h3>Geração Caldeira 2025 — IA e Dados</h3><strong>Instituto Caldeira</strong><div class="date">Maio/2025 — Dezembro/2025</div>
+        <p>Formação em inteligência artificial, automação e análise de dados, com foco na aplicação de tecnologias para a resolução de problemas.</p>
+        <div class="tags"><span class="tag">Inteligência Artificial</span><span class="tag">Análise de Dados</span><span class="tag">Automação</span></div>
+      </div>
+      <div class="card">
+        <h3>Apple Developer Academy</h3><strong>Instituto Eldorado</strong><div class="date">Janeiro/2026</div>
+        <p>Formação com foco no desenvolvimento de software, programação e exploração do ecossistema Apple.</p>
+        <div class="tags"><span class="tag">Desenvolvimento de Software</span><span class="tag">Programação</span><span class="tag">Apple Ecosystem</span></div>
+      </div>
+    </section>
+  </main>
+  <footer>Ana Laura Agostinho · 2026</footer>
+</body>
+</html>
