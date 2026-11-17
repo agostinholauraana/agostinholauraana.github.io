@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portfólio de Ana Laura Agostinho: tecnologia, formação, projetos e entrevistas.">
+  <meta name="description" content="Portfólio de Ana Laura Agostinho: experiências, formação, projetos e entrevistas.">
   <meta name="theme-color" content="#111016">
   <title>Ana Laura Agostinho | Portfólio</title>
 
@@ -49,6 +49,7 @@
       background: var(--bg);
       color: var(--text);
       font: 15px/1.65 Inter, "Segoe UI", Arial, sans-serif;
+      overflow-wrap: break-word;
     }
 
     a {
@@ -97,7 +98,7 @@
       color: var(--accent);
     }
 
-    .eyebrow, .date, .tag, .award {
+    .eyebrow, .date, .tag, .award, .status {
       font-family: Consolas, monospace;
     }
 
@@ -249,6 +250,7 @@
     }
 
     .card p {
+      color: var(--muted);
       font-size: 14px;
     }
 
@@ -347,22 +349,6 @@
       max-width: 680px;
     }
 
-    .empty {
-      margin: 12px 0 80px;
-      padding: 38px;
-      border: 1px dashed var(--border);
-      border-radius: 16px;
-      background: var(--surface);
-    }
-
-    .empty h2 {
-      font-size: 26px;
-    }
-
-    .empty p {
-      max-width: 650px;
-    }
-
     .project-grid {
       padding: 12px 0 80px;
     }
@@ -393,7 +379,9 @@
       top: 35px;
       border: 1px solid #ffffff60;
       border-radius: 50%;
-      box-shadow: 0 0 0 35px #ffffff10, 0 0 0 70px #ffffff10;
+      box-shadow:
+        0 0 0 35px #ffffff10,
+        0 0 0 70px #ffffff10;
     }
 
     .happys-art {
@@ -409,6 +397,28 @@
     .microsoft-art {
       background: #d5e4f1;
       color: #263d55;
+    }
+
+    .avista-art {
+      background: #243c35;
+      color: #f1ebdd;
+    }
+
+    .avista-art .visual-label {
+      color: #a7b98a;
+    }
+
+    .avista-art .visual-caption {
+      color: #e9b85f;
+    }
+
+    .ssia-art {
+      background: linear-gradient(135deg, #003249, #007ea7);
+      color: #ffffff;
+    }
+
+    .ssia-art .visual-label {
+      color: #cce8ef;
     }
 
     .visual-label, .visual-caption {
@@ -468,7 +478,30 @@
       border-radius: 30px;
       background: var(--soft);
       color: var(--gold);
-      font: 11px Consolas, monospace;
+      font-size: 11px;
+    }
+
+    .status.green {
+      color: #a7b98a;
+    }
+
+    .project-info {
+      margin: 18px 0;
+    }
+
+    .project-info h3 {
+      margin: 20px 0 10px;
+      font-size: 18px;
+    }
+
+    .detail-list {
+      padding-left: 19px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .detail-list li {
+      margin-bottom: 8px;
     }
 
     .architecture {
@@ -493,16 +526,6 @@
       border: 0;
       background: transparent;
       color: var(--accent);
-    }
-
-    .detail-list {
-      padding-left: 19px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .detail-list li {
-      margin-bottom: 8px;
     }
 
     .interview-card {
@@ -687,10 +710,6 @@
         padding: 0;
       }
 
-      .empty {
-        padding: 26px;
-      }
-
       .reel-player {
         height: 560px;
       }
@@ -781,9 +800,9 @@
         </div>
 
         <p class="about-copy">
-          Tenho experiência em desenvolvimento de software e atualmente
-          estou buscando estudar e aplicar inteligência artificial,
-          análise de dados e automação.
+          Tenho experiência em desenvolvimento de software
+          e atualmente estou buscando estudar e aplicar
+          inteligência artificial, análise de dados e automação.
         </p>
       </section>
 
@@ -806,10 +825,11 @@
             </div>
 
             <p>
-              Atuação em soluções tecnológicas para o ambiente corporativo,
-              com foco na melhoria da experiência digital dos colaboradores
-              e na otimização de processos. Atuo na análise de dados e
-              indicadores da equipe, na automação de chamados e na
+              Atuação em soluções tecnológicas para o ambiente
+              corporativo, com foco na melhoria da experiência
+              digital dos colaboradores e na otimização de
+              processos. Atuo na análise de dados e indicadores
+              da equipe, na automação de chamados e na
               otimização de fluxos de trabalho, além do apoio
               à melhoria contínua dos serviços de TI.
             </p>
@@ -833,10 +853,10 @@
             </div>
 
             <p>
-              Atuação no suporte a processos operacionais de vendas,
-              com foco na conformidade das operações com as normas
-              e exigências da Receita Federal, além do suporte
-              às rotinas e aos processos internos.
+              Atuação no suporte a processos operacionais
+              de vendas, com foco na conformidade das operações
+              com as normas e exigências da Receita Federal,
+              além do suporte às rotinas e aos processos internos.
             </p>
 
             <div class="tags">
@@ -970,7 +990,7 @@
       </section>
     </div>
 
-    <!-- FACULDADE -->
+    <!-- TRABALHOS DA FACULDADE -->
 
     <div class="page" id="faculdade" hidden>
 
@@ -980,24 +1000,118 @@
         </h1>
 
         <p>
-          Projetos acadêmicos e desafios de programação.
+          Projetos acadêmicos, pesquisas e desafios
+          de programação desenvolvidos durante minha formação.
         </p>
       </div>
 
-      <div class="empty">
-        <h2>Próximas ideias em construção.</h2>
+      <div class="grid project-grid">
 
-        <p>
-          Este espaço reunirá trabalhos e projetos da minha
-          formação em Sistemas de Informação, com seus
-          desafios, soluções e tecnologias.
-        </p>
+        <!-- SSIA -->
 
-        <div class="tags">
-          <span class="tag">Projetos Acadêmicos</span>
-          <span class="tag">Programação</span>
-          <span class="tag">Em atualização</span>
-        </div>
+        <article class="card project">
+
+          <div class="project-visual ssia-art" aria-hidden="true">
+            <span class="visual-label">
+              INTELIGÊNCIA ARTIFICIAL. SEGURANÇA. TECNOLOGIA.
+            </span>
+
+            <span class="visual-name">
+              SSIA.
+            </span>
+
+            <span class="visual-caption">
+              MONITORAMENTO INTELIGENTE E PREVENÇÃO
+            </span>
+          </div>
+
+          <div class="project-body">
+
+            <span class="status">
+              EM CONSTRUÇÃO
+            </span>
+
+            <h2>
+              SSIA — Sistema de Segurança Inteligente Artificialmente
+            </h2>
+
+            <div class="date">
+              Projeto Integrador · UNISO · 2025
+            </div>
+
+            <p>
+              Projeto acadêmico desenvolvido em equipe na
+              Universidade de Sorocaba, com o objetivo de
+              conceber um sistema de segurança empresarial
+              que utilize inteligência artificial para
+              monitoramento de ambientes e identificação
+              de possíveis situações de risco.
+            </p>
+
+            <p>
+              A proposta prevê a integração de câmeras,
+              sensores e recursos de análise inteligente
+              para apoiar o monitoramento de áreas,
+              identificação de atividades suspeitas
+              e emissão de alertas.
+            </p>
+
+            <p>
+              Durante a etapa inicial, realizamos pesquisas
+              de mercado, análise de soluções concorrentes,
+              levantamento de necessidades dos usuários
+              e estudos de UX/UI, resultando na criação
+              de protótipos de interface.
+            </p>
+
+            <div class="project-info">
+
+              <h3>Minha participação</h3>
+
+              <p>
+                Atuei na liderança do projeto e na pesquisa
+                de mercado, contribuindo para a definição
+                da direção estratégica, organização das
+                atividades, priorização dos requisitos
+                e planejamento das entregas.
+              </p>
+
+              <h3>Etapas desenvolvidas</h3>
+
+              <ul class="detail-list">
+                <li>Pesquisa e análise de mercado.</li>
+                <li>Estudo de soluções concorrentes.</li>
+                <li>Levantamento de requisitos.</li>
+                <li>Pesquisa de campo com potenciais usuários.</li>
+                <li>Definição de diretrizes de UX/UI.</li>
+                <li>Prototipação das interfaces do sistema.</li>
+              </ul>
+
+              <h3>Próximas evoluções</h3>
+
+              <p>
+                Evolução dos protótipos para uma aplicação
+                funcional, desenvolvimento dos componentes
+                do sistema e estudo da integração de
+                inteligência artificial, câmeras e sensores
+                para monitoramento e emissão de alertas.
+              </p>
+
+            </div>
+
+            <div class="tags">
+              <span class="tag">Inteligência Artificial</span>
+              <span class="tag">Segurança Empresarial</span>
+              <span class="tag">UX/UI</span>
+              <span class="tag">Prototipação</span>
+              <span class="tag">Pesquisa de Mercado</span>
+              <span class="tag">Scrum</span>
+              <span class="tag">Liderança</span>
+            </div>
+
+          </div>
+        </article>
+
       </div>
     </div>
 
@@ -1031,6 +1145,7 @@
         </div>
 
         <div class="project-body">
+
           <span class="status">EM CONSTRUÇÃO</span>
 
           <h2>
@@ -1125,13 +1240,15 @@
         </h1>
 
         <p>
-          Projetos pessoais e diversos: experimentos,
-          competições e soluções para explorar novas
+          Projetos pessoais, iniciativas independentes,
+          competições e soluções que exploram novas
           possibilidades com tecnologia.
         </p>
       </div>
 
       <div class="grid project-grid">
+
+        <!-- HAPPY'S -->
 
         <article class="card project">
 
@@ -1148,6 +1265,7 @@
           </div>
 
           <div class="project-body">
+
             <span class="award">
               2º LUGAR / IDEATHON UNISENAC
             </span>
@@ -1185,8 +1303,11 @@
               Explorar Happy's
               <span aria-hidden="true">↗</span>
             </a>
+
           </div>
         </article>
+
+        <!-- ALPHY -->
 
         <article class="card project">
 
@@ -1203,6 +1324,7 @@
           </div>
 
           <div class="project-body">
+
             <span class="eyebrow">
               CHATBOT / ANÁLISE DE DADOS
             </span>
@@ -1239,6 +1361,78 @@
               Conversar com o Alphy
               <span aria-hidden="true">↗</span>
             </a>
+
+          </div>
+        </article>
+
+        <!-- AVISTA -->
+
+        <article class="card project">
+
+          <div class="project-visual avista-art" aria-hidden="true">
+            <span class="visual-label">
+              OPORTUNIDADES. CONEXÕES. FUTURO.
+            </span>
+
+            <span class="visual-name">AVISTA.</span>
+
+            <span class="visual-caption">
+              NOVOS CAMINHOS, NOVAS POSSIBILIDADES
+            </span>
+          </div>
+
+          <div class="project-body">
+
+            <span class="status green">
+              EM CONSTRUÇÃO
+            </span>
+
+            <h2>
+              AVISTA — Plataforma de Oportunidades
+              e Desenvolvimento Juvenil
+            </h2>
+
+            <p>
+              Projeto de startup de tecnologia com propósito
+              de impacto social, voltado à criação de uma
+              plataforma digital que conecta jovens a
+              oportunidades de educação, empregabilidade,
+              empreendedorismo e desenvolvimento pessoal.
+            </p>
+
+            <p>
+              A proposta é reunir em um único ambiente
+              oportunidades oferecidas por empresas,
+              instituições de ensino, organizações sociais
+              e outras iniciativas, facilitando o acesso
+              à informação e a descoberta de novos
+              caminhos profissionais.
+            </p>
+
+            <p>
+              Além da centralização de oportunidades,
+              a plataforma prevê ferramentas de
+              autoconhecimento, exploração de interesses
+              e acompanhamento da trajetória de
+              desenvolvimento dos jovens.
+            </p>
+
+            <p>
+              Atualmente em fase de concepção e planejamento,
+              com foco na definição da experiência do usuário,
+              estruturação das funcionalidades e desenvolvimento
+              das bases iniciais da plataforma.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Startup</span>
+              <span class="tag">Impacto Social</span>
+              <span class="tag">Educação</span>
+              <span class="tag">Empregabilidade</span>
+              <span class="tag">Empreendedorismo</span>
+              <span class="tag">Desenvolvimento Web</span>
+            </div>
+
           </div>
         </article>
 
@@ -1328,7 +1522,6 @@
               data-mp4=""
               data-title="Geração Caldeira - Vídeo 01"
             >
-
               <button
                 class="reel-play"
                 type="button"
@@ -1337,7 +1530,6 @@
                 <span class="play-icon">▶</span>
                 <span>Reproduzir vídeo</span>
               </button>
-
             </div>
 
             <div class="video-info">
@@ -1356,7 +1548,7 @@
                 rel="noopener noreferrer"
               >
                 Ver publicação original
-                <span>↗</span>
+                <span aria-hidden="true">↗</span>
               </a>
 
             </div>
@@ -1372,7 +1564,6 @@
               data-mp4=""
               data-title="Geração Caldeira - Vídeo 02"
             >
-
               <button
                 class="reel-play"
                 type="button"
@@ -1381,7 +1572,6 @@
                 <span class="play-icon">▶</span>
                 <span>Reproduzir vídeo</span>
               </button>
-
             </div>
 
             <div class="video-info">
@@ -1400,7 +1590,7 @@
                 rel="noopener noreferrer"
               >
                 Ver publicação original
-                <span>↗</span>
+                <span aria-hidden="true">↗</span>
               </a>
 
             </div>
@@ -1426,6 +1616,7 @@
     const pages = [...document.querySelectorAll(".page")];
     const tabs = [...document.querySelectorAll("[data-tab]")];
     const themeButton = document.querySelector(".theme-toggle");
+    const players = [...document.querySelectorAll(".reel-player")];
 
     const pageTitles = {
       inicio: "Portfólio",
@@ -1435,125 +1626,38 @@
       entrevistas: "Entrevistas"
     };
 
-    function stopVideos() {
-      document.querySelectorAll(".reel-player video").forEach(video => {
-        video.pause();
-      });
+    function createPlayButton(player) {
+      const button = document.createElement("button");
 
-      document.querySelectorAll(".reel-player iframe").forEach(iframe => {
-        iframe.remove();
-      });
-
-      document.querySelectorAll(".reel-player").forEach(player => {
-        if (!player.querySelector("video") &&
-            !player.querySelector("iframe") &&
-            !player.querySelector("button")) {
-
-          const button = document.createElement("button");
-          button.className = "reel-play";
-          button.type = "button";
-          button.setAttribute("aria-label", "Reproduzir vídeo");
-
-          button.innerHTML = `
-            <span class="play-icon">▶</span>
-            <span>Reproduzir vídeo</span>
-          `;
-
-          button.addEventListener("click", () => startVideo(player));
-          player.appendChild(button);
-        }
-      });
-    }
-
-    function showPage() {
-      let id;
-
-      try {
-        id = decodeURIComponent(location.hash.slice(1)) || "inicio";
-      } catch {
-        id = "inicio";
-      }
-
-      const target = document.getElementById(id);
-      const selected = target?.closest(".page")?.id || "inicio";
-
-      if (selected !== "entrevistas") {
-        stopVideos();
-      }
-
-      pages.forEach(page => {
-        page.hidden = page.id !== selected;
-      });
-
-      tabs.forEach(tab => {
-        const active = tab.dataset.tab === selected;
-        tab.classList.toggle("active", active);
-
-        if (active) {
-          tab.setAttribute("aria-current", "page");
-        } else {
-          tab.removeAttribute("aria-current");
-        }
-      });
-
-      document.title = `Ana Laura Agostinho | ${pageTitles[selected]}`;
-
-      requestAnimationFrame(() => {
-        if (target && target.id !== selected) {
-          target.scrollIntoView();
-        } else {
-          window.scrollTo(0, 0);
-        }
-      });
-    }
-
-    function applyTheme(theme) {
-      document.documentElement.dataset.theme = theme;
-
-      themeButton.setAttribute(
+      button.type = "button";
+      button.className = "reel-play";
+      button.setAttribute(
         "aria-label",
-        theme === "light" ? "Ativar tema escuro" : "Ativar tema claro"
+        "Reproduzir " + player.dataset.title
       );
 
-      document.querySelector('meta[name="theme-color"]').content =
-        theme === "light" ? "#f6f4f0" : "#111016";
+      const icon = document.createElement("span");
+      icon.className = "play-icon";
+      icon.textContent = "▶";
+
+      const label = document.createElement("span");
+      label.textContent = "Reproduzir vídeo";
+
+      button.append(icon, label);
+      button.addEventListener("click", () => startVideo(player));
+
+      return button;
     }
 
-    let theme = "dark";
+    function stopVideos() {
+      players.forEach(player => {
+        const video = player.querySelector("video");
 
-    try {
-      theme = localStorage.getItem("ana-theme") === "light"
-        ? "light"
-        : "dark";
-    } catch {}
+        if (video) video.pause();
 
-    applyTheme(theme);
-
-    themeButton.addEventListener("click", () => {
-      theme = document.documentElement.dataset.theme === "light"
-        ? "dark"
-        : "light";
-
-      applyTheme(theme);
-
-      try {
-        localStorage.setItem("ana-theme", theme);
-      } catch {}
-    });
-
-    tabs.forEach(tab => {
-      tab.addEventListener("click", () => {
-        if (location.hash === tab.hash) {
-          showPage();
-        }
+        player.replaceChildren(createPlayButton(player));
       });
-    });
-
-    window.addEventListener("hashchange", showPage);
-    window.addEventListener("popstate", showPage);
-
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+    }
 
     function startVideo(player) {
       const reelId = player.dataset.reel;
@@ -1572,10 +1676,7 @@
 
         player.replaceChildren(video);
 
-        video.play().catch(() => {
-          // O visitante pode usar o controle nativo.
-        });
-
+        video.play().catch(() => {});
         return;
       }
 
@@ -1591,19 +1692,109 @@
       iframe.title = title;
       iframe.allow =
         "autoplay; encrypted-media; picture-in-picture; fullscreen";
+
       iframe.allowFullscreen = true;
       iframe.referrerPolicy = "strict-origin-when-cross-origin";
 
       player.replaceChildren(iframe);
     }
 
-    document.querySelectorAll(".reel-player").forEach(player => {
-      const button = player.querySelector(".reel-play");
+    function showPage() {
+      let id;
 
-      button.addEventListener("click", () => {
-        startVideo(player);
+      try {
+        id = decodeURIComponent(location.hash.slice(1)) || "inicio";
+      } catch {
+        id = "inicio";
+      }
+
+      const selected = Object.hasOwn(pageTitles, id)
+        ? id
+        : "inicio";
+
+      if (selected !== "entrevistas") {
+        stopVideos();
+      }
+
+      pages.forEach(page => {
+        page.hidden = page.id !== selected;
+      });
+
+      tabs.forEach(tab => {
+        const active = tab.dataset.tab === selected;
+
+        tab.classList.toggle("active", active);
+
+        if (active) {
+          tab.setAttribute("aria-current", "page");
+        } else {
+          tab.removeAttribute("aria-current");
+        }
+      });
+
+      document.title =
+        `Ana Laura Agostinho | ${pageTitles[selected]}`;
+
+      window.scrollTo(0, 0);
+    }
+
+    function applyTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+
+      themeButton.setAttribute(
+        "aria-label",
+        theme === "light"
+          ? "Ativar tema escuro"
+          : "Ativar tema claro"
+      );
+
+      document.querySelector(
+        'meta[name="theme-color"]'
+      ).content =
+        theme === "light" ? "#f6f4f0" : "#111016";
+    }
+
+    let theme = "dark";
+
+    try {
+      theme = localStorage.getItem("ana-theme") === "light"
+        ? "light"
+        : "dark";
+    } catch {}
+
+    applyTheme(theme);
+
+    themeButton.addEventListener("click", () => {
+      theme =
+        document.documentElement.dataset.theme === "light"
+          ? "dark"
+          : "light";
+
+      applyTheme(theme);
+
+      try {
+        localStorage.setItem("ana-theme", theme);
+      } catch {}
+    });
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        if (location.hash === tab.hash) {
+          showPage();
+        }
       });
     });
+
+    players.forEach(player => {
+      const button = player.querySelector(".reel-play");
+      button.addEventListener("click", () => startVideo(player));
+    });
+
+    window.addEventListener("hashchange", showPage);
+    window.addEventListener("popstate", showPage);
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
 
     showPage();
   </script>
