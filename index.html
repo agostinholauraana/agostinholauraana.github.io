@@ -2,1712 +2,843 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portfólio de Ana Laura Agostinho: formação, experiências, projetos e entrevistas.">
-  <meta name="theme-color" content="#111016">
-  <title>Ana Laura Agostinho | Portfólio</title>
-
-  <style>
-    :root {
-      color-scheme: dark;
-      --bg: #111016;
-      --surface: #19181f;
-      --soft: #201e29;
-      --text: #f4f1eb;
-      --muted: #b1aeba;
-      --border: #34313f;
-      --accent: #c0a8f5;
-      --gold: #f1cf87;
-      --header: #111016ed;
-    }
-
-    [data-theme="light"] {
-      color-scheme: light;
-      --bg: #f6f4f0;
-      --surface: #fff;
-      --soft: #eeebf3;
-      --text: #25212e;
-      --muted: #635d70;
-      --border: #d9d4e2;
-      --accent: #7250a5;
-      --gold: #805b17;
-      --header: #f6f4f0ed;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font: 15px/1.65 Inter, "Segoe UI", Arial, sans-serif;
-      overflow-wrap: break-word;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; cursor: pointer; }
-    :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-    [hidden] { display: none !important; }
-    h1, h2, h3, h4 { margin: 0; line-height: 1.2; }
-    h2 { font-size: clamp(28px,4vw,42px); letter-spacing: -.04em; }
-    h3 { font-size: 22px; }
-    p { color: var(--muted); }
-
-    .container { width: min(1160px,90%); margin-inline: auto; }
-    .accent { color: var(--accent); }
-    .eyebrow,.date,.tag,.status { font-family: Consolas, monospace; }
-
-    .eyebrow {
-      color: var(--accent);
-      font-size: 11px;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      border-bottom: 1px solid var(--border);
-      background: var(--header);
-      backdrop-filter: blur(16px);
-    }
-
-    .nav {
-      min-height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-shrink: 0;
-    }
-
-    .brand-mark {
-      font-size: 29px;
-      font-weight: 800;
-      letter-spacing: -.09em;
-    }
-
-    .brand-name { font-size: 12px; font-weight: 600; }
-
-    .tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-      padding: 5px;
-      border: 1px solid var(--border);
-      border-radius: 30px;
-    }
-
-    .tab {
-      padding: 8px 14px;
-      border-radius: 30px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-
-    .tab:hover { color: var(--text); background: var(--soft); }
-    .tab.active { color: var(--bg); background: var(--text); }
-
-    .theme-toggle {
-      width: 38px;
-      height: 38px;
-      flex-shrink: 0;
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      background: var(--surface);
-      color: var(--text);
-    }
-
-    .hero { padding: 95px 0 85px; }
-
-    .hero h1 {
-      font-size: clamp(48px,8vw,100px);
-      letter-spacing: -.07em;
-    }
-
-    .button {
-      display: inline-block;
-      margin-top: 26px;
-      padding: 12px 20px;
-      border: 1px solid var(--border);
-      border-radius: 9px;
-      font-size: 13px;
-      font-weight: 650;
-    }
-
-    .button:hover { border-color: var(--accent); color: var(--accent); }
-
-    .content-section {
-      padding: 65px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .section-heading { margin-bottom: 27px; }
-    .about-copy { max-width: 760px; font-size: 17px; }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2,minmax(0,1fr));
-      gap: 20px;
-    }
-
-    .grid.three { grid-template-columns: repeat(3,minmax(0,1fr)); }
-
-    .card {
-      min-width: 0;
-      padding: 28px;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      background: var(--surface);
-      transition: transform .2s,border-color .2s;
-    }
-
-    .card:hover { transform: translateY(-3px); border-color: var(--accent); }
-    .card h3 { margin: 17px 0 8px; }
-    .card p { font-size: 14px; }
-
-    .company { font-size: 12px; font-weight: 700; }
-
-    .company::before {
-      content: "";
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      margin-right: 8px;
-      border-radius: 2px;
-      background: var(--accent);
-    }
-
-    .sicredi::before { background: #72ba56; }
-    .dell::before { background: #58a6ff; }
-    .date { color: var(--muted); font-size: 11px; }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-top: 18px;
-    }
-
-    .tag {
-      padding: 5px 9px;
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      background: var(--soft);
-      color: var(--muted);
-      font-size: 10px;
-    }
-
-    .education h3 { margin-top: 10px; }
-    .education h4 { margin: 10px 0; font-size: 14px; font-weight: 550; }
-
-    .skill-grid {
-      display: grid;
-      grid-template-columns: repeat(5,minmax(0,1fr));
-      gap: 12px;
-    }
-
-    .skill {
-      display: grid;
-      place-items: center;
-      gap: 9px;
-      padding: 21px 8px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      background: var(--surface);
-      text-align: center;
-    }
-
-    .skill b { color: var(--accent); font: 22px Consolas, monospace; }
-    .skill span { color: var(--muted); font-size: 11px; }
-    .page-header { padding: 72px 0 32px; }
-
-    .page-header h1 {
-      margin: 15px 0;
-      font-size: clamp(40px,6vw,66px);
-      letter-spacing: -.055em;
-    }
-
-    .page-header p { max-width: 680px; }
-    .project-grid { padding: 12px 0 80px; }
-
-    .project {
-      display: flex;
-      flex-direction: column;
-      padding: 0;
-      overflow: hidden;
-    }
-
-    .project-visual {
-      min-height: 205px;
-      padding: 26px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-visual::after {
-      content: "";
-      position: absolute;
-      width: 220px;
-      height: 220px;
-      right: -25px;
-      top: 35px;
-      border: 1px solid #ffffff60;
-      border-radius: 50%;
-      box-shadow: 0 0 0 35px #ffffff10,0 0 0 70px #ffffff10;
-    }
-
-    .happys-art { background: #eac26f; color: #483615; }
-    .alphy-art { background: #c9b6ee; color: #362849; }
-    .microsoft-art { background: #d5e4f1; color: #263d55; }
-    .avista-art { background: #243c35; color: #f1ebdd; }
-    .avista-art .visual-label { color: #a7b98a; }
-    .avista-art .visual-caption { color: #e9b85f; }
-
-    .ssia-art {
-      background: linear-gradient(135deg,#003249,#007ea7);
-      color: #fff;
-    }
-
-    .ssia-art .visual-label { color: #cce8ef; }
-
-    .visual-label,.visual-caption {
-      position: relative;
-      z-index: 1;
-      font: 10px Consolas, monospace;
-    }
-
-    .visual-name {
-      position: relative;
-      z-index: 1;
-      font-size: clamp(38px,5vw,56px);
-      font-weight: 750;
-      letter-spacing: -.07em;
-      line-height: 1;
-    }
-
-    .project-body {
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-      padding: 28px;
-    }
-
-    .project-body h2 { margin: 15px 0; font-size: 25px; }
-    .project-body .tags { margin-top: auto; padding-top: 10px; }
-    .award { color: var(--gold); font: 10px Consolas, monospace; }
-
-    .project-link {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: 24px;
-      padding-top: 18px;
-      border-top: 1px solid var(--border);
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 650;
-    }
-
-    .project-link:hover { text-decoration: underline; }
-
-    .status {
-      display: inline-block;
-      width: fit-content;
-      padding: 6px 11px;
-      border: 1px solid var(--border);
-      border-radius: 30px;
-      background: var(--soft);
-      color: var(--gold);
-      font-size: 11px;
-    }
-
-    .status.green { color: #a7b98a; }
-    .detail-list { padding-left: 19px; color: var(--muted); font-size: 14px; }
-    .detail-list li { margin-bottom: 8px; }
-
-    .architecture {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 8px;
-      margin: 22px 0;
-    }
-
-    .architecture span {
-      padding: 8px 10px;
-      border-radius: 7px;
-      background: var(--soft);
-      border: 1px solid var(--border);
-      color: var(--text);
-      font-size: 12px;
-    }
-
-    .architecture .arrow {
-      padding: 0;
-      border: 0;
-      background: transparent;
-      color: var(--accent);
-    }
-
-    .interview-card { margin-bottom: 45px; }
-    .interview-card h2 { margin: 15px 0; font-size: 27px; }
-    .video-section { padding-bottom: 80px; }
-    .video-section h2 { margin-bottom: 10px; }
-
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(2,minmax(0,1fr));
-      gap: 24px;
-      margin-top: 28px;
-    }
-
-    .video-card { padding: 0; overflow: hidden; }
-
-    .reel-player {
-      position: relative;
-      width: 100%;
-      height: 620px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(145deg,#211a31,#42305d,#17141f);
-      overflow: hidden;
-    }
-
-    .reel-player iframe,.reel-player video {
-      display: block;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    .reel-player video { object-fit: contain; background: #000; }
-
-    .reel-play {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      width: 100%;
-      height: 100%;
-      border: 0;
-      background: transparent;
-      color: #fff;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .play-icon {
-      display: grid;
-      place-items: center;
-      width: 90px;
-      height: 90px;
-      padding-left: 5px;
-      border: 2px solid #ffffff70;
-      border-radius: 50%;
-      background: #c0a8f530;
-      color: #fff;
-      font-size: 35px;
-    }
-
-    .reel-play:hover .play-icon {
-      transform: scale(1.1);
-      background: #c0a8f570;
-    }
-
-    .video-info { padding: 24px; }
-    .video-info h3 { margin: 0 0 10px; font-size: 19px; }
-    .video-info p { font-size: 13px; }
-    .video-info .project-link { margin-top: 20px; }
-
-    .ssia-gallery {
-      margin-top: 38px;
-      border-top: 1px solid var(--border);
-      padding-top: 28px;
-    }
-
-    .ssia-gallery h3 { margin: 0 0 8px; }
-    .ssia-gallery p { margin: 0 0 18px; }
-
-    .gallery-rail {
-      display: flex;
-      gap: 14px;
-      overflow-x: auto;
-      padding: 6px 3px 20px;
-      scroll-snap-type: x mandatory;
-      scrollbar-color: var(--accent) var(--surface);
-    }
-
-    .prototype-thumb {
-      flex: 0 0 170px;
-      padding: 10px;
-      border: 1px solid var(--border);
-      background: var(--soft);
-      color: var(--text);
-      border-radius: 12px;
-      scroll-snap-align: start;
-      text-align: center;
-    }
-
-    .prototype-thumb:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    .prototype-thumb img {
-      width: 100%;
-      height: 264px;
-      object-fit: contain;
-      border-radius: 6px;
-      background: #e9ebee;
-    }
-
-    .prototype-thumb span {
-      display: block;
-      padding-top: 7px;
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .gallery-controls {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin: 6px 0 0;
-    }
-
-    .gallery-controls small { color: var(--muted); }
-    .gallery-nav { display: flex; gap: 8px; }
-
-    .gallery-nav button {
-      padding: 7px 14px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: var(--soft);
-      color: var(--text);
-    }
-
-    .gallery-nav button:hover { border-color: var(--accent); }
-
-    .lightbox {
-      width: min(95vw,710px);
-      max-height: 92vh;
-      padding: 14px;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      background: var(--surface);
-      color: var(--text);
-    }
-
-    .lightbox::backdrop { background: #000b; }
-
-    .lightbox-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      padding: 0 0 12px;
-    }
-
-    .lightbox-head strong { font-size: 14px; }
-
-    .lightbox-head button,.lightbox-controls button {
-      background: var(--soft);
-      color: var(--text);
-      border: 1px solid var(--border);
-      border-radius: 7px;
-      padding: 6px 12px;
-    }
-
-    .lightbox img {
-      display: block;
-      width: auto;
-      max-width: 100%;
-      max-height: min(74vh,850px);
-      margin: auto;
-      object-fit: contain;
-    }
-
-    .lightbox-controls {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      padding-top: 10px;
-    }
-
-    .lightbox-counter {
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    footer {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-      padding: 30px 0;
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    footer a:hover { color: var(--accent); }
-
-    @media(max-width:980px) {
-      .nav { flex-wrap: wrap; padding: 14px 0; }
-      .brand-name { display: none; }
-      .tabs { order: 3; width: 100%; justify-content: center; }
-      .grid.three { grid-template-columns: 1fr; }
-    }
-
-    @media(max-width:700px) {
-      .tab { padding: 8px 10px; font-size: 11px; }
-      .hero { padding: 60px 0; }
-      .content-section { padding: 45px 0; }
-      .grid,.video-grid { grid-template-columns: 1fr; }
-      .skill-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
-      .page-header { padding-top: 45px; }
-      .card,.project-body { padding: 23px; }
-      .project,.video-card { padding: 0; }
-      .reel-player { height: 560px; }
-      .prototype-thumb { flex-basis: 145px; }
-      .prototype-thumb img { height: 235px; }
-    }
-
-    @media(max-width:420px) {
-      .tabs { border-radius: 12px; }
-      .tab { flex: 1; }
-      .skill-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-    }
-
-    @media(prefers-reduced-motion:reduce) {
-      html { scroll-behavior: auto; }
-      *,*::before,*::after { transition: none !important; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Portfólio de Ana Laura Agostinho: formação, experiências, projetos e entrevistas.">
+<meta name="theme-color" content="#0b0f16">
+<title>Ana Laura Agostinho | Portfólio</title>
+
+<style>
+:root{
+  color-scheme:dark;--bg:#0b0f16;--surface:#111824;--soft:#172233;
+  --text:#f3f6fb;--muted:#aab5c5;--border:#263448;--accent:#3978bd;
+  --accent2:#75a9e3;--gold:#e7c77e;--header:#0b0f16ed;
+}
+[data-theme="light"]{
+  color-scheme:light;--bg:#f4f6f9;--surface:#fff;--soft:#eaf0f7;
+  --text:#172235;--muted:#596779;--border:#d5deea;--accent:#245b94;
+  --accent2:#3978bd;--gold:#8b671d;--header:#f4f6f9ed;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.65 Inter,"Segoe UI",Arial,sans-serif;overflow-wrap:break-word}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent2);outline-offset:4px}
+[hidden]{display:none!important}
+h1,h2,h3,h4{margin:0;line-height:1.2}
+h2{font-size:clamp(28px,4vw,42px);letter-spacing:-.04em}
+h3{font-size:22px}
+p{color:var(--muted)}
+.container{width:min(1160px,90%);margin-inline:auto}
+.accent{color:var(--accent2)}
+.eyebrow,.date,.tag,.status{font-family:Consolas,monospace}
+.eyebrow{color:var(--accent2);font-size:11px;letter-spacing:.13em;text-transform:uppercase}
+header{position:sticky;top:0;z-index:10;border-bottom:1px solid var(--border);background:var(--header);backdrop-filter:blur(16px)}
+.nav{min-height:80px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.brand-mark{font-size:29px;font-weight:800;letter-spacing:-.09em}
+.brand-name{font-size:12px;font-weight:600}
+.tabs{display:flex;flex-wrap:wrap;gap:4px;padding:5px;border:1px solid var(--border);border-radius:30px}
+.tab{padding:8px 14px;border-radius:30px;color:var(--muted);font-size:12px;font-weight:600;white-space:nowrap}
+.tab:hover{color:var(--text);background:var(--soft)}
+.tab.active{color:#fff;background:var(--accent)}
+.theme-toggle{width:38px;height:38px;flex-shrink:0;border:1px solid var(--border);border-radius:50%;background:var(--surface);color:var(--text)}
+.hero{padding:95px 0 85px}
+.hero h1{font-size:clamp(48px,8vw,100px);letter-spacing:-.07em}
+.hero p{max-width:680px;font-size:18px}
+.button{display:inline-block;margin-top:26px;padding:12px 20px;border:1px solid var(--border);border-radius:9px;font-size:13px;font-weight:650}
+.button:hover{border-color:var(--accent2);color:var(--accent2)}
+.content-section{padding:65px 0;border-bottom:1px solid var(--border)}
+.section-heading{margin-bottom:27px}
+.about-copy{max-width:850px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.card{min-width:0;padding:28px;border:1px solid var(--border);border-radius:16px;background:var(--surface);transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-3px);border-color:var(--accent)}
+.card h3{margin:17px 0 8px}
+.card p{font-size:14px}
+.company{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:5px;font-size:11px;font-weight:750;letter-spacing:.04em}
+.company::before{content:"";width:8px;height:8px;border-radius:2px;background:currentColor}
+.sicredi{background:#173c2d;color:#8fd18c}
+.dell{background:#123b59;color:#73c4f2}
+.pucrs{background:#163c68;color:#8ec5ff}
+.ifsp{background:#17462e;color:#9bd4a8}
+.uniso{background:#183b69;color:#9fc7ff}
+.caldeira{background:#69451b;color:#ffd08a}
+.eldorado{background:#343a43;color:#d9e0e9}
+.date{color:var(--muted);font-size:11px}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.tag{padding:5px 9px;border:1px solid var(--border);border-radius:5px;background:var(--soft);color:var(--muted);font-size:10px}
+.education h3{margin-top:15px}
+.education h4{margin:10px 0;font-size:14px;font-weight:550}
+.skill-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.skill{display:flex;align-items:center;gap:12px;min-width:0;padding:14px;border:1px solid var(--border);border-radius:12px;background:var(--surface)}
+.skill img{width:30px;height:30px;object-fit:contain;flex-shrink:0}
+.skill span{font-size:12px;color:var(--muted)}
+.page-header{padding:72px 0 32px}
+.page-header h1{margin:15px 0;font-size:clamp(40px,6vw,66px);letter-spacing:-.055em}
+.page-header p{max-width:680px}
+.project-grid{padding:12px 0 80px}
+.project{display:flex;flex-direction:column;padding:0;overflow:hidden}
+.project-visual{min-height:205px;padding:26px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.project-visual::after{content:"";position:absolute;width:220px;height:220px;right:-25px;top:35px;border:1px solid #ffffff60;border-radius:50%;box-shadow:0 0 0 35px #ffffff10,0 0 0 70px #ffffff10}
+.happys-art{background:#d9b96e;color:#382b13}
+.alphy-art{background:#b7cbe1;color:#1e344c}
+.microsoft-art{background:#d4e1ed;color:#20364e}
+.avista-art{background:#193c4a;color:#f1f5f8}
+.avista-art .visual-label{color:#b6d7e9}
+.avista-art .visual-caption{color:#a9c8e3}
+.ssia-art{background:linear-gradient(135deg,#071d32,#14517b);color:#fff}
+.ssia-art .visual-label{color:#b9d8f5}
+.visual-label,.visual-caption{position:relative;z-index:1;font:10px Consolas,monospace}
+.visual-name{position:relative;z-index:1;font-size:clamp(38px,5vw,56px);font-weight:750;letter-spacing:-.07em;line-height:1}
+.project-body{display:flex;flex:1;flex-direction:column;padding:28px}
+.project-body h2{margin:15px 0;font-size:25px}
+.project-body .tags{margin-top:auto;padding-top:10px}
+.award{color:var(--gold);font:10px Consolas,monospace}
+.project-link{display:flex;justify-content:space-between;gap:12px;margin-top:24px;padding-top:18px;border-top:1px solid var(--border);color:var(--accent2);font-size:12px;font-weight:650}
+.project-link:hover{text-decoration:underline}
+.status{display:inline-block;width:fit-content;padding:6px 11px;border:1px solid var(--border);border-radius:30px;background:var(--soft);color:var(--gold);font-size:11px}
+.status.green{color:#8fd18c}
+.detail-list{padding-left:19px;color:var(--muted);font-size:14px}
+.detail-list li{margin-bottom:8px}
+.architecture{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:22px 0}
+.architecture span{padding:8px 10px;border-radius:7px;background:var(--soft);border:1px solid var(--border);color:var(--text);font-size:12px}
+.architecture .arrow{padding:0;border:0;background:transparent;color:var(--accent2)}
+.interview-card{margin-bottom:45px}
+.interview-card h2{margin:15px 0;font-size:27px}
+.video-section{padding-bottom:80px}
+.video-section h2{margin-bottom:10px}
+.video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:28px}
+.video-card{padding:0;overflow:hidden}
+.reel-player{position:relative;width:100%;height:620px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#101b2b,#203e5c,#0b111b);overflow:hidden}
+.reel-player iframe,.reel-player video{display:block;width:100%;height:100%;border:0}
+.reel-player video{object-fit:contain;background:#000}
+.reel-play{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;width:100%;height:100%;border:0;background:transparent;color:#fff;font-size:14px;font-weight:600}
+.play-icon{display:grid;place-items:center;width:90px;height:90px;padding-left:5px;border:2px solid #ffffff70;border-radius:50%;background:#3978bd45;color:#fff;font-size:35px}
+.reel-play:hover .play-icon{transform:scale(1.1);background:#3978bd90}
+.video-info{padding:24px}
+.video-info h3{margin:0 0 10px;font-size:19px}
+.video-info p{font-size:13px}
+.video-info .project-link{margin-top:20px}
+.ssia-gallery{margin-top:38px;border-top:1px solid var(--border);padding-top:28px}
+.ssia-gallery h3{margin:0 0 8px}
+.ssia-gallery p{margin:0 0 18px}
+.gallery-rail{display:flex;gap:14px;overflow-x:auto;padding:6px 3px 20px;scroll-snap-type:x mandatory;scrollbar-color:var(--accent) var(--surface)}
+.prototype-thumb{flex:0 0 170px;padding:10px;border:1px solid var(--border);background:var(--soft);color:var(--text);border-radius:12px;scroll-snap-align:start;text-align:center}
+.prototype-thumb:hover{border-color:var(--accent);transform:translateY(-2px)}
+.prototype-thumb img{width:100%;height:264px;object-fit:contain;border-radius:6px;background:#e9ebee}
+.prototype-thumb span{display:block;padding-top:7px;font-size:11px;color:var(--muted)}
+.gallery-controls{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:6px 0 0}
+.gallery-controls small{color:var(--muted)}
+.gallery-nav{display:flex;gap:8px}
+.gallery-nav button{padding:7px 14px;border:1px solid var(--border);border-radius:8px;background:var(--soft);color:var(--text)}
+.gallery-nav button:hover{border-color:var(--accent)}
+.lightbox{width:min(95vw,710px);max-height:92vh;padding:14px;border:1px solid var(--border);border-radius:16px;background:var(--surface);color:var(--text)}
+.lightbox::backdrop{background:#000b}
+.lightbox-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:0 0 12px}
+.lightbox-head strong{font-size:14px}
+.lightbox-head button,.lightbox-controls button{background:var(--soft);color:var(--text);border:1px solid var(--border);border-radius:7px;padding:6px 12px}
+.lightbox img{display:block;width:auto;max-width:100%;max-height:min(74vh,850px);margin:auto;object-fit:contain}
+.lightbox-controls{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:10px}
+.lightbox-counter{color:var(--muted);font-size:12px}
+footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:30px 0;color:var(--muted);font-size:11px}
+footer a:hover{color:var(--accent2)}
+@media(max-width:980px){.nav{flex-wrap:wrap;padding:14px 0}.brand-name{display:none}.tabs{order:3;width:100%;justify-content:center}.grid.three{grid-template-columns:1fr}.skill-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:700px){.tab{padding:8px 10px;font-size:11px}.hero{padding:60px 0}.content-section{padding:45px 0}.grid,.video-grid{grid-template-columns:1fr}.skill-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.page-header{padding-top:45px}.card,.project-body{padding:23px}.project,.video-card{padding:0}.reel-player{height:560px}.prototype-thumb{flex-basis:145px}.prototype-thumb img{height:235px}}
+@media(max-width:420px){.tabs{border-radius:12px}.tab{flex:1}.skill{padding:11px 9px;gap:8px}.skill img{width:25px;height:25px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+</style>
 </head>
 
 <body>
-  <header>
-    <nav class="nav container" aria-label="Navegação principal">
-      <a class="brand" href="#inicio" aria-label="Voltar ao início">
-        <span class="brand-mark">al<span class="accent">.</span></span>
-        <span class="brand-name">ANA LAURA AGOSTINHO</span>
-      </a>
-
-      <div class="tabs" aria-label="Seções do portfólio">
-        <a class="tab" href="#inicio" data-tab="inicio">Início</a>
-        <a class="tab" href="#faculdade" data-tab="faculdade">Faculdade</a>
-        <a class="tab" href="#trabalho" data-tab="trabalho">Trabalho</a>
-        <a class="tab" href="#diversos" data-tab="diversos">Diversos</a>
-        <a class="tab" href="#entrevistas" data-tab="entrevistas">Entrevistas</a>
-      </div>
-
-      <button
-        class="theme-toggle"
-        type="button"
-        aria-label="Alternar tema"
-        title="Alternar tema"
-      >◐</button>
-    </nav>
-  </header>
-
-  <main class="container" id="conteudo">
-
-    <!-- INÍCIO -->
-
-    <div class="page" id="inicio">
-      <div class="hero">
-        <h1>Ana Laura <span class="accent">Agostinho.</span></h1>
-
-        <a
-          class="button"
-          href="https://linkedin.com/in/analauraagostinho"
-          target="_blank"
-          rel="noopener noreferrer"
-        >LinkedIn ↗</a>
-      </div>
-
-      <section class="content-section">
-        <div class="section-heading">
-          <span class="eyebrow">01 / SOBRE MIM</span>
-        </div>
-
-        <p class="about-copy">
-          Tenho experiência em desenvolvimento de software e atualmente
-          estou buscando estudar e aplicar inteligência artificial,
-          análise de dados e automação.
-        </p>
-      </section>
-
-      <section class="content-section">
-        <div class="section-heading">
-          <span class="eyebrow">02 / EXPERIÊNCIA PROFISSIONAL</span>
-        </div>
-
-        <div class="grid">
-          <article class="card">
-            <span class="company sicredi">CENTRO ADMINISTRATIVO SICREDI</span>
-            <h3>Estágio em Digital Workplace</h3>
-            <div class="date">Julho de 2026 — Atualmente</div>
-
-            <p>
-              Atuação em soluções tecnológicas para o ambiente
-              corporativo, com foco na melhoria da experiência
-              digital dos colaboradores e na otimização de processos.
-              Atuo na análise de dados e indicadores da equipe,
-              na automação de chamados e na otimização de fluxos de
-              trabalho, além do apoio à melhoria contínua dos serviços de TI.
-            </p>
-
-            <div class="tags">
-              <span class="tag">Análise de Dados</span>
-              <span class="tag">Automação</span>
-              <span class="tag">Melhoria Contínua</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <span class="company dell">DELL TECHNOLOGIES</span>
-            <h3>Estágio em Vendas de Serviços</h3>
-            <div class="date">Fevereiro de 2026 — Julho de 2026</div>
-
-            <p>
-              Atuação no suporte a processos operacionais de vendas,
-              com foco na conformidade das operações com as normas
-              e exigências da Receita Federal, além do suporte
-              às rotinas e aos processos internos.
-            </p>
-
-            <div class="tags">
-              <span class="tag">Processos Operacionais</span>
-              <span class="tag">Compliance</span>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="content-section">
-        <div class="section-heading">
-          <span class="eyebrow">03 / FORMAÇÃO ACADÊMICA</span>
-        </div>
-
-        <div class="grid three">
-          <article class="card education">
-            <span class="eyebrow">EM ANDAMENTO</span>
-            <h3>PUCRS</h3>
-            <h4>Bacharelado em Sistemas de Informação</h4>
-            <div class="date">Agosto/2025 — Dezembro/2028</div>
-          </article>
-
-          <article class="card education">
-            <span class="eyebrow">CONCLUÍDO</span>
-            <h3>IFSP</h3>
-            <h4>Técnico em Informática</h4>
-            <div class="date">Janeiro/2022 — Dezembro/2023</div>
-          </article>
-
-          <article class="card education">
-            <span class="eyebrow">NÃO CONCLUÍDO</span>
-            <h3>UNISO</h3>
-            <h4>Bacharelado em Ciência de Dados e Inteligência Artificial</h4>
-            <div class="date">Agosto/2024 — Julho/2025</div>
-          </article>
-        </div>
-      </section>
-
-      <section class="content-section">
-        <div class="section-heading">
-          <span class="eyebrow">04 / HABILIDADES TÉCNICAS</span>
-        </div>
-
-        <div class="skill-grid">
-          <div class="skill"><b>Py</b><span>Python</span></div>
-          <div class="skill"><b>{ }</b><span>Java</span></div>
-          <div class="skill"><b>php</b><span>PHP</span></div>
-          <div class="skill"><b>D</b><span>Dart</span></div>
-          <div class="skill"><b>SQL</b><span>MySQL</span></div>
-        </div>
-
-        <div class="tags">
-          <span class="tag">Integração de APIs</span>
-          <span class="tag">Automação de Processos</span>
-          <span class="tag">Análise de Dados</span>
-          <span class="tag">Inteligência Artificial</span>
-        </div>
-      </section>
-
-      <section class="content-section">
-        <div class="section-heading">
-          <span class="eyebrow">05 / CURSOS E CERTIFICAÇÕES</span>
-        </div>
-
-        <div class="grid">
-          <article class="card">
-            <span class="company">INSTITUTO CALDEIRA</span>
-            <h3>Geração Caldeira 2025 — IA e Dados</h3>
-            <div class="date">Maio de 2025 — Dezembro de 2025</div>
-
-            <p>
-              Formação voltada à inteligência artificial,
-              automação e análise de dados, com foco na aplicação
-              de tecnologias para a resolução de problemas.
-            </p>
-
-            <div class="tags">
-              <span class="tag">Inteligência Artificial</span>
-              <span class="tag">Análise de Dados</span>
-              <span class="tag">Automação</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <span class="company">INSTITUTO ELDORADO</span>
-            <h3>Apple Developer Academy</h3>
-            <div class="date">Janeiro de 2026</div>
-
-            <p>
-              Formação com foco no desenvolvimento de software e
-              na exploração do ecossistema Apple, abrangendo
-              conceitos de programação, criação de aplicações
-              e desenvolvimento de soluções digitais.
-            </p>
-
-            <div class="tags">
-              <span class="tag">Desenvolvimento de Software</span>
-              <span class="tag">Programação</span>
-              <span class="tag">Apple Ecosystem</span>
-            </div>
-          </article>
-        </div>
-      </section>
-    </div>
-
-    <!-- FACULDADE: SSIA -->
-
-    <div class="page" id="faculdade" hidden>
-      <div class="page-header">
-        <h1>Trabalhos da <span class="accent">faculdade.</span></h1>
-        <p>
-          Projetos acadêmicos, pesquisas e desafios de programação
-          desenvolvidos durante minha formação.
-        </p>
-      </div>
-
-      <div class="project-grid">
-        <article class="card project">
-          <div class="project-visual ssia-art" aria-hidden="true">
-            <span class="visual-label">
-              INTELIGÊNCIA ARTIFICIAL. SEGURANÇA. TECNOLOGIA.
-            </span>
-            <span class="visual-name">SSIA.</span>
-            <span class="visual-caption">
-              MONITORAMENTO INTELIGENTE E PREVENÇÃO
-            </span>
-          </div>
-
-          <div class="project-body">
-            <span class="status">EM CONSTRUÇÃO</span>
-            <h2>SSIA — Sistema de Segurança Inteligente Artificialmente</h2>
-            <div class="date">Projeto Integrador · UNISO · 2025</div>
-
-            <p>
-              Projeto acadêmico desenvolvido em equipe na Universidade
-              de Sorocaba, voltado à concepção de um sistema de segurança
-              empresarial que poderá utilizar inteligência artificial
-              para o monitoramento de ambientes, identificação de
-              situações de risco e emissão de alertas.
-            </p>
-
-            <p>
-              Na etapa inicial, realizamos pesquisa de mercado,
-              análise de soluções concorrentes, levantamento de
-              necessidades e estudos de UX/UI. Esse trabalho
-              resultou na elaboração de protótipos de interface
-              para um aplicativo de monitoramento.
-            </p>
-
-            <h3>Minha participação</h3>
-            <p>
-              Atuei na liderança do projeto e em pesquisa de mercado,
-              contribuindo para a direção estratégica, a organização
-              das atividades e a priorização de requisitos.
-            </p>
-
-            <h3>Próximas etapas</h3>
-            <p>
-              Evolução dos protótipos para uma aplicação funcional
-              e estudo da integração de inteligência artificial,
-              câmeras e sensores.
-            </p>
-
-            <div class="tags">
-              <span class="tag">Inteligência Artificial</span>
-              <span class="tag">Segurança Empresarial</span>
-              <span class="tag">UX/UI</span>
-              <span class="tag">Prototipação</span>
-              <span class="tag">Scrum</span>
-              <span class="tag">Liderança</span>
-            </div>
-
-            <div class="ssia-gallery">
-              <h3>Protótipos de interface</h3>
-
-              <p>
-                Explore as 14 telas de protótipo: navegue
-                horizontalmente e clique em qualquer imagem
-                para ampliá-la.
-              </p>
-
-              <div
-                class="gallery-rail"
-                id="gallery-rail"
-                aria-label="Galeria de telas do SSIA"
-              >
-
-                <button class="prototype-thumb" type="button"
-                  data-preview="assets/ssia/login.png"
-                  data-title="Acesso à plataforma"
-                  aria-label="Ampliar: Acesso à plataforma">
-                  <img src="assets/ssia/login.png" width="412"
-                    height="893" loading="lazy"
-                    alt="Protótipo SSIA: Acesso à plataforma">
-                  <span>Acesso à plataforma</span>
-                </button>
-
-                <button class="prototype-thumb" type="button"
-                  data-preview="assets/ssia/cadastro.png"
-                  data-title="Cadastro de usuário"
-                  aria-label="Ampliar: Cadastro de usuário">
-                  <img src="assets/ssia/cadastro.png" width="412"
-                    height="893" loading="lazy"
-                    alt="Protótipo SSIA: Cadastro de usuário">
-                  <span>Cadastro de usuário</span>
-                </button>
-
-                <button class="prototype-thumb" type="button"
-                  data-preview="assets/ssia/inicio.png"
-                  data-title="Página inicial e alertas"
-                  aria-label="Ampliar: Página inicial e alertas">
-                  <img src="assets/ssia/inicio.png" width="412"
-                    height="893" loading="lazy"
-                    alt="Protótipo SSIA: Página inicial e alertas">
-                  <span>Página inicial e alertas</span>
-                </button>
-
-                <button class="prototype-thumb" type="button"
-                  data-preview="assets/ssia/ao-vivo.png"
-                  data-title="Monitoramento em tempo real"
-                  aria-label="Ampliar: Monitoramento em tempo real">
-                  <img src="assets/ssia/ao-vivo.png" width="412"
-                    height="893" loading="lazy"
-                    alt="Protótipo SSIA: Monitoramento em tempo real">
-                  <span>Monitoramento em tempo real</span>
-                </button>
-
-                <button class="prototype-thumb" type="button"
-                  data-preview="assets/ssia/setor-ao-vivo.png"
-                  data-title="Câmeras por setor"
-                  aria-label="Ampliar: Câmeras por setor">
-                  <img src="assets/ssia/setor-ao-vivo.png" width="412"
-                    height="893" loading="lazy"
-                    alt="Protótipo SSIA: Câmeras por setor">
-                  <span>Câmeras por setor</span>
-                </button>
-
-                <button class="prototype-thumb" type="button"
-                  data-preview="assets/ssia/camera-ao-vivo.png"
-                  data-title="Visualização de câmera"
-                  aria-label="Ampliar: Visualização de câmera">
-                  <img src="assets/ssia/camera-ao-vivo.png" width="412"
-                    height="893" loading="lazy"
-                    alt="Protótipo SSIA: Visualização de câmera">
-                  <span>Visualização de câmera</span>
-                </button>
-
-                <button class="prototype-thumb" type="button"
-                  data-preview="assets/ssia/gravacoes.png"
-                  data-title="Gravações salvas"
-                  aria-label="Ampliar: Gravações salvas">
-                  <img src="assets/ssia/gravacoes.png" width="412"
-                    height="893" loading="lazy"
-                    alt="Protótipo SSIA: Gravações salvas">
-                  <span>Gravações salvas</span>
-                </button>
-
-                <button class="prototype-thumb" type="button"
-                  data-preview="assets/ssia/gravacao-video.png"
-                  data-title="Reprodução de gravação"
-                  aria-label="Ampliar: Reprodução de gravação">
-                  <img src="assets/ssia/gravacao-video.png" width="412"
-                    height="893" loading="lazy"
-                    alt="Protótipo SSIA: Reprodução de gravação">
-                  <span>Reprodução de gravação</span>
-                </button>
-
-                <button class="prototype-thumb" type="button"
-                  data-preview="assets/ssia/lista-gravacoes.png"
-                  data-title="Lista de gravações"
-                  aria-label="Ampliar: Lista de gravações">
-                  <img src="assets/ssia/lista-gravacoes.png" width="412"
-                    height="893" loading="lazy"
-                    alt="Protótipo SSIA: Lista de gravações">
-                  <span>Lista de gravações</span>
-                </button>
-
-                <button class="prototype-thumb" type="button"
-                  data-preview="assets/ssia/lista-gravacoes-video.png"
-                  data-title="Lista com vídeo"
-                  aria-label="Ampliar: Lista com vídeo">
-                  <img src="assets/ssia/lista-gravacoes-video.png" width="412"
-                    height="893" loading="lazy"
-                    alt="Protótipo SSIA: Lista com vídeo">
-                  <span>Lista com vídeo</span>
-                </button>
-
-                <button class="prototype-thumb" type="button"
-                  data-preview="assets/ssia/configuracoes.png"
-                  data-title="Configurações"
-                  aria-label="Ampliar: Configurações">
-                  <img src="assets/ssia/configuracoes.png" width="412"
-                    height="893" loading="lazy"
-                    alt="Protótipo SSIA: Configurações">
-                  <span>Configurações</span>
-                </button>
-
-                <button class="prototype-thumb" type="button"
-                  data-preview="assets/ssia/configuracoes-gerais.png"
-                  data-title="Preferências gerais"
-                  aria-label="Ampliar: Preferências gerais">
-                  <img src="assets/ssia/configuracoes-gerais.png" width="412"
-                    height="893" loading="lazy"
-                    alt="Protótipo SSIA: Preferências gerais">
-                  <span>Preferências gerais</span>
-                </button>
-
-                <button class="prototype-thumb" type="button"
-                  data-preview="assets/ssia/perfil-usuario.png"
-                  data-title="Perfil do usuário"
-                  aria-label="Ampliar: Perfil do usuário">
-                  <img src="assets/ssia/perfil-usuario.png" width="412"
-                    height="893" loading="lazy"
-                    alt="Protótipo SSIA: Perfil do usuário">
-                  <span>Perfil do usuário</span>
-                </button>
-
-                <button class="prototype-thumb" type="button"
-                  data-preview="assets/ssia/permissoes.png"
-                  data-title="Permissões do sistema"
-                  aria-label="Ampliar: Permissões do sistema">
-                  <img src="assets/ssia/permissoes.png" width="412"
-                    height="893" loading="lazy"
-                    alt="Protótipo SSIA: Permissões do sistema">
-                  <span>Permissões do sistema</span>
-                </button>
-
-              </div>
-
-              <div class="gallery-controls">
-                <small>
-                  Protótipos acadêmicos · Telas demonstrativas,
-                  não um sistema em operação
-                </small>
-
-                <div class="gallery-nav">
-                  <button type="button" id="gallery-prev"
-                    aria-label="Deslocar galeria para a esquerda">←</button>
-                  <button type="button" id="gallery-next"
-                    aria-label="Deslocar galeria para a direita">→</button>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-
-    <!-- TRABALHO: MICROSOFT 365 -->
-
-    <div class="page" id="trabalho" hidden>
-      <div class="page-header">
-        <h1>Projetos do <span class="accent">trabalho.</span></h1>
-        <p>
-          Tecnologia aplicada à automação, aos dados
-          e à melhoria de processos corporativos.
-        </p>
-      </div>
-
-      <article class="card project interview-card">
-        <div class="project-visual microsoft-art" aria-hidden="true">
-          <span class="visual-label">
-            AUTOMAÇÃO CORPORATIVA / MICROSOFT 365
-          </span>
-          <span class="visual-name">M365.</span>
-          <span class="visual-caption">
-            APROVAÇÃO → AUTOMAÇÃO → GOVERNANÇA
-          </span>
-        </div>
-
-        <div class="project-body">
-          <span class="status">EM CONSTRUÇÃO</span>
-
-          <h2>
-            Automação de Aprovação e Liberação
-            de Configurações no Microsoft 365
-          </h2>
-
-          <p>
-            Projeto de automação corporativa voltado à
-            redução de atividades manuais relacionadas
-            à aprovação e execução de configurações
-            administrativas em ambientes Microsoft 365.
-          </p>
-
-          <p>
-            A solução prevê solicitações padronizadas,
-            aprovações via Microsoft Teams, registro
-            de evidências e execução automatizada
-            por meio de Azure Automation e Runbooks PowerShell.
-          </p>
-
-          <span class="eyebrow">ARQUITETURA PREVISTA</span>
-
-          <div class="architecture">
-            <span>Solicitação</span>
-            <span class="arrow">→</span>
-            <span>Power Automate</span>
-            <span class="arrow">→</span>
-            <span>Teams Approvals</span>
-            <span class="arrow">→</span>
-            <span>Azure Automation</span>
-            <span class="arrow">→</span>
-            <span>PowerShell</span>
-            <span class="arrow">→</span>
-            <span>Microsoft 365</span>
-          </div>
-
-          <h3>Funcionalidades planejadas</h3>
-
-          <ul class="detail-list">
-            <li>Aprovações eletrônicas e registro de comentários.</li>
-            <li>Integração via Webhooks e JSON.</li>
-            <li>Execução automatizada por Runbooks.</li>
-            <li>Validação de parâmetros, recursos e permissões.</li>
-            <li>Tratamento de erros, notificações e rastreabilidade.</li>
-          </ul>
-
-          <h3>Benefícios esperados</h3>
-
-          <p>
-            Maior padronização, governança e rastreabilidade,
-            com menor risco operacional e possibilidade de
-            expansão para novos processos administrativos.
-          </p>
-
-          <h3>Próximas evoluções</h3>
-
-          <p>
-            Integração com ITSM, controle granular de permissões,
-            regras avançadas de autorização e painéis de
-            acompanhamento e auditoria.
-          </p>
-
-          <div class="tags">
-            <span class="tag">Power Automate</span>
-            <span class="tag">Teams</span>
-            <span class="tag">Azure Automation</span>
-            <span class="tag">PowerShell</span>
-            <span class="tag">Exchange Online</span>
-            <span class="tag">Webhooks</span>
-            <span class="tag">JSON</span>
-          </div>
-        </div>
-      </article>
-    </div>
-
-    <!-- DIVERSOS: HAPPY'S, ALPHY E AVISTA -->
-
-    <div class="page" id="diversos" hidden>
-      <div class="page-header">
-        <h1>Projetos <span class="accent">paralelos.</span></h1>
-        <p>
-          Projetos pessoais, iniciativas independentes,
-          competições e soluções que exploram novas
-          possibilidades com tecnologia.
-        </p>
-      </div>
-
-      <div class="grid project-grid">
-
-        <article class="card project">
-          <div class="project-visual happys-art" aria-hidden="true">
-            <span class="visual-label">CULTURA. CONEXÃO. CIDADE.</span>
-            <span class="visual-name">Happy's.</span>
-            <span class="visual-caption">
-              ROTAS QUE RECONECTAM O CENTRO ↗
-            </span>
-          </div>
-
-          <div class="project-body">
-            <span class="award">2º LUGAR / IDEATHON UNISENAC</span>
-            <h2>Happy's — Rotas que Reconectam o Centro</h2>
-
-            <p>
-              Projeto desenvolvido em equipe durante o Ideathon
-              do UniSENAC, a partir de um desafio relacionado
-              ao Centro Histórico de Porto Alegre.
-            </p>
-
-            <p>
-              Criamos uma plataforma digital de rotas inteligentes
-              que busca promover cultura, socialização, segurança
-              e fortalecimento do comércio local. A proposta
-              conquistou o segundo lugar na competição.
-            </p>
-
-            <div class="tags">
-              <span class="tag">Inovação Social</span>
-              <span class="tag">Mobilidade Urbana</span>
-              <span class="tag">Projeto em Equipe</span>
-            </div>
-
-            <a class="project-link"
-              href="https://happys-b3774411.base44.app/Home"
-              target="_blank"
-              rel="noopener noreferrer">
-              Explorar Happy's
-              <span aria-hidden="true">↗</span>
-            </a>
-          </div>
-        </article>
-
-        <article class="card project">
-          <div class="project-visual alphy-art" aria-hidden="true">
-            <span class="visual-label">
-              MENOS PLANILHAS. MAIS RESPOSTAS.
-            </span>
-            <span class="visual-name">alphy</span>
-            <span class="visual-caption">
-              DADOS → CONVERSAS → INSIGHTS
-            </span>
-          </div>
-
-          <div class="project-body">
-            <span class="eyebrow">CHATBOT / ANÁLISE DE DADOS</span>
-            <h2>Alphy — Chatbot de Análise de Vendas</h2>
-
-            <p>
-              Chatbot que analisa planilhas e fornece insights
-              sobre dados de vendas, facilitando a compreensão
-              de informações comerciais.
-            </p>
-
-            <p>
-              A proposta é tornar a exploração dos dados mais
-              acessível por meio de uma interface conversacional,
-              apoiando a análise e a tomada de decisões.
-            </p>
-
-            <div class="tags">
-              <span class="tag">Chatbot</span>
-              <span class="tag">Análise de Dados</span>
-              <span class="tag">Planilhas</span>
-            </div>
-
-            <a class="project-link"
-              href="https://alphy-chatbot.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer">
-              Conversar com o Alphy
-              <span aria-hidden="true">↗</span>
-            </a>
-          </div>
-        </article>
-
-        <article class="card project">
-          <div class="project-visual avista-art" aria-hidden="true">
-            <span class="visual-label">
-              OPORTUNIDADES. CONEXÕES. FUTURO.
-            </span>
-            <span class="visual-name">AVISTA.</span>
-            <span class="visual-caption">
-              NOVOS CAMINHOS, NOVAS POSSIBILIDADES
-            </span>
-          </div>
-
-          <div class="project-body">
-            <span class="status green">EM CONSTRUÇÃO</span>
-
-            <div class="tags">
-              <span class="tag">DESENVOLVIDO EM DUPLA</span>
-              <span class="tag">CONCORRENDO AO GC IMPULSA</span>
-            </div>
-
-            <h2>
-              AVISTA — Plataforma de Oportunidades
-              e Desenvolvimento Juvenil
-            </h2>
-
-            <p>
-              Startup de tecnologia de impacto social desenvolvida
-              em dupla, com a proposta de conectar jovens
-              a oportunidades de educação, empregabilidade,
-              empreendedorismo e desenvolvimento pessoal.
-            </p>
-
-            <p>
-              A plataforma busca reunir em um único ambiente
-              oportunidades de empresas, instituições de ensino,
-              organizações sociais e outras iniciativas, além de
-              prever recursos de autoconhecimento e acompanhamento
-              da trajetória dos jovens.
-            </p>
-
-            <p>
-              O projeto está em fase de construção e
-              <strong>concorrendo ao GC Impulsa</strong>,
-              programa voltado ao desenvolvimento
-              de iniciativas empreendedoras.
-            </p>
-
-            <div class="tags">
-              <span class="tag">Startup</span>
-              <span class="tag">Impacto Social</span>
-              <span class="tag">Educação</span>
-              <span class="tag">Empregabilidade</span>
-              <span class="tag">Empreendedorismo</span>
-              <span class="tag">Projeto em Dupla</span>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </div>
-
-    <!-- ENTREVISTAS -->
-
-    <div class="page" id="entrevistas" hidden>
-      <div class="page-header">
-        <span class="eyebrow">MATÉRIAS E PARTICIPAÇÕES</span>
-
-        <h1>Entrevistas <span class="accent">& mídia.</span></h1>
-
-        <p>
-          Participações em matérias, depoimentos e conteúdos
-          relacionados à minha trajetória e experiências
-          em tecnologia e educação.
-        </p>
-      </div>
-
-      <article class="card interview-card">
-        <span class="eyebrow">
-          BRASIL INOVADOR / GERAÇÃO CALDEIRA
-        </span>
-
-        <h2>
-          Programa de educação Geração Caldeira
-          abre inscrições para edição 2026
-        </h2>
-
-        <p>
-          Participação em reportagem sobre o programa
-          Geração Caldeira, compartilhando minha experiência
-          na trilha de Inteligência Artificial e Dados
-          e a importância da formação para o desenvolvimento
-          pessoal e profissional.
-        </p>
-
-        <div class="tags">
-          <span class="tag">Geração Caldeira</span>
-          <span class="tag">IA e Dados</span>
-          <span class="tag">Depoimento</span>
-          <span class="tag">Educação</span>
-        </div>
-
-        <a class="project-link"
-          href="https://brasilinovador.com.br/programa-de-educacao-geracao-caldeira-abre-inscricoes-para-edicao-2026/"
-          target="_blank"
-          rel="noopener noreferrer">
-          Ler matéria completa
-          <span aria-hidden="true">↗</span>
-        </a>
-      </article>
-
-      <section class="video-section">
-        <span class="eyebrow">CONTEÚDO AUDIOVISUAL</span>
-        <h2>Vídeos e participações</h2>
-
-        <p>
-          Registros em vídeo de experiências,
-          entrevistas e conteúdos do Geração Caldeira.
-        </p>
-
-        <div class="video-grid">
-          <article class="card video-card">
-            <div class="reel-player"
-              data-reel="DXXmTAHDbs4"
-              data-mp4=""
-              data-title="Geração Caldeira - Vídeo 01">
-              <button class="reel-play" type="button"
-                aria-label="Reproduzir o primeiro vídeo">
-                <span class="play-icon">▶</span>
-                <span>Reproduzir vídeo</span>
-              </button>
-            </div>
-
-            <div class="video-info">
-              <h3>Geração Caldeira | Vídeo 01</h3>
-              <p>
-                Conteúdo publicado pelo perfil oficial
-                do Geração Caldeira.
-              </p>
-
-              <a class="project-link"
-                href="https://www.instagram.com/geracaocaldeira/reel/DXXmTAHDbs4/"
-                target="_blank"
-                rel="noopener noreferrer">
-                Ver publicação original
-                <span aria-hidden="true">↗</span>
-              </a>
-            </div>
-          </article>
-
-          <article class="card video-card">
-            <div class="reel-player"
-              data-reel="DOMmOc9iRNH"
-              data-mp4=""
-              data-title="Geração Caldeira - Vídeo 02">
-              <button class="reel-play" type="button"
-                aria-label="Reproduzir o segundo vídeo">
-                <span class="play-icon">▶</span>
-                <span>Reproduzir vídeo</span>
-              </button>
-            </div>
-
-            <div class="video-info">
-              <h3>Geração Caldeira | Vídeo 02</h3>
-              <p>
-                Conteúdo publicado pelo perfil oficial
-                do Geração Caldeira.
-              </p>
-
-              <a class="project-link"
-                href="https://www.instagram.com/geracaocaldeira/reel/DOMmOc9iRNH/"
-                target="_blank"
-                rel="noopener noreferrer">
-                Ver publicação original
-                <span aria-hidden="true">↗</span>
-              </a>
-            </div>
-          </article>
-        </div>
-      </section>
-    </div>
-  </main>
-
-  <!-- GALERIA AMPLIADA DO SSIA -->
-
-  <dialog class="lightbox" id="preview-dialog"
-    aria-labelledby="preview-title">
-    <div class="lightbox-head">
-      <strong id="preview-title">Tela do protótipo SSIA</strong>
-      <button type="button" id="preview-close"
-        aria-label="Fechar visualização">✕</button>
-    </div>
-
-    <img id="preview-image" src="" alt="">
-
-    <div class="lightbox-controls">
-      <button type="button" id="preview-prev"
-        aria-label="Imagem anterior">← Anterior</button>
-      <span class="lightbox-counter" id="preview-counter"></span>
-      <button type="button" id="preview-next"
-        aria-label="Próxima imagem">Próxima →</button>
-    </div>
-  </dialog>
-
-  <footer class="container">
-    <span>
-      Ana Laura Agostinho · <span id="year"></span>
-    </span>
-    <a href="#inicio">Voltar ao início ↑</a>
-  </footer>
-
-  <script>
-    const pages = [...document.querySelectorAll(".page")];
-    const tabs = [...document.querySelectorAll("[data-tab]")];
-    const themeButton = document.querySelector(".theme-toggle");
-    const players = [...document.querySelectorAll(".reel-player")];
-
-    const pageTitles = {
-      inicio: "Portfólio",
-      faculdade: "Faculdade",
-      trabalho: "Trabalho",
-      diversos: "Diversos",
-      entrevistas: "Entrevistas"
-    };
-
-    function createPlayButton(player) {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "reel-play";
-      button.setAttribute(
-        "aria-label",
-        "Reproduzir " + player.dataset.title
-      );
-
-      const icon = document.createElement("span");
-      icon.className = "play-icon";
-      icon.textContent = "▶";
-
-      const label = document.createElement("span");
-      label.textContent = "Reproduzir vídeo";
-
-      button.append(icon, label);
-      button.addEventListener("click", () => startVideo(player));
-      return button;
+<header>
+<nav class="nav container" aria-label="Navegação principal">
+<a class="brand" href="#inicio" aria-label="Voltar ao início">
+<span class="brand-mark">al<span class="accent">.</span></span>
+<span class="brand-name">ANA LAURA AGOSTINHO</span>
+</a>
+<div class="tabs" aria-label="Seções do portfólio">
+<a class="tab" href="#inicio" data-tab="inicio">Início</a>
+<a class="tab" href="#faculdade" data-tab="faculdade">Faculdade</a>
+<a class="tab" href="#trabalho" data-tab="trabalho">Trabalho</a>
+<a class="tab" href="#diversos" data-tab="diversos">Diversos</a>
+<a class="tab" href="#entrevistas" data-tab="entrevistas">Entrevistas</a>
+</div>
+<button class="theme-toggle" type="button" aria-label="Alternar tema" title="Alternar tema">◐</button>
+</nav>
+</header>
+
+<main class="container" id="conteudo">
+<div class="page" id="inicio">
+<div class="hero">
+<span class="eyebrow">TECNOLOGIA · DADOS · INOVAÇÃO</span>
+<h1>Ana Laura <span class="accent">Agostinho.</span></h1>
+<p>Transformando curiosidade em soluções por meio da tecnologia, dos dados e da inteligência artificial.</p>
+<a class="button" href="https://linkedin.com/in/analauraagostinho" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+</div>
+
+<section class="content-section">
+<div class="section-heading"><span class="eyebrow">01 / SOBRE MIM</span></div>
+<p class="about-copy">
+Sou natural de São Miguel Arcanjo, interior de São Paulo, e me mudei para Porto Alegre em busca de novas oportunidades na área de tecnologia. Fui selecionada para o Geração Caldeira 2025, conquistando uma bolsa de formação em IA e Dados em um processo com mais de 15 mil participantes. Essa experiência marcou uma etapa importante da minha trajetória: ampliou meus conhecimentos, aproximou-me do ecossistema de inovação e abriu caminhos para minhas primeiras experiências profissionais.
+<br><br>
+Atualmente, estou no meu segundo estágio, no Sicredi, depois de iniciar minha trajetória profissional na Dell Technologies. Tenho interesse em desenvolvimento de software, inteligência artificial, análise de dados e automação de processos. Gosto de aprender na prática, entender problemas e transformar necessidades em soluções úteis.
+</p>
+</section>
+
+<section class="content-section">
+<div class="section-heading"><span class="eyebrow">02 / EXPERIÊNCIA PROFISSIONAL</span></div>
+<div class="grid">
+<article class="card">
+<span class="company sicredi">CENTRO ADMINISTRATIVO SICREDI</span>
+<h3>Estágio em Digital Workplace</h3>
+<div class="date">Julho de 2026 — Atualmente</div>
+<p>Atuação em soluções tecnológicas para o ambiente corporativo, com foco na melhoria da experiência digital dos colaboradores e na otimização de processos. Atuo na análise de dados e indicadores da equipe, automação de chamados, otimização de fluxos de trabalho e apoio à melhoria contínua dos serviços de TI.</p>
+<div class="tags"><span class="tag">Análise de Dados</span><span class="tag">Automação</span><span class="tag">Melhoria Contínua</span><span class="tag">Tecnologia Corporativa</span></div>
+</article>
+<article class="card">
+<span class="company dell">DELL TECHNOLOGIES</span>
+<h3>Estágio em Vendas de Serviços</h3>
+<div class="date">Fevereiro de 2026 — Julho de 2026</div>
+<p>Atuação no suporte a processos operacionais de vendas, com foco na conformidade das operações com normas e exigências da Receita Federal, além do apoio às rotinas, cotações, oportunidades e processos internos da equipe de Serviços.</p>
+<div class="tags"><span class="tag">Processos Operacionais</span><span class="tag">Compliance</span><span class="tag">Vendas</span><span class="tag">Excel</span></div>
+</article>
+</div>
+</section>
+
+<section class="content-section">
+<div class="section-heading"><span class="eyebrow">03 / FORMAÇÃO ACADÊMICA</span></div>
+<div class="grid three">
+<article class="card education"><span class="company pucrs">PUCRS</span><h3>Bacharelado em Sistemas de Informação</h3><h4>Formação em tecnologia, desenvolvimento de software, sistemas e dados.</h4><div class="date">Março/2025 — Dezembro/2028 · Em andamento</div></article>
+<article class="card education"><span class="company ifsp">IFSP</span><h3>Técnico em Informática</h3><h4>Formação técnica em programação, desenvolvimento de sistemas e infraestrutura.</h4><div class="date">Janeiro/2022 — Dezembro/2023 · Concluído</div></article>
+<article class="card education"><span class="company uniso">UNISO</span><h3>Bacharelado em Ciência de Dados e Inteligência Artificial</h3><h4>Estudos em programação, análise de dados e fundamentos de IA.</h4><div class="date">Agosto/2024 — Julho/2025 · Não concluído</div></article>
+</div>
+</section>
+
+<section class="content-section">
+<div class="section-heading"><span class="eyebrow">04 / HABILIDADES TÉCNICAS</span></div>
+<h3>Programação e desenvolvimento</h3>
+<div class="skill-grid" style="margin:16px 0 28px">
+<div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt=""><span>Python</span></div>
+<div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt=""><span>Java</span></div>
+<div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt=""><span>PHP</span></div>
+<div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" alt=""><span>Dart</span></div>
+<div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt=""><span>TypeScript</span></div>
+<div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt=""><span>React</span></div>
+<div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt=""><span>Flutter</span></div>
+<div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt=""><span>HTML5</span></div>
+<div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt=""><span>CSS3</span></div>
+</div>
+<h3>Dados, automação e ferramentas</h3>
+<div class="skill-grid" style="margin:16px 0 0">
+<div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt=""><span>MySQL</span></div>
+<div class="skill"><img src="https://cdn.simpleicons.org/microsoftexcel/217346" alt=""><span>Excel</span></div>
+<div class="skill"><img src="https://cdn.simpleicons.org/powerbi/F2C811" alt=""><span>Power BI</span></div>
+<div class="skill"><img src="https://cdn.simpleicons.org/microsoftpowerautomate/4A90E2" alt=""><span>Power Automate</span></div>
+<div class="skill"><img src="https://cdn.simpleicons.org/n8n/EA4B71" alt=""><span>n8n</span></div>
+<div class="skill"><img src="https://cdn.simpleicons.org/powershell/5391FE" alt=""><span>PowerShell</span></div>
+<div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt=""><span>Git</span></div>
+<div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt=""><span>GitHub</span></div>
+</div>
+<div class="tags"><span class="tag">Análise de Dados</span><span class="tag">Inteligência Artificial</span><span class="tag">Integração de APIs</span><span class="tag">Automação de Processos</span><span class="tag">Dashboards</span><span class="tag">SQL</span><span class="tag">Desenvolvimento Web e Mobile</span></div>
+</section>
+<section class="content-section">
+<div class="section-heading"><span class="eyebrow">05 / CURSOS E CERTIFICAÇÕES</span></div>
+<div class="grid">
+<article class="card">
+<span class="company caldeira">INSTITUTO CALDEIRA</span>
+<h3>Geração Caldeira 2025 — IA e Dados</h3>
+<div class="date">Maio de 2025 — Dezembro de 2025 · Concluído</div>
+<p>Formação voltada à inteligência artificial, análise de dados, LLMs, vibe coding e automação de processos, com foco na aplicação prática da tecnologia para resolver problemas.</p>
+<div class="tags"><span class="tag">Inteligência Artificial</span><span class="tag">Análise de Dados</span><span class="tag">n8n</span><span class="tag">Automação</span></div>
+</article>
+<article class="card">
+<span class="company eldorado">INSTITUTO ELDORADO</span>
+<h3>Apple Developer Academy</h3>
+<div class="date">Janeiro de 2026</div>
+<p>Formação com foco no desenvolvimento de software e na exploração do ecossistema Apple, abrangendo programação, criação de aplicações e desenvolvimento de soluções digitais.</p>
+<div class="tags"><span class="tag">Desenvolvimento de Software</span><span class="tag">Programação</span><span class="tag">Apple Ecosystem</span></div>
+</article>
+</div>
+</section>
+</div>
+
+<!-- FACULDADE -->
+<div class="page" id="faculdade" hidden>
+<div class="page-header">
+<h1>Trabalhos da <span class="accent">faculdade.</span></h1>
+<p>Projetos acadêmicos, pesquisas e desafios de programação desenvolvidos durante minha formação.</p>
+</div>
+
+<div class="project-grid">
+<article class="card project">
+<div class="project-visual ssia-art" aria-hidden="true">
+<span class="visual-label">INTELIGÊNCIA ARTIFICIAL. SEGURANÇA. TECNOLOGIA.</span>
+<span class="visual-name">SSIA.</span>
+<span class="visual-caption">MONITORAMENTO INTELIGENTE E PREVENÇÃO</span>
+</div>
+
+<div class="project-body">
+<span class="status">EM CONSTRUÇÃO</span>
+<h2>SSIA — Sistema de Segurança Inteligente Artificialmente</h2>
+<div class="date">Projeto Integrador · UNISO · 2025</div>
+
+<p>Projeto acadêmico desenvolvido em equipe na Universidade de Sorocaba, voltado à concepção de um sistema de segurança empresarial que poderá utilizar inteligência artificial para o monitoramento de ambientes, identificação de situações de risco e emissão de alertas.</p>
+
+<p>Na etapa inicial, realizamos pesquisa de mercado, análise de soluções concorrentes, levantamento de necessidades e estudos de UX/UI. Esse trabalho resultou na elaboração de protótipos de interface para um aplicativo de monitoramento.</p>
+
+<h3>Minha participação</h3>
+<p>Atuei na liderança do projeto e em pesquisa de mercado, contribuindo para a direção estratégica, a organização das atividades e a priorização de requisitos.</p>
+
+<h3>Próximas etapas</h3>
+<p>Evolução dos protótipos para uma aplicação funcional e estudo da integração de inteligência artificial, câmeras e sensores.</p>
+
+<div class="tags">
+<span class="tag">Inteligência Artificial</span>
+<span class="tag">Segurança Empresarial</span>
+<span class="tag">UX/UI</span>
+<span class="tag">Prototipação</span>
+<span class="tag">Scrum</span>
+<span class="tag">Liderança</span>
+</div>
+
+<div class="ssia-gallery">
+<h3>Protótipos de interface</h3>
+<p>Explore as 13 telas de protótipo: navegue horizontalmente e clique em qualquer imagem para ampliá-la.</p>
+
+<div class="gallery-rail" id="gallery-rail" aria-label="Galeria de telas do SSIA">
+
+<button class="prototype-thumb" type="button" data-preview="./assets/Login%20Page.png" data-title="Acesso à plataforma">
+<img src="./assets/Login%20Page.png" width="412" height="893" loading="lazy" alt="Protótipo SSIA: Acesso à plataforma">
+<span>Acesso à plataforma</span>
+</button>
+
+<button class="prototype-thumb" type="button" data-preview="./assets/Register%20Page.png" data-title="Cadastro de usuário">
+<img src="./assets/Register%20Page.png" width="412" height="893" loading="lazy" alt="Protótipo SSIA: Cadastro de usuário">
+<span>Cadastro de usuário</span>
+</button>
+
+<button class="prototype-thumb" type="button" data-preview="./assets/Home%20Page.png" data-title="Página inicial e alertas">
+<img src="./assets/Home%20Page.png" width="412" height="893" loading="lazy" alt="Protótipo SSIA: Página inicial e alertas">
+<span>Página inicial e alertas</span>
+</button>
+
+<button class="prototype-thumb" type="button" data-preview="./assets/On%20Live%20Page.png" data-title="Monitoramento em tempo real">
+<img src="./assets/On%20Live%20Page.png" width="412" height="893" loading="lazy" alt="Protótipo SSIA: Monitoramento em tempo real">
+<span>Monitoramento em tempo real</span>
+</button>
+
+<button class="prototype-thumb" type="button" data-preview="./assets/On%20Live%20Sector%20Page.png" data-title="Monitoramento por setor">
+<img src="./assets/On%20Live%20Sector%20Page.png" width="412" height="893" loading="lazy" alt="Protótipo SSIA: Monitoramento por setor">
+<span>Monitoramento por setor</span>
+</button>
+
+<button class="prototype-thumb" type="button" data-preview="./assets/On%20Live%20Sector%20Page-1.png" data-title="Detalhes do setor">
+<img src="./assets/On%20Live%20Sector%20Page-1.png" width="412" height="893" loading="lazy" alt="Protótipo SSIA: Detalhes do setor">
+<span>Detalhes do setor</span>
+</button>
+
+<button class="prototype-thumb" type="button" data-preview="./assets/Saved%20Page.png" data-title="Gravações salvas">
+<img src="./assets/Saved%20Page.png" width="412" height="893" loading="lazy" alt="Protótipo SSIA: Gravações salvas">
+<span>Gravações salvas</span>
+</button>
+
+<button class="prototype-thumb" type="button" data-preview="./assets/Saved%20list%20Page.png" data-title="Lista de gravações">
+<img src="./assets/Saved%20list%20Page.png" width="412" height="893" loading="lazy" alt="Protótipo SSIA: Lista de gravações">
+<span>Lista de gravações</span>
+</button>
+
+<button class="prototype-thumb" type="button" data-preview="./assets/Config%20Page.png" data-title="Configurações">
+<img src="./assets/Config%20Page.png" width="412" height="893" loading="lazy" alt="Protótipo SSIA: Configurações">
+<span>Configurações</span>
+</button>
+
+<button class="prototype-thumb" type="button" data-preview="./assets/General%20Config%20Page.png" data-title="Preferências gerais">
+<img src="./assets/General%20Config%20Page.png" width="412" height="893" loading="lazy" alt="Protótipo SSIA: Preferências gerais">
+<span>Preferências gerais</span>
+</button>
+
+<button class="prototype-thumb" type="button" data-preview="./assets/User%20Config%20Page.png" data-title="Perfil do usuário">
+<img src="./assets/User%20Config%20Page.png" width="412" height="893" loading="lazy" alt="Protótipo SSIA: Perfil do usuário">
+<span>Perfil do usuário</span>
+</button>
+
+<button class="prototype-thumb" type="button" data-preview="./assets/Permissions%20Config%20Page.png" data-title="Permissões do sistema">
+<img src="./assets/Permissions%20Config%20Page.png" width="412" height="893" loading="lazy" alt="Protótipo SSIA: Permissões do sistema">
+<span>Permissões do sistema</span>
+</button>
+
+</div>
+
+<div class="gallery-controls">
+<small>Protótipos acadêmicos · Telas demonstrativas, não um sistema em operação</small>
+<div class="gallery-nav">
+<button type="button" id="gallery-prev" aria-label="Deslocar galeria para a esquerda">←</button>
+<button type="button" id="gallery-next" aria-label="Deslocar galeria para a direita">→</button>
+</div>
+</div>
+</div>
+</div>
+</article>
+</div>
+</div>
+
+<!-- TRABALHO -->
+<div class="page" id="trabalho" hidden>
+<div class="page-header">
+<h1>Projetos do <span class="accent">trabalho.</span></h1>
+<p>Tecnologia aplicada à automação, aos dados e à melhoria de processos corporativos.</p>
+</div>
+
+<article class="card project interview-card">
+<div class="project-visual microsoft-art" aria-hidden="true">
+<span class="visual-label">AUTOMAÇÃO CORPORATIVA / MICROSOFT 365</span>
+<span class="visual-name">M365.</span>
+<span class="visual-caption">APROVAÇÃO → AUTOMAÇÃO → GOVERNANÇA</span>
+</div>
+
+<div class="project-body">
+<span class="status">EM CONSTRUÇÃO</span>
+<h2>Automação de Aprovação e Liberação de Configurações no Microsoft 365</h2>
+
+<p>Projeto de automação corporativa voltado à redução de atividades manuais relacionadas à aprovação e execução de configurações administrativas em ambientes Microsoft 365.</p>
+
+<p>A solução prevê solicitações padronizadas, aprovações via Microsoft Teams, registro de evidências e execução automatizada por meio de Azure Automation e Runbooks PowerShell.</p>
+
+<span class="eyebrow">ARQUITETURA PREVISTA</span>
+
+<div class="architecture">
+<span>Solicitação</span><span class="arrow">→</span>
+<span>Power Automate</span><span class="arrow">→</span>
+<span>Teams Approvals</span><span class="arrow">→</span>
+<span>Azure Automation</span><span class="arrow">→</span>
+<span>PowerShell</span><span class="arrow">→</span>
+<span>Microsoft 365</span>
+</div>
+
+<h3>Funcionalidades planejadas</h3>
+<ul class="detail-list">
+<li>Aprovações eletrônicas e registro de comentários.</li>
+<li>Integração via Webhooks e JSON.</li>
+<li>Execução automatizada por Runbooks.</li>
+<li>Validação de parâmetros, recursos e permissões.</li>
+<li>Tratamento de erros, notificações e rastreabilidade.</li>
+</ul>
+
+<h3>Benefícios esperados</h3>
+<p>Maior padronização, governança e rastreabilidade, com menor risco operacional e possibilidade de expansão para novos processos administrativos.</p>
+
+<h3>Próximas evoluções</h3>
+<p>Integração com ITSM, controle granular de permissões, regras avançadas de autorização e painéis de acompanhamento e auditoria.</p>
+
+<div class="tags">
+<span class="tag">Power Automate</span>
+<span class="tag">Teams</span>
+<span class="tag">Azure Automation</span>
+<span class="tag">PowerShell</span>
+<span class="tag">Exchange Online</span>
+<span class="tag">Webhooks</span>
+<span class="tag">JSON</span>
+</div>
+</div>
+</article>
+</div>
+
+<!-- DIVERSOS -->
+<div class="page" id="diversos" hidden>
+<div class="page-header">
+<h1>Projetos <span class="accent">paralelos.</span></h1>
+<p>Projetos pessoais, iniciativas independentes, competições e soluções que exploram novas possibilidades com tecnologia.</p>
+</div>
+
+<div class="grid project-grid">
+
+<article class="card project">
+<div class="project-visual happys-art" aria-hidden="true">
+<span class="visual-label">CULTURA. CONEXÃO. CIDADE.</span>
+<span class="visual-name">Happy's.</span>
+<span class="visual-caption">ROTAS QUE RECONECTAM O CENTRO ↗</span>
+</div>
+<div class="project-body">
+<span class="award">2º LUGAR / IDEATHON UNISENAC</span>
+<h2>Happy's — Rotas que Reconectam o Centro</h2>
+<p>Projeto desenvolvido em equipe durante o Ideathon do UniSENAC, a partir de um desafio relacionado ao Centro Histórico de Porto Alegre.</p>
+<p>Criamos uma plataforma digital de rotas inteligentes que busca promover cultura, socialização, segurança e fortalecimento do comércio local. A proposta conquistou o segundo lugar na competição.</p>
+<div class="tags">
+<span class="tag">Inovação Social</span>
+<span class="tag">Mobilidade Urbana</span>
+<span class="tag">Projeto em Equipe</span>
+</div>
+<a class="project-link" href="https://happys-b3774411.base44.app/Home" target="_blank" rel="noopener noreferrer">Explorar Happy's <span>↗</span></a>
+</div>
+</article>
+
+<article class="card project">
+<div class="project-visual alphy-art" aria-hidden="true">
+<span class="visual-label">MENOS PLANILHAS. MAIS RESPOSTAS.</span>
+<span class="visual-name">alphy</span>
+<span class="visual-caption">DADOS → CONVERSAS → INSIGHTS</span>
+</div>
+<div class="project-body">
+<span class="eyebrow">CHATBOT / ANÁLISE DE DADOS</span>
+<h2>Alphy — Chatbot de Análise de Vendas</h2>
+<p>Chatbot que analisa planilhas e fornece insights sobre dados de vendas, facilitando a compreensão de informações comerciais.</p>
+<p>A proposta é tornar a exploração dos dados mais acessível por meio de uma interface conversacional, apoiando a análise e a tomada de decisões.</p>
+<div class="tags">
+<span class="tag">Chatbot</span>
+<span class="tag">Análise de Dados</span>
+<span class="tag">Planilhas</span>
+<span class="tag">IA Generativa</span>
+</div>
+<a class="project-link" href="https://alphy-chatbot.vercel.app/" target="_blank" rel="noopener noreferrer">Conversar com o Alphy <span>↗</span></a>
+</div>
+</article>
+
+<article class="card project">
+<div class="project-visual avista-art" aria-hidden="true">
+<span class="visual-label">OPORTUNIDADES. CONEXÕES. FUTURO.</span>
+<span class="visual-name">AVISTA.</span>
+<span class="visual-caption">NOVOS CAMINHOS, NOVAS POSSIBILIDADES</span>
+</div>
+<div class="project-body">
+<span class="status green">EM CONSTRUÇÃO</span>
+<div class="tags">
+<span class="tag">DESENVOLVIDO EM DUPLA</span>
+<span class="tag">CONCORRENDO AO GC IMPULSA</span>
+</div>
+<h2>AVISTA — Plataforma de Oportunidades e Desenvolvimento Juvenil</h2>
+<p>Startup de tecnologia de impacto social desenvolvida em dupla, com a proposta de conectar jovens a oportunidades de educação, empregabilidade, empreendedorismo e desenvolvimento pessoal.</p>
+<p>A plataforma busca reunir em um único ambiente oportunidades de empresas, instituições de ensino, organizações sociais e outras iniciativas, além de prever recursos de autoconhecimento e acompanhamento da trajetória dos jovens.</p>
+<p>O projeto está em fase de construção e concorrendo ao GC Impulsa, programa voltado ao desenvolvimento de iniciativas empreendedoras.</p>
+<div class="tags">
+<span class="tag">Startup</span>
+<span class="tag">Impacto Social</span>
+<span class="tag">Educação</span>
+<span class="tag">Empregabilidade</span>
+<span class="tag">Empreendedorismo</span>
+<span class="tag">Projeto em Dupla</span>
+</div>
+</div>
+</article>
+
+</div>
+</div>
+
+<!-- ENTREVISTAS -->
+<div class="page" id="entrevistas" hidden>
+<div class="page-header">
+<span class="eyebrow">MATÉRIAS E PARTICIPAÇÕES</span>
+<h1>Entrevistas <span class="accent">& mídia.</span></h1>
+<p>Participações em matérias, depoimentos e conteúdos relacionados à minha trajetória e experiências em tecnologia e educação.</p>
+</div>
+
+<article class="card interview-card">
+<span class="eyebrow">BRASIL INOVADOR / GERAÇÃO CALDEIRA</span>
+<h2>Programa de educação Geração Caldeira abre inscrições para edição 2026</h2>
+<p>Participação em reportagem sobre o programa Geração Caldeira, compartilhando minha experiência na trilha de Inteligência Artificial e Dados e a importância da formação para o desenvolvimento pessoal e profissional.</p>
+<div class="tags">
+<span class="tag">Geração Caldeira</span>
+<span class="tag">IA e Dados</span>
+<span class="tag">Depoimento</span>
+<span class="tag">Educação</span>
+</div>
+<a class="project-link" href="https://brasilinovador.com.br/programa-de-educacao-geracao-caldeira-abre-inscricoes-para-edicao-2026/" target="_blank" rel="noopener noreferrer">Ler matéria completa <span>↗</span></a>
+</article>
+
+<section class="video-section">
+<span class="eyebrow">CONTEÚDO AUDIOVISUAL</span>
+<h2>Vídeos e participações</h2>
+<p>Registros em vídeo de experiências, entrevistas e conteúdos do Geração Caldeira.</p>
+
+<div class="video-grid">
+<article class="card video-card">
+<div class="reel-player" data-reel="DXXmTAHDbs4" data-mp4="" data-title="Geração Caldeira - Vídeo 01">
+<button class="reel-play" type="button" aria-label="Reproduzir o primeiro vídeo">
+<span class="play-icon">▶</span>
+<span>Reproduzir vídeo</span>
+</button>
+</div>
+<div class="video-info">
+<h3>Geração Caldeira | Vídeo 01</h3>
+<p>Conteúdo publicado pelo perfil oficial do Geração Caldeira.</p>
+<a class="project-link" href="https://www.instagram.com/geracaocaldeira/reel/DXXmTAHDbs4/" target="_blank" rel="noopener noreferrer">Ver publicação original <span>↗</span></a>
+</div>
+</article>
+
+<article class="card video-card">
+<div class="reel-player" data-reel="DOMmOc9iRNH" data-mp4="" data-title="Geração Caldeira - Vídeo 02">
+<button class="reel-play" type="button" aria-label="Reproduzir o segundo vídeo">
+<span class="play-icon">▶</span>
+<span>Reproduzir vídeo</span>
+</button>
+</div>
+<div class="video-info">
+<h3>Geração Caldeira | Vídeo 02</h3>
+<p>Conteúdo publicado pelo perfil oficial do Geração Caldeira.</p>
+<a class="project-link" href="https://www.instagram.com/geracaocaldeira/reel/DOMmOc9iRNH/" target="_blank" rel="noopener noreferrer">Ver publicação original <span>↗</span></a>
+</div>
+</article>
+</div>
+</section>
+</div>
+</main>
+
+<!-- GALERIA AMPLIADA -->
+<dialog class="lightbox" id="preview-dialog" aria-labelledby="preview-title">
+<div class="lightbox-head">
+<strong id="preview-title">Tela do protótipo SSIA</strong>
+<button type="button" id="preview-close" aria-label="Fechar visualização">✕</button>
+</div>
+<img id="preview-image" src="" alt="">
+<div class="lightbox-controls">
+<button type="button" id="preview-prev" aria-label="Imagem anterior">← Anterior</button>
+<span class="lightbox-counter" id="preview-counter"></span>
+<button type="button" id="preview-next" aria-label="Próxima imagem">Próxima →</button>
+</div>
+</dialog>
+
+<footer class="container">
+<span>Ana Laura Agostinho · <span id="year"></span></span>
+<a href="#inicio">Voltar ao início ↑</a>
+</footer>
+
+<script>
+const pages=[...document.querySelectorAll(".page")];
+const tabs=[...document.querySelectorAll("[data-tab]")];
+const themeButton=document.querySelector(".theme-toggle");
+const players=[...document.querySelectorAll(".reel-player")];
+
+const pageTitles={
+  inicio:"Portfólio",
+  faculdade:"Faculdade",
+  trabalho:"Trabalho",
+  diversos:"Diversos",
+  entrevistas:"Entrevistas"
+};
+
+function createPlayButton(player){
+  const button=document.createElement("button");
+  button.type="button";
+  button.className="reel-play";
+  button.setAttribute("aria-label","Reproduzir "+player.dataset.title);
+
+  const icon=document.createElement("span");
+  icon.className="play-icon";
+  icon.textContent="▶";
+
+  const label=document.createElement("span");
+  label.textContent="Reproduzir vídeo";
+
+  button.append(icon,label);
+  button.addEventListener("click",()=>startVideo(player));
+  return button;
+}
+
+function stopVideos(){
+  players.forEach(player=>{
+    const video=player.querySelector("video");
+    if(video)video.pause();
+    player.replaceChildren(createPlayButton(player));
+  });
+}
+
+function startVideo(player){
+  const mp4=player.dataset.mp4.trim();
+
+  if(mp4){
+    const video=document.createElement("video");
+    video.src=mp4;
+    video.controls=true;
+    video.playsInline=true;
+    video.autoplay=true;
+    video.preload="metadata";
+    player.replaceChildren(video);
+    video.play().catch(()=>{});
+    return;
+  }
+
+  const reelId=player.dataset.reel;
+  if(!/^[A-Za-z0-9_-]{11}$/.test(reelId))return;
+
+  const iframe=document.createElement("iframe");
+  iframe.src=`https://www.instagram.com/reel/${reelId}/embed/`;
+  iframe.title=player.dataset.title;
+  iframe.allow="autoplay; encrypted-media; picture-in-picture; fullscreen";
+  iframe.allowFullscreen=true;
+  iframe.referrerPolicy="strict-origin-when-cross-origin";
+  player.replaceChildren(iframe);
+}
+
+function showPage(){
+  let id="inicio";
+
+  try{
+    id=decodeURIComponent(location.hash.slice(1))||"inicio";
+  }catch{}
+
+  const selected=
+    Object.prototype.hasOwnProperty.call(pageTitles,id)
+      ?id
+      :"inicio";
+
+  if(selected!=="entrevistas")stopVideos();
+
+  pages.forEach(page=>{
+    page.hidden=page.id!==selected;
+  });
+
+  tabs.forEach(tab=>{
+    const active=tab.dataset.tab===selected;
+    tab.classList.toggle("active",active);
+
+    if(active){
+      tab.setAttribute("aria-current","page");
+    }else{
+      tab.removeAttribute("aria-current");
     }
+  });
 
-    function stopVideos() {
-      players.forEach(player => {
-        const video = player.querySelector("video");
-        if (video) video.pause();
-        player.replaceChildren(createPlayButton(player));
-      });
-    }
+  document.title=`Ana Laura Agostinho | ${pageTitles[selected]}`;
+  window.scrollTo(0,0);
+}
 
-    function startVideo(player) {
-      const mp4 = player.dataset.mp4.trim();
+function applyTheme(theme){
+  document.documentElement.dataset.theme=theme;
 
-      if (mp4) {
-        const video = document.createElement("video");
-        video.src = mp4;
-        video.controls = true;
-        video.playsInline = true;
-        video.autoplay = true;
-        video.preload = "metadata";
+  themeButton.setAttribute(
+    "aria-label",
+    theme==="light"?"Ativar tema escuro":"Ativar tema claro"
+  );
 
-        player.replaceChildren(video);
-        video.play().catch(() => {});
-        return;
-      }
+  document.querySelector('meta[name="theme-color"]').content=
+    theme==="light"?"#f4f6f9":"#0b0f16";
+}
 
-      const reelId = player.dataset.reel;
+let theme="dark";
 
-      if (!/^[A-Za-z0-9_-]{11}$/.test(reelId)) return;
+try{
+  theme=localStorage.getItem("ana-theme")==="light"
+    ?"light"
+    :"dark";
+}catch{}
 
-      const iframe = document.createElement("iframe");
-      iframe.src =
-        `https://www.instagram.com/reel/${reelId}/embed/`;
-      iframe.title = player.dataset.title;
-      iframe.allow =
-        "autoplay; encrypted-media; picture-in-picture; fullscreen";
-      iframe.allowFullscreen = true;
-      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+applyTheme(theme);
 
-      player.replaceChildren(iframe);
-    }
+themeButton.addEventListener("click",()=>{
+  theme=document.documentElement.dataset.theme==="light"
+    ?"dark"
+    :"light";
 
-    function showPage() {
-      let id = "inicio";
+  applyTheme(theme);
 
-      try {
-        id = decodeURIComponent(location.hash.slice(1)) || "inicio";
-      } catch {}
+  try{
+    localStorage.setItem("ana-theme",theme);
+  }catch{}
+});
 
-      const selected =
-        Object.prototype.hasOwnProperty.call(pageTitles, id)
-          ? id
-          : "inicio";
+tabs.forEach(tab=>{
+  tab.addEventListener("click",()=>{
+    if(location.hash===tab.hash)showPage();
+  });
+});
 
-      if (selected !== "entrevistas") stopVideos();
+players.forEach(player=>{
+  const button=player.querySelector(".reel-play");
 
-      pages.forEach(page => {
-        page.hidden = page.id !== selected;
-      });
+  if(button){
+    button.addEventListener("click",()=>startVideo(player));
+  }
+});
 
-      tabs.forEach(tab => {
-        const active = tab.dataset.tab === selected;
+window.addEventListener("hashchange",showPage);
+window.addEventListener("popstate",showPage);
 
-        tab.classList.toggle("active", active);
+document.getElementById("year").textContent=
+  new Date().getFullYear();
 
-        if (active) {
-          tab.setAttribute("aria-current", "page");
-        } else {
-          tab.removeAttribute("aria-current");
-        }
-      });
+// GALERIA SSIA
 
-      document.title =
-        `Ana Laura Agostinho | ${pageTitles[selected]}`;
+const thumbs=[
+  ...document.querySelectorAll(".prototype-thumb")
+];
 
-      window.scrollTo(0, 0);
-    }
+const previewDialog=
+  document.getElementById("preview-dialog");
 
-    function applyTheme(theme) {
-      document.documentElement.dataset.theme = theme;
+const previewImage=
+  document.getElementById("preview-image");
 
-      themeButton.setAttribute(
-        "aria-label",
-        theme === "light"
-          ? "Ativar tema escuro"
-          : "Ativar tema claro"
-      );
+const previewTitle=
+  document.getElementById("preview-title");
 
-      document.querySelector(
-        'meta[name="theme-color"]'
-      ).content =
-        theme === "light" ? "#f6f4f0" : "#111016";
-    }
+const previewCounter=
+  document.getElementById("preview-counter");
 
-    let theme = "dark";
+let previewIndex=0;
 
-    try {
-      theme =
-        localStorage.getItem("ana-theme") === "light"
-          ? "light"
-          : "dark";
-    } catch {}
+function showPreview(index){
+  previewIndex=(index+thumbs.length)%thumbs.length;
 
-    applyTheme(theme);
+  const thumb=thumbs[previewIndex];
 
-    themeButton.addEventListener("click", () => {
-      theme =
-        document.documentElement.dataset.theme === "light"
-          ? "dark"
-          : "light";
+  previewImage.src=thumb.dataset.preview;
+  previewImage.alt="Protótipo SSIA: "+thumb.dataset.title;
 
-      applyTheme(theme);
+  previewTitle.textContent=thumb.dataset.title;
 
-      try {
-        localStorage.setItem("ana-theme", theme);
-      } catch {}
-    });
+  previewCounter.textContent=
+    `${previewIndex+1} / ${thumbs.length}`;
+}
 
-    tabs.forEach(tab => {
-      tab.addEventListener("click", () => {
-        if (location.hash === tab.hash) showPage();
-      });
-    });
+thumbs.forEach((thumb,index)=>{
+  thumb.addEventListener("click",()=>{
+    showPreview(index);
+    previewDialog.showModal();
+  });
+});
 
-    players.forEach(player => {
-      player.querySelector(".reel-play").addEventListener(
-        "click",
-        () => startVideo(player)
-      );
-    });
+document.getElementById("preview-close")
+  .addEventListener("click",()=>previewDialog.close());
 
-    window.addEventListener("hashchange", showPage);
-    window.addEventListener("popstate", showPage);
+document.getElementById("preview-prev")
+  .addEventListener("click",()=>showPreview(previewIndex-1));
 
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+document.getElementById("preview-next")
+  .addEventListener("click",()=>showPreview(previewIndex+1));
 
-    // Galeria de protótipos SSIA
+previewDialog.addEventListener("keydown",event=>{
+  if(event.key==="ArrowLeft"){
+    event.preventDefault();
+    showPreview(previewIndex-1);
+  }
 
-    const thumbs = [
-      ...document.querySelectorAll(".prototype-thumb")
-    ];
+  if(event.key==="ArrowRight"){
+    event.preventDefault();
+    showPreview(previewIndex+1);
+  }
+});
 
-    const previewDialog =
-      document.getElementById("preview-dialog");
+previewDialog.addEventListener("click",event=>{
+  if(event.target===previewDialog){
+    previewDialog.close();
+  }
+});
 
-    const previewImage =
-      document.getElementById("preview-image");
+const rail=document.getElementById("gallery-rail");
 
-    const previewTitle =
-      document.getElementById("preview-title");
+document.getElementById("gallery-prev")
+  .addEventListener("click",()=>{
+    rail.scrollBy({left:-440,behavior:"smooth"});
+  });
 
-    const previewCounter =
-      document.getElementById("preview-counter");
+document.getElementById("gallery-next")
+  .addEventListener("click",()=>{
+    rail.scrollBy({left:440,behavior:"smooth"});
+  });
 
-    let previewIndex = 0;
-
-    function showPreview(index) {
-      previewIndex = (index + thumbs.length) % thumbs.length;
-
-      const thumb = thumbs[previewIndex];
-
-      previewImage.src = thumb.dataset.preview;
-      previewImage.alt =
-        "Protótipo SSIA: " + thumb.dataset.title;
-
-      previewTitle.textContent = thumb.dataset.title;
-
-      previewCounter.textContent =
-        `${previewIndex + 1} / ${thumbs.length}`;
-    }
-
-    thumbs.forEach((thumb, index) => {
-      thumb.addEventListener("click", () => {
-        showPreview(index);
-        previewDialog.showModal();
-      });
-    });
-
-    document.getElementById("preview-close")
-      .addEventListener("click", () => previewDialog.close());
-
-    document.getElementById("preview-prev")
-      .addEventListener("click", () => showPreview(previewIndex - 1));
-
-    document.getElementById("preview-next")
-      .addEventListener("click", () => showPreview(previewIndex + 1));
-
-    previewDialog.addEventListener("keydown", event => {
-      if (event.key === "ArrowLeft") {
-        event.preventDefault();
-        showPreview(previewIndex - 1);
-      }
-
-      if (event.key === "ArrowRight") {
-        event.preventDefault();
-        showPreview(previewIndex + 1);
-      }
-    });
-
-    previewDialog.addEventListener("click", event => {
-      if (event.target === previewDialog) previewDialog.close();
-    });
-
-    const rail = document.getElementById("gallery-rail");
-
-    document.getElementById("gallery-prev")
-      .addEventListener("click", () => {
-        rail.scrollBy({
-          left: -440,
-          behavior: "smooth"
-        });
-      });
-
-    document.getElementById("gallery-next")
-      .addEventListener("click", () => {
-        rail.scrollBy({
-          left: 440,
-          behavior: "smooth"
-        });
-      });
-
-    showPage();
-  </script>
+showPage();
+</script>
 </body>
 </html>
