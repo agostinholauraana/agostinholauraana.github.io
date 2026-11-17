@@ -4,12 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta
-    name="description"
-    content="Portfólio de Ana Laura Agostinho: tecnologia, formação, projetos e entrevistas."
-  >
-
+  <meta name="description" content="Portfólio de Ana Laura Agostinho: tecnologia, formação, projetos e entrevistas.">
   <meta name="theme-color" content="#111016">
   <title>Ana Laura Agostinho | Portfólio</title>
 
@@ -254,7 +249,6 @@
     }
 
     .card p {
-      color: var(--muted);
       font-size: 14px;
     }
 
@@ -399,9 +393,7 @@
       top: 35px;
       border: 1px solid #ffffff60;
       border-radius: 50%;
-      box-shadow:
-        0 0 0 35px #ffffff10,
-        0 0 0 70px #ffffff10;
+      box-shadow: 0 0 0 35px #ffffff10, 0 0 0 70px #ffffff10;
     }
 
     .happys-art {
@@ -419,8 +411,7 @@
       color: #263d55;
     }
 
-    .visual-label,
-    .visual-caption {
+    .visual-label, .visual-caption {
       position: relative;
       z-index: 1;
       font: 10px Consolas, monospace;
@@ -534,49 +525,94 @@
     .video-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-      margin-top: 25px;
+      gap: 24px;
+      margin-top: 28px;
     }
 
     .video-card {
-      overflow: hidden;
       padding: 0;
+      overflow: hidden;
     }
 
-    .instagram-frame {
+    .reel-player {
+      position: relative;
       width: 100%;
-      min-height: 580px;
-      padding: 12px;
+      height: 620px;
       display: flex;
+      align-items: center;
       justify-content: center;
-      align-items: flex-start;
-      background: var(--soft);
+      background: linear-gradient(
+        145deg,
+        #211a31,
+        #42305d,
+        #17141f
+      );
+      overflow: hidden;
     }
 
-    .instagram-frame .instagram-media {
-      width: 100% !important;
-      min-width: 0 !important;
-      max-width: 540px !important;
-      margin: 0 auto !important;
+    .reel-player iframe,
+    .reel-player video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
 
-    .instagram-frame iframe {
-      max-width: 100% !important;
-      border: none !important;
+    .reel-player video {
+      object-fit: contain;
+      background: #000;
+    }
+
+    .reel-play {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .play-icon {
+      display: grid;
+      place-items: center;
+      width: 90px;
+      height: 90px;
+      padding-left: 5px;
+      border: 2px solid #ffffff70;
+      border-radius: 50%;
+      background: #c0a8f530;
+      color: #fff;
+      font-size: 35px;
+      transition: transform .25s, background .25s;
+    }
+
+    .reel-play:hover .play-icon {
+      transform: scale(1.1);
+      background: #c0a8f570;
     }
 
     .video-info {
-      padding: 20px;
+      padding: 24px;
     }
 
     .video-info h3 {
-      margin: 0 0 7px;
-      font-size: 18px;
+      margin: 0 0 10px;
+      font-size: 19px;
     }
 
     .video-info p {
-      margin: 0;
-      font-size: 12px;
+      font-size: 13px;
+    }
+
+    .video-info .project-link {
+      margin-top: 20px;
     }
 
     footer {
@@ -655,9 +691,8 @@
         padding: 26px;
       }
 
-      .instagram-frame {
-        min-height: 500px;
-        padding: 8px;
+      .reel-player {
+        height: 560px;
       }
     }
 
@@ -690,6 +725,7 @@
 </head>
 
 <body>
+
   <header>
     <nav class="nav container" aria-label="Navegação principal">
 
@@ -723,6 +759,7 @@
     <!-- INÍCIO -->
 
     <div class="page" id="inicio">
+
       <div class="hero">
         <h1>
           Ana Laura <span class="accent">Agostinho.</span>
@@ -756,6 +793,7 @@
         </div>
 
         <div class="grid">
+
           <article class="card">
             <span class="company sicredi">
               CENTRO ADMINISTRATIVO SICREDI
@@ -772,8 +810,8 @@
               com foco na melhoria da experiência digital dos colaboradores
               e na otimização de processos. Atuo na análise de dados e
               indicadores da equipe, na automação de chamados e na
-              otimização de fluxos de trabalho, além do apoio à
-              melhoria contínua dos serviços de TI.
+              otimização de fluxos de trabalho, além do apoio
+              à melhoria contínua dos serviços de TI.
             </p>
 
             <div class="tags">
@@ -806,6 +844,7 @@
               <span class="tag">Compliance</span>
             </div>
           </article>
+
         </div>
       </section>
 
@@ -815,6 +854,7 @@
         </div>
 
         <div class="grid three">
+
           <article class="card education">
             <span class="eyebrow">EM ANDAMENTO</span>
             <h3>PUCRS</h3>
@@ -844,6 +884,7 @@
               Agosto/2024 — Julho/2025
             </div>
           </article>
+
         </div>
       </section>
 
@@ -853,30 +894,11 @@
         </div>
 
         <div class="skill-grid">
-          <div class="skill">
-            <b>Py</b>
-            <span>Python</span>
-          </div>
-
-          <div class="skill">
-            <b>{ }</b>
-            <span>Java</span>
-          </div>
-
-          <div class="skill">
-            <b>php</b>
-            <span>PHP</span>
-          </div>
-
-          <div class="skill">
-            <b>D</b>
-            <span>Dart</span>
-          </div>
-
-          <div class="skill">
-            <b>SQL</b>
-            <span>MySQL</span>
-          </div>
+          <div class="skill"><b>Py</b><span>Python</span></div>
+          <div class="skill"><b>{ }</b><span>Java</span></div>
+          <div class="skill"><b>php</b><span>PHP</span></div>
+          <div class="skill"><b>D</b><span>Dart</span></div>
+          <div class="skill"><b>SQL</b><span>MySQL</span></div>
         </div>
 
         <div class="tags">
@@ -893,6 +915,7 @@
         </div>
 
         <div class="grid">
+
           <article class="card">
             <span class="company">
               INSTITUTO CALDEIRA
@@ -942,6 +965,7 @@
               <span class="tag">Apple Ecosystem</span>
             </div>
           </article>
+
         </div>
       </section>
     </div>
@@ -949,6 +973,7 @@
     <!-- FACULDADE -->
 
     <div class="page" id="faculdade" hidden>
+
       <div class="page-header">
         <h1>
           Trabalhos da <span class="accent">faculdade.</span>
@@ -963,9 +988,9 @@
         <h2>Próximas ideias em construção.</h2>
 
         <p>
-          Este espaço reunirá trabalhos e projetos
-          da minha formação em Sistemas de Informação,
-          com seus desafios, soluções e tecnologias.
+          Este espaço reunirá trabalhos e projetos da minha
+          formação em Sistemas de Informação, com seus
+          desafios, soluções e tecnologias.
         </p>
 
         <div class="tags">
@@ -976,9 +1001,10 @@
       </div>
     </div>
 
-    <!-- TRABALHO -->
+    <!-- PROJETOS DO TRABALHO -->
 
     <div class="page" id="trabalho" hidden>
+
       <div class="page-header">
         <h1>
           Projetos do <span class="accent">trabalho.</span>
@@ -991,6 +1017,7 @@
       </div>
 
       <article class="card project interview-card">
+
         <div class="project-visual microsoft-art" aria-hidden="true">
           <span class="visual-label">
             AUTOMAÇÃO CORPORATIVA / MICROSOFT 365
@@ -1083,6 +1110,7 @@
             <span class="tag">Webhooks</span>
             <span class="tag">JSON</span>
           </div>
+
         </div>
       </article>
     </div>
@@ -1090,6 +1118,7 @@
     <!-- PROJETOS DIVERSOS -->
 
     <div class="page" id="diversos" hidden>
+
       <div class="page-header">
         <h1>
           Projetos <span class="accent">paralelos.</span>
@@ -1103,7 +1132,9 @@
       </div>
 
       <div class="grid project-grid">
+
         <article class="card project">
+
           <div class="project-visual happys-art" aria-hidden="true">
             <span class="visual-label">
               CULTURA. CONEXÃO. CIDADE.
@@ -1158,6 +1189,7 @@
         </article>
 
         <article class="card project">
+
           <div class="project-visual alphy-art" aria-hidden="true">
             <span class="visual-label">
               MENOS PLANILHAS. MAIS RESPOSTAS.
@@ -1209,12 +1241,14 @@
             </a>
           </div>
         </article>
+
       </div>
     </div>
 
     <!-- ENTREVISTAS -->
 
     <div class="page" id="entrevistas" hidden>
+
       <div class="page-header">
         <span class="eyebrow">
           MATÉRIAS E PARTICIPAÇÕES
@@ -1232,6 +1266,7 @@
       </div>
 
       <article class="card interview-card">
+
         <span class="eyebrow">
           BRASIL INOVADOR / GERAÇÃO CALDEIRA
         </span>
@@ -1265,9 +1300,11 @@
           Ler matéria completa
           <span aria-hidden="true">↗</span>
         </a>
+
       </article>
 
       <section class="video-section">
+
         <span class="eyebrow">
           CONTEÚDO AUDIOVISUAL
         </span>
@@ -1281,26 +1318,30 @@
 
         <div class="video-grid">
 
-          <!-- PRIMEIRO REEL -->
+          <!-- VÍDEO 01 -->
 
           <article class="card video-card">
-            <div class="instagram-frame">
-              <blockquote
-                class="instagram-media"
-                data-instgrm-permalink="https://www.instagram.com/geracaocaldeira/reel/DXXmTAHDbs4/"
-                data-instgrm-version="14"
+
+            <div
+              class="reel-player"
+              data-reel="DXXmTAHDbs4"
+              data-mp4=""
+              data-title="Geração Caldeira - Vídeo 01"
+            >
+
+              <button
+                class="reel-play"
+                type="button"
+                aria-label="Reproduzir o primeiro vídeo"
               >
-                <a
-                  href="https://www.instagram.com/geracaocaldeira/reel/DXXmTAHDbs4/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Assistir ao primeiro Reel no Instagram
-                </a>
-              </blockquote>
+                <span class="play-icon">▶</span>
+                <span>Reproduzir vídeo</span>
+              </button>
+
             </div>
 
             <div class="video-info">
+
               <h3>Geração Caldeira | Vídeo 01</h3>
 
               <p>
@@ -1314,32 +1355,37 @@
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Assistir no Instagram
-                <span aria-hidden="true">↗</span>
+                Ver publicação original
+                <span>↗</span>
               </a>
+
             </div>
           </article>
 
-          <!-- SEGUNDO REEL -->
+          <!-- VÍDEO 02 -->
 
           <article class="card video-card">
-            <div class="instagram-frame">
-              <blockquote
-                class="instagram-media"
-                data-instgrm-permalink="https://www.instagram.com/geracaocaldeira/reel/DOMmOc9iRNH/"
-                data-instgrm-version="14"
+
+            <div
+              class="reel-player"
+              data-reel="DOMmOc9iRNH"
+              data-mp4=""
+              data-title="Geração Caldeira - Vídeo 02"
+            >
+
+              <button
+                class="reel-play"
+                type="button"
+                aria-label="Reproduzir o segundo vídeo"
               >
-                <a
-                  href="https://www.instagram.com/geracaocaldeira/reel/DOMmOc9iRNH/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Assistir ao segundo Reel no Instagram
-                </a>
-              </blockquote>
+                <span class="play-icon">▶</span>
+                <span>Reproduzir vídeo</span>
+              </button>
+
             </div>
 
             <div class="video-info">
+
               <h3>Geração Caldeira | Vídeo 02</h3>
 
               <p>
@@ -1353,9 +1399,10 @@
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Assistir no Instagram
-                <span aria-hidden="true">↗</span>
+                Ver publicação original
+                <span>↗</span>
               </a>
+
             </div>
           </article>
 
@@ -1388,33 +1435,34 @@
       entrevistas: "Entrevistas"
     };
 
-    let instagramScriptLoading = false;
+    function stopVideos() {
+      document.querySelectorAll(".reel-player video").forEach(video => {
+        video.pause();
+      });
 
-    function loadInstagram() {
-      if (window.instgrm?.Embeds?.process) {
-        requestAnimationFrame(() => {
-          window.instgrm.Embeds.process();
-        });
-        return;
-      }
+      document.querySelectorAll(".reel-player iframe").forEach(iframe => {
+        iframe.remove();
+      });
 
-      if (instagramScriptLoading) return;
+      document.querySelectorAll(".reel-player").forEach(player => {
+        if (!player.querySelector("video") &&
+            !player.querySelector("iframe") &&
+            !player.querySelector("button")) {
 
-      instagramScriptLoading = true;
+          const button = document.createElement("button");
+          button.className = "reel-play";
+          button.type = "button";
+          button.setAttribute("aria-label", "Reproduzir vídeo");
 
-      const script = document.createElement("script");
-      script.src = "https://www.instagram.com/embed.js";
-      script.async = true;
+          button.innerHTML = `
+            <span class="play-icon">▶</span>
+            <span>Reproduzir vídeo</span>
+          `;
 
-      script.onload = () => {
-        window.instgrm?.Embeds?.process();
-      };
-
-      script.onerror = () => {
-        instagramScriptLoading = false;
-      };
-
-      document.body.appendChild(script);
+          button.addEventListener("click", () => startVideo(player));
+          player.appendChild(button);
+        }
+      });
     }
 
     function showPage() {
@@ -1429,13 +1477,16 @@
       const target = document.getElementById(id);
       const selected = target?.closest(".page")?.id || "inicio";
 
+      if (selected !== "entrevistas") {
+        stopVideos();
+      }
+
       pages.forEach(page => {
         page.hidden = page.id !== selected;
       });
 
       tabs.forEach(tab => {
         const active = tab.dataset.tab === selected;
-
         tab.classList.toggle("active", active);
 
         if (active) {
@@ -1445,12 +1496,7 @@
         }
       });
 
-      document.title =
-        `Ana Laura Agostinho | ${pageTitles[selected]}`;
-
-      if (selected === "entrevistas") {
-        loadInstagram();
-      }
+      document.title = `Ana Laura Agostinho | ${pageTitles[selected]}`;
 
       requestAnimationFrame(() => {
         if (target && target.id !== selected) {
@@ -1466,33 +1512,27 @@
 
       themeButton.setAttribute(
         "aria-label",
-        theme === "light"
-          ? "Ativar tema escuro"
-          : "Ativar tema claro"
+        theme === "light" ? "Ativar tema escuro" : "Ativar tema claro"
       );
 
-      document.querySelector(
-        'meta[name="theme-color"]'
-      ).content =
+      document.querySelector('meta[name="theme-color"]').content =
         theme === "light" ? "#f6f4f0" : "#111016";
     }
 
     let theme = "dark";
 
     try {
-      theme =
-        localStorage.getItem("ana-theme") === "light"
-          ? "light"
-          : "dark";
+      theme = localStorage.getItem("ana-theme") === "light"
+        ? "light"
+        : "dark";
     } catch {}
 
     applyTheme(theme);
 
     themeButton.addEventListener("click", () => {
-      theme =
-        document.documentElement.dataset.theme === "light"
-          ? "dark"
-          : "light";
+      theme = document.documentElement.dataset.theme === "light"
+        ? "dark"
+        : "light";
 
       applyTheme(theme);
 
@@ -1515,7 +1555,58 @@
     document.getElementById("year").textContent =
       new Date().getFullYear();
 
+    function startVideo(player) {
+      const reelId = player.dataset.reel;
+      const mp4 = player.dataset.mp4.trim();
+      const title = player.dataset.title;
+
+      if (mp4) {
+        const video = document.createElement("video");
+
+        video.src = mp4;
+        video.controls = true;
+        video.playsInline = true;
+        video.autoplay = true;
+        video.preload = "metadata";
+        video.setAttribute("aria-label", title);
+
+        player.replaceChildren(video);
+
+        video.play().catch(() => {
+          // O visitante pode usar o controle nativo.
+        });
+
+        return;
+      }
+
+      if (!/^[A-Za-z0-9_-]{11}$/.test(reelId)) {
+        return;
+      }
+
+      const iframe = document.createElement("iframe");
+
+      iframe.src =
+        `https://www.instagram.com/reel/${reelId}/embed/`;
+
+      iframe.title = title;
+      iframe.allow =
+        "autoplay; encrypted-media; picture-in-picture; fullscreen";
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+
+      player.replaceChildren(iframe);
+    }
+
+    document.querySelectorAll(".reel-player").forEach(player => {
+      const button = player.querySelector(".reel-play");
+
+      button.addEventListener("click", () => {
+        startVideo(player);
+      });
+    });
+
     showPage();
   </script>
+
 </body>
 </html>
